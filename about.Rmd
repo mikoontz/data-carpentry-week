@@ -1,0 +1,51 @@
+---
+title: "About"
+---
+
+## About the Course Website
+
+This website was built entirely using `R` and `RStudio`-- the same tools you are learning in this very course.
+
+For this course, we embrace the spirit of [collaborative lesson development](https://github.com/swcarpentry/collaborative-lesson-development). We leverage the community's effort to develop effective approaches to teach this material, and draw lessons from the following open sources:
+- [Data Carpentry: R for data analysis and visualization of Ecological Data](http://www.datacarpentry.org/R-ecology-lesson/)
+- [Data Carpentry for Biologists](http://www.datacarpentry.org/semester-biology/)
+
+
+## About the Instructors
+
+**Michael Koontz** 
+
+I'm a 3rd year PhD candidate at University of California, Davis in the Graduate Group in Ecology. I study how complex forest structure affects natural disturbances in the Sierra Nevada mountain range of California. I use satellite imagery, Google Earth Engine, small uncrewed aerial systems (sUAS), and field measurements to map trees and track the spatial patterns of tree mortality as a result of wildfires and bark beetle activity.
+
+I've been using `R` since 2012, and teaching it since 2014 to a wide variety of folks including grad students, post docs, professors, industry researchers, and government scientists. I became a certified DataCarpentry instructor in 2016.
+
+My favorite part of teaching `R` is helping people make the leap between novice (no programming experience and not really sure how to start) and beginner (writing their own code and having a better sense of how to ask for help).  
+
+**Ryan Peek**
+
+Ryan runs the Davis R Users Group (D-RUG) and has spearheaded the organized effort at UC Davis to train fellow ecologists at all career stages to be comfortable with programming in `R`.
+
+## About DataCarpentry
+
+<p></p>
+
+<div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
+![](./img/DC-logo-vision.png)
+</div>
+
+<p></p>
+
+
+Data Carpentry's aim is to teach researchers basic concepts, skills,
+and tools for working with data so that they can get more done in less
+time, and with less pain. The lessons below were designed for those interested
+in working with ecology data in R.
+
+This is an introduction to R designed for participants with no programming
+experience. These lessons can be taught in a day (~ 6 hours). They start with
+some basic information about R syntax, the RStudio interface, and move through
+how to import CSV files, the structure of data frames, how to deal with factors,
+how to add/remove rows and columns, how to calculate summary statistics from a
+data frame, and a brief introduction to plotting. The last lesson demonstrates
+how to work with databases directly from R.
+

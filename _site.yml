@@ -1,0 +1,31 @@
+name: "data-carpentry-week"
+navbar:
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Day 1"
+      menu: 
+        - text: "Broad View"
+          href: gestalt_code.html
+        - text: "Orientation to R, RStudio, and Programming"
+          href: orientation.html
+    - text: "Day 2"
+      menu:
+        - text: "Refresh Day 1"
+          href: refresh_day1.html
+        - text: "Extending R with packages"
+          href: extending_R.html
+    - text: "Day 3"
+      menu:
+        - text: "Refresh Day 2"
+          href: refresh_day2.html
+    - text: "Day 4"
+      menu:
+        - text: "Refresh Day 3"
+          href: refresh_day3.html
+    - text: "Day 5"
+      menu:
+        - text: "Refresh Day 4"
+          href: refresh_day4.html    

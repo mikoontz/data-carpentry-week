@@ -1,0 +1,13 @@
+---
+title: "Contact"
+---
+
+**Instructors**
+Michael Koontz
+
+Ryan Peek
+
+**Data Carpentry**
+
+**Data Intensive Biology Summer Institute**
+[dibsi.training@gmail.com](mailto:dibsi.training@gmail.com)

@@ -19,11 +19,11 @@ I'm a 3rd year PhD candidate at University of California, Davis in the Graduate 
 
 I've been using `R` since 2012, and teaching it since 2014 to a wide variety of folks including grad students, post docs, professors, industry researchers, and government scientists. I became a certified DataCarpentry instructor in 2016.
 
-My favorite part of teaching `R` is helping people make the leap between novice (no programming experience and not really sure how to start) and beginner (writing their own code and having a better sense of how to ask for help).  
+My favorite part of teaching `R` is helping people make the leap between novice (no programming experience and not really sure how to start) and beginner (writing their own code and knowledgable about *how* to learn more).  
 
 **Ryan Peek**
 
-Ryan runs the Davis R Users Group (D-RUG) and has spearheaded the organized effort at UC Davis to train fellow ecologists at all career stages to be comfortable with programming in `R`.
+Ryan runs the Davis R Users Group (D-RUG) and has spearheaded the organized effort at UC Davis to train fellow ecologists at all career stages to program in `R`.
 
 ## About DataCarpentry
 
@@ -36,16 +36,11 @@ Ryan runs the Davis R Users Group (D-RUG) and has spearheaded the organized effo
 <p></p>
 
 
-Data Carpentry's aim is to teach researchers basic concepts, skills,
-and tools for working with data so that they can get more done in less
-time, and with less pain. The lessons below were designed for those interested
-in working with ecology data in R.
+From the DataCarpentry [website](http://www.datacarpentry.org/):
 
-This is an introduction to R designed for participants with no programming
-experience. These lessons can be taught in a day (~ 6 hours). They start with
-some basic information about R syntax, the RStudio interface, and move through
-how to import CSV files, the structure of data frames, how to deal with factors,
-how to add/remove rows and columns, how to calculate summary statistics from a
-data frame, and a brief introduction to plotting. The last lesson demonstrates
-how to work with databases directly from R.
+> Data Carpentry develops and teaches workshops on the fundamental data skills needed to conduct research. Our mission is to provide researchers high-quality, domain-specific training covering the full lifecycle of data-driven research. Data Carpentry is a sibling organization of Software Carpentry. Where Software Carpentry teaches best practices in software development, our focus is on the introductory computational skills needed for data management and analysis in all domains of research. Our lessons are domain specific, from life and physical sciences to social science and build on the existing knowledge of learners to enable them to quickly apply skills learned to their own research. Our initial target audience is learners who have little to no prior computational experience. We create a friendly environment for learning to empower researchers and enable data driven discovery.
 
+
+## About the Data Intensive Biology Summer Institute
+
+More information about the DIBSI can be found at [http://ivory.idyll.org/dibsi/WHO.html](http://ivory.idyll.org/dibsi/WHO.html).

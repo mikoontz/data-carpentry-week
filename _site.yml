@@ -1,4 +1,5 @@
 name: "data-carpentry-week"
+output-dir: "."
 navbar:
   left:
     - text: "Home"
@@ -7,6 +8,8 @@ navbar:
       href: about.html
     - text: "Day 1"
       menu: 
+        - text: "Logistics"
+          href: logistics.html
         - text: "Broad View"
           href: gestalt_code.html
         - text: "Orientation to R, RStudio, and Programming"

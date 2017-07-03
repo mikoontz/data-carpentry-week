@@ -1,5 +1,5 @@
 name: "data-carpentry-week"
-output-dir: "."
+output_dir: "."
 navbar:
   left:
     - text: "Home"

@@ -7,8 +7,8 @@ title: "About"
 This website was built entirely using `R` and `RStudio`-- the same tools you are learning in this very course.
 
 For this course, we embrace the spirit of [collaborative lesson development](https://github.com/swcarpentry/collaborative-lesson-development). We leverage the community's effort to develop effective approaches to teach this material, and draw lessons from the following open sources:
-- [Data Carpentry: R for data analysis and visualization of Ecological Data](http://www.datacarpentry.org/R-ecology-lesson/)
-- [Data Carpentry for Biologists](http://www.datacarpentry.org/semester-biology/)
+* [Data Carpentry: R for data analysis and visualization of Ecological Data](http://www.datacarpentry.org/R-ecology-lesson/)
+* [Data Carpentry for Biologists](http://www.datacarpentry.org/semester-biology/)
 
 
 ## About the Instructors

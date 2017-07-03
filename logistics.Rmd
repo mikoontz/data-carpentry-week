@@ -8,10 +8,10 @@ This course is being taught in the Valley Hall teaching facility, located on the
 1. Coffee/tea/water/juice
 1. Code of Conduct
 1. Sticky notes
-  a. Green: I'm finished with the task; I'm ready to move on; Feedback on something that's going well for you
-  a. Red: I have a question; I'm not ready to move on; Feedback on something we can improve
+  + Green: I'm finished with the task; I'm ready to move on; Feedback on something that's going well for you
+  + Red: I have a question; I'm not ready to move on; Feedback on something we can improve
 1. Introductions
-  a. Name
-  a. Affiliation
-  a. Field of study
-  a. Something you made recently that you're proud of
+  + Name
+  + Affiliation
+  + Field of study
+  + Something you made recently that you're proud of

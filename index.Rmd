@@ -1,32 +1,38 @@
 ---
-title: "Data Carpentry: R for data analysis and visualization"
+title: "Introduction to R"
+subtitle: "Data analysis and visualization for researchers"
 author: Michael Koontz and Ryan Peek
 ---
 
-Welcome to an interactive, week-long introduction to the programming language `R`!
+<br>
+
+## Welcome
+
+Welcome to an interactive, week-long introduction to the programming language R!
 
 R is a powerful, cross-platform, open-source, and free software that has been widely adopted across a number of science fields. While incredibly useful, it can also be daunting to learn. This course doesn’t require any prior programming experience. We’ll teach you the basics of R by writing code together and setting up our computers the same way you will to work on your own data after the workshop. By the end of the week, you’ll be able to input, organize, and summarize data in R. You’ll also learn how to visualize and present data using publication-quality plots and dynamic documents that combine descriptive writing with the results of your code. The course will focus on laying a groundwork of basic R skills to enable future self-teaching of specific use cases.
 
-This instance of the course is being taught as a part of the [Data Intensive Biology Summer Institute](http://ivory.idyll.org/dibsi/toc.html).
+This instance of the course is being taught as a part of the [Data Intensive Biology Summer Institute DIBSI](http://ivory.idyll.org/dibsi/toc.html) using a [Data Carpentry](http://www.datacarpentry.org/) framework.
 
-## DataCarpentry
-## Code of Conduct
-## Course Structure
-- Live coding
-- Planting seeds
-- LearnR
+<br>
 
+## Important links
 
-## Chapters
+**Etherpad**  
+We will use this Etherpad for chatting, taking notes, and sharing URLs and bits of code.
 
-1. [Before we start](orientation.html)
-2. [Introduction to R](01-intro-to-r.html)
-3. [Starting with data](02-starting-with-data.html)
-4. [Aggregating and analyzing data with dplyr](03-dplyr.html)
-5. [Data visualization with **`ggplot2`**](04-visualization-ggplot2.html)
-6. [R and Databases](05-r-and-databases.html)
+**Live code**  
+This is the live script file that we are generating throughout each day. Click "refresh" in your browser to see the latest saved version.  
+* [Day 1]()  
+* [Day 2]()  
+* [Day 3]()  
+* [Day 4]()  
+* [Day 5]()  
 
+**Feedback form**  
+This is a generic Google Form that we'll use to get immediate feedback to multiple choice questions.
 
+<br>
 
 ## Requirements
 
@@ -35,25 +41,11 @@ their own computers to ensure the proper setup of tools for an efficient
 workflow.  *These lessons assume no prior knowledge of the skills or tools*, but
 working through this lesson requires working copies of the software described
 below.  To most effectively use these materials, please make sure to download
-the data and install everything *before* working through this lesson.
-
-### Data
-
-Data files for the lesson are available and can be downloaded manually here: <http://dx.doi.org/10.6084/m9.figshare.1314459>
-
-However, we will download them directly from R during the lessons when we need
-them.
+and install everything *before* working through this lesson.
 
 ### Setup instructions
 
-**R** and **RStudio** are separate downloads and installations. R is the
-underlying statistical computing environment, but using R alone is no
-fun. RStudio is a graphical integrated development environment (IDE) that makes
-using R much easier and more interactive. You need to install R before you
-install RStudio. After installing both programs, you will need to install the
-**`tidyverse`** package from within RStudio. Follow the instructions below for
-your operating system, and then follow the instructions to install
-**`tidyverse`** and **`RSQLite`**.
+**R** and **RStudio** are separate downloads and installations. R is the underlying statistical computing environment. RStudio is a graphical integrated development environment (IDE) that makes using R much easier and more interactive. You need to install R before you install RStudio.
 
 #### Windows
 
@@ -127,15 +119,3 @@ your operating system, and then follow the instructions to install
   rstudio-x.yy.zzz-amd64.deb` at the terminal).
 * Once it's installed, open RStudio to make sure it works and you don't get any
   error messages.
-
-
-#### For everyone
-
-**After installing R and RStudio, you need to install the `tidyverse` package.**
-
-* After starting RStudio, at the console type:
-  `install.packages("tidyverse")`
-
-## Contributors
-
-The list of contributors to this lesson is available [here](http://datacarpentry.org/R-ecology-lesson/CITATION),

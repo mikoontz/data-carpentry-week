@@ -2,12 +2,20 @@
 title: "Contact"
 ---
 
-**Instructors**
-Michael Koontz
+## Instructors
 
-Ryan Peek
+**Michael Koontz**
 
-**Data Carpentry**
+[email](mailto:mikoontz@gmail.com)  
+[website](http://michaeljkoontz.weebly.com/)  
+[twitter](https://twitter.com/_mikoontz)  
+[GitHub](https://github.com/mikoontz)  
+[ORCID](http://orcid.org/0000-0002-8276-210X)  
 
-**Data Intensive Biology Summer Institute**
+**Ryan Peek**
+
+## Data Carpentry
+
+## DIB Summer Institute
+
 [dibsi.training@gmail.com](mailto:dibsi.training@gmail.com)

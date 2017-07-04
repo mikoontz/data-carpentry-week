@@ -4,15 +4,21 @@ title: "Contact"
 
 ## Instructors
 
-**Michael Koontz**
+**Michael Koontz** 
 
-[email](mailto:mikoontz@gmail.com)  
-[website](http://michaeljkoontz.weebly.com/)  
-[twitter](https://twitter.com/_mikoontz)  
-[GitHub](https://github.com/mikoontz)  
-[ORCID](http://orcid.org/0000-0002-8276-210X)  
+<i class="fa fa-envelope-square" aria-hidden="true"></i> [mikoontz@gmail.com](mailto:mikoontz@gmail.com)  
+<i class="fa fa-user" aria-hidden="true"></i> [https://michaeljkoontz.weebly.com/](https://michaeljkoontz.weebly.com/)  
+<i class="fa fa-twitter-square" aria-hidden="true"></i>    [\@_mikoontz](https://twitter.com/_mikoontz)  
+<i class="fa fa-github-square" aria-hidden="true"></i>   [mikoontz](https://github.com/mikoontz)  
+<i class="ai ai-orcid-square"></i>   [orcid.org/0000-0002-8276-210X](https://orcid.org/0000-0002-8276-210X)  
 
-**Ryan Peek**
+**Ryan Peek** 
+
+<i class="fa fa-envelope-square" aria-hidden="true"></i> [rapeek@ucdavis.edu](mailto:rapeek@ucdavis.edu)  
+<i class="fa fa-user" aria-hidden="true"></i> [https://ryanpeek.github.io/](https://ryanpeek.github.io/)  
+<i class="fa fa-twitter-square" aria-hidden="true"></i> [\@riverpeek](https://twitter.com/riverpeek)  
+<i class="fa fa-github-square" aria-hidden="true"></i> [ryanpeek](https://github.com/ryanpeek)  
+<i class="ai ai-orcid-square"></i> [orcid.org/0000-0002-9577-6885](https://orcid.org/0000-0002-9577-6885) 
 
 ## Data Carpentry
 

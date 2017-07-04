@@ -2,6 +2,8 @@
 title: "About"
 ---
 
+<br>
+
 ## About Data Carpentry
 
 <p></p>
@@ -16,9 +18,16 @@ Data Carpentry develops and teaches workshops on the fundamental data skills nee
 
 See the Data Carpentry [website](http://www.datacarpentry.org/) for more information.
 
+<br>
+
 ## About the Instructors
 
 **Michael Koontz** 
+<a href="mailto:mikoontz@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true" ></i></a> 
+<a href="https://michaeljkoontz.weebly.com/"><i class="fa fa-user" aria-hidden="true"></i></a> 
+<a href="https://twitter.com/_mikoontz"><i class="fa fa-twitter" aria-hidden="true"></i></a> 
+<a href="https://github.com/mikoontz"><i class="fa fa-github" aria-hidden="true"></i></a> 
+<a href="https://orcid.org/0000-0002-8276-210X"><i class="ai ai-orcid"></i></a>  
 
 I'm a 3rd year PhD candidate at University of California, Davis in the Graduate Group in Ecology. I study how complex forest structure affects natural disturbances in the Sierra Nevada mountain range of California. I use satellite imagery, Google Earth Engine, small uncrewed aerial systems (sUAS), and field measurements to map trees and track the spatial patterns of tree mortality as a result of wildfires and bark beetle activity.
 
@@ -26,17 +35,49 @@ I've been using R since 2012, and teaching it since 2014 to a wide variety of fo
 
 My favorite part of teaching R is helping people make the leap between novice (no programming experience and not really sure how to start) and beginner (writing their own code and knowledgable about *how* to learn more).  
 
-**Ryan Peek**
+**Ryan Peek** 
+<a href="mailto:rapeek@ucdavis.edu"><i class="fa fa-envelope-o" aria-hidden="true"></i></a> 
+<a href="https://ryanpeek.github.io/"><i class="fa fa-user" aria-hidden="true"></i></a>
+<a href="https://twitter.com/riverpeek"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+<a href="https://github.com/ryanpeek"><i class="fa fa-github" aria-hidden="true"></i></a> 
+<a href="https://orcid.org/0000-0002-9577-6885"><i class="ai ai-orcid"></i></a>
 
-Ryan runs the Davis R Users Group (D-RUG) and has spearheaded the organized effort at UC Davis to train fellow ecologists at all career stages to program in R.
+Ryan runs the [Davis R Users Group (D-RUG)](http://d-rug.github.io/) and has spearheaded the organized effort at UC Davis to train fellow ecologists at all career stages to program in R.
 
-## Code of Conduct
-
+<br>
 
 ## About the Course Website
 
 This website was built entirely using R and RStudio-- the same tools you are learning in this very course.
 
 For this course, we embrace the spirit of [collaborative lesson development](https://github.com/swcarpentry/collaborative-lesson-development). We leverage the community's effort to develop effective approaches to teach this material, and draw lessons from the following open sources:
+
 * [Data Carpentry: R for data analysis and visualization of Ecological Data](http://www.datacarpentry.org/R-ecology-lesson/)
 * [Data Carpentry for Biologists](http://www.datacarpentry.org/semester-biology/)
+
+<br>
+
+## Code of Conduct
+
+Data Carpentry and Software Carpentry are dedicated to providing a welcoming and supportive environment for all people, regardless of background or identity. However, we recognise that some groups in our community are subject to historical and ongoing discrimination, and may be vulnerable or disadvantaged. Membership in such a specific group can be on the basis of characteristics such as gender, sexual orientation, disability, physical appearance, body size, race, nationality, sex, colour, ethnic or social origin, pregnancy, citizenship, familial status, veteran status, genetic information, religion or belief, political or any other opinion, membership of a national minority, property, birth, age, or choice of text editor. We do not tolerate harassment of participants on the basis of these categories, or for any other reason.
+
+Harassment is any form of behaviour intended to exclude, intimidate, or cause discomfort. Because we are a diverse community, we may have different ways of communicating and of understanding the intent behind actions. Therefore we have chosen to prohibit certain forms of behaviour in our community, regardless of intent. Prohibited harassing behaviour includes but is not limited to:
+
+* written or verbal comments which have the effect of excluding people on the basis of membership of a specific group listed above
+* causing someone to fear for their safety, such as through stalking, following, or intimidation
+the display of sexual or violent images
+* unwelcome sexual attention
+* nonconsensual or unwelcome physical contact
+* sustained disruption of talks, events or communications
+* incitement to violence, suicide, or self-harm
+* continuing to initiate interaction (including photography or recording) with someone after being asked to stop
+* publication of private communication without consent
+
+Behaviour not explicitly mentioned above may still constitute harassment. The list above should not be taken as exhaustive but rather as a guide to make it easier to enrich all of us and the communities in which we participate. All Carpentry interactions should be professional regardless of location: harassment is prohibited whether it occurs on- or offline, and the same standards apply to both.
+
+Enforcement of the Code of Conduct will be respectful and not include any harassing behaviors.
+
+Thank you for helping make this a welcoming, friendly community for all.
+
+This code of conduct is an adaptation of the one used by the Software Carpentry Foundation and is a modified version of that used by PyCon, which in turn is forked from a template written by the Ada Initiative and hosted on the Geek Feminism Wiki. Contributors to this document: Adam Obeng, Aleksandra Pawlik, Bill Mills, Carol Willing, Erin Becker, Hilmar Lapp, Kara Woo, Karin Lagesen, Pauline Barmby, Sheila Miguez, Simon Waldman, Tracy Teal.
+

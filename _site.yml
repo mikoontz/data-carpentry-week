@@ -30,6 +30,11 @@ navbar:
       menu:
         - text: "Refresh Day 4"
           href: refresh_day4.html    
+  right:
+    - text: "Contact"
+      href: contact.html
+    - icon: fa-github fa-lg
+      href: https://github.com/mikoontz/data-carpentry-week
 output_dir: "."
 output:
   html_document:

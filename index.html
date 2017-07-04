@@ -12,7 +12,7 @@
 <meta name="author" content="Michael Koontz and Ryan Peek" />
 
 
-<title>Data Carpentry: R for data analysis and visualization</title>
+<title>Introduction to R</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,6 +24,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 
 
@@ -343,7 +344,15 @@ div.tocify {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="contact.html">Contact</a>
+</li>
+<li>
+  <a href="https://github.com/mikoontz/data-carpentry-week">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -353,51 +362,42 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Data Carpentry: R for data analysis and visualization</h1>
+<h1 class="title toc-ignore">Introduction to R</h1>
+<h3 class="subtitle"><em>Data analysis and visualization for researchers</em></h3>
 <h4 class="author"><em>Michael Koontz and Ryan Peek</em></h4>
 
 </div>
 
 
-<p>Welcome to an interactive, week-long introduction to the programming language <code>R</code>!</p>
+<p><br></p>
+<div id="welcome" class="section level2">
+<h2>Welcome</h2>
+<p>Welcome to an interactive, week-long introduction to the programming language R!</p>
 <p>R is a powerful, cross-platform, open-source, and free software that has been widely adopted across a number of science fields. While incredibly useful, it can also be daunting to learn. This course doesn’t require any prior programming experience. We’ll teach you the basics of R by writing code together and setting up our computers the same way you will to work on your own data after the workshop. By the end of the week, you’ll be able to input, organize, and summarize data in R. You’ll also learn how to visualize and present data using publication-quality plots and dynamic documents that combine descriptive writing with the results of your code. The course will focus on laying a groundwork of basic R skills to enable future self-teaching of specific use cases.</p>
-<p>This instance of the course is being taught as a part of the <a href="http://ivory.idyll.org/dibsi/toc.html">Data Intensive Biology Summer Institute</a>.</p>
-<div id="datacarpentry" class="section level2">
-<h2>DataCarpentry</h2>
+<p>This instance of the course is being taught as a part of the <a href="http://ivory.idyll.org/dibsi/toc.html">Data Intensive Biology Summer Institute DIBSI</a> using a <a href="http://www.datacarpentry.org/">Data Carpentry</a> framework.</p>
+<p><br></p>
 </div>
-<div id="code-of-conduct" class="section level2">
-<h2>Code of Conduct</h2>
-</div>
-<div id="course-structure" class="section level2">
-<h2>Course Structure</h2>
-<ul>
-<li>Live coding</li>
-<li>Planting seeds</li>
-<li>LearnR</li>
-</ul>
-</div>
-<div id="chapters" class="section level2">
-<h2>Chapters</h2>
-<ol style="list-style-type: decimal">
-<li><a href="orientation.html">Before we start</a></li>
-<li><a href="01-intro-to-r.html">Introduction to R</a></li>
-<li><a href="02-starting-with-data.html">Starting with data</a></li>
-<li><a href="03-dplyr.html">Aggregating and analyzing data with dplyr</a></li>
-<li><a href="04-visualization-ggplot2.html">Data visualization with <strong><code>ggplot2</code></strong></a></li>
-<li><a href="05-r-and-databases.html">R and Databases</a></li>
-</ol>
+<div id="important-links" class="section level2">
+<h2>Important links</h2>
+<p><strong>Etherpad</strong><br />
+We will use this Etherpad for chatting, taking notes, and sharing URLs and bits of code.</p>
+<p><strong>Live code</strong><br />
+This is the live script file that we are generating throughout each day. Click “refresh” in your browser to see the latest saved version.<br />
+* <a href="">Day 1</a><br />
+* <a href="">Day 2</a><br />
+* <a href="">Day 3</a><br />
+* <a href="">Day 4</a><br />
+* <a href="">Day 5</a></p>
+<p><strong>Feedback form</strong><br />
+This is a generic Google Form that we’ll use to get immediate feedback to multiple choice questions.</p>
+<p><br></p>
 </div>
 <div id="requirements" class="section level2">
 <h2>Requirements</h2>
-<p>Data Carpentry’s teaching is hands-on, so participants are encouraged to use their own computers to ensure the proper setup of tools for an efficient workflow. <em>These lessons assume no prior knowledge of the skills or tools</em>, but working through this lesson requires working copies of the software described below. To most effectively use these materials, please make sure to download the data and install everything <em>before</em> working through this lesson.</p>
-<div id="data" class="section level3">
-<h3>Data</h3>
-<p>Data files for the lesson are available and can be downloaded manually here: <a href="http://dx.doi.org/10.6084/m9.figshare.1314459" class="uri">http://dx.doi.org/10.6084/m9.figshare.1314459</a></p>
-<p>However, we will download them directly from R during the lessons when we need them.</p>
-</div>
+<p>Data Carpentry’s teaching is hands-on, so participants are encouraged to use their own computers to ensure the proper setup of tools for an efficient workflow. <em>These lessons assume no prior knowledge of the skills or tools</em>, but working through this lesson requires working copies of the software described below. To most effectively use these materials, please make sure to download and install everything <em>before</em> working through this lesson.</p>
 <div id="setup-instructions" class="section level3">
 <h3>Setup instructions</h3>
-<p><strong>R</strong> and <strong>RStudio</strong> are separate downloads and installations. R is the underlying statistical computing environment, but using R alone is no fun. RStudio is a graphical integrated development environment (IDE) that makes using R much easier and more interactive. You need to install R before you install RStudio. After installing both programs, you will need to install the <strong><code>tidyverse</code></strong> package from within RStudio. Follow the instructions below for your operating system, and then follow the instructions to install <strong><code>tidyverse</code></strong> and <strong><code>RSQLite</code></strong>.</p>
+<p><strong>R</strong> and <strong>RStudio</strong> are separate downloads and installations. R is the underlying statistical computing environment. RStudio is a graphical integrated development environment (IDE) that makes using R much easier and more interactive. You need to install R before you install RStudio.</p>
 <div id="windows" class="section level4">
 <h4>Windows</h4>
 <div id="if-you-already-have-r-and-rstudio-installed" class="section level5">
@@ -451,18 +451,7 @@ div.tocify {
 <li>Once it’s installed, open RStudio to make sure it works and you don’t get any error messages.</li>
 </ul>
 </div>
-<div id="for-everyone" class="section level4">
-<h4>For everyone</h4>
-<p><strong>After installing R and RStudio, you need to install the <code>tidyverse</code> package.</strong></p>
-<ul>
-<li>After starting RStudio, at the console type: <code>install.packages(&quot;tidyverse&quot;)</code></li>
-</ul>
 </div>
-</div>
-</div>
-<div id="contributors" class="section level2">
-<h2>Contributors</h2>
-<p>The list of contributors to this lesson is available <a href="http://datacarpentry.org/R-ecology-lesson/CITATION">here</a>,</p>
 </div>
 
 

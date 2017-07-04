@@ -2,30 +2,7 @@
 title: "About"
 ---
 
-## About the Course Website
-
-This website was built entirely using `R` and `RStudio`-- the same tools you are learning in this very course.
-
-For this course, we embrace the spirit of [collaborative lesson development](https://github.com/swcarpentry/collaborative-lesson-development). We leverage the community's effort to develop effective approaches to teach this material, and draw lessons from the following open sources:
-* [Data Carpentry: R for data analysis and visualization of Ecological Data](http://www.datacarpentry.org/R-ecology-lesson/)
-* [Data Carpentry for Biologists](http://www.datacarpentry.org/semester-biology/)
-
-
-## About the Instructors
-
-**Michael Koontz** 
-
-I'm a 3rd year PhD candidate at University of California, Davis in the Graduate Group in Ecology. I study how complex forest structure affects natural disturbances in the Sierra Nevada mountain range of California. I use satellite imagery, Google Earth Engine, small uncrewed aerial systems (sUAS), and field measurements to map trees and track the spatial patterns of tree mortality as a result of wildfires and bark beetle activity.
-
-I've been using `R` since 2012, and teaching it since 2014 to a wide variety of folks including grad students, post docs, professors, industry researchers, and government scientists. I became a certified DataCarpentry instructor in 2016.
-
-My favorite part of teaching `R` is helping people make the leap between novice (no programming experience and not really sure how to start) and beginner (writing their own code and knowledgable about *how* to learn more).  
-
-**Ryan Peek**
-
-Ryan runs the Davis R Users Group (D-RUG) and has spearheaded the organized effort at UC Davis to train fellow ecologists at all career stages to program in `R`.
-
-## About DataCarpentry
+## About Data Carpentry
 
 <p></p>
 
@@ -35,12 +12,31 @@ Ryan runs the Davis R Users Group (D-RUG) and has spearheaded the organized effo
 
 <p></p>
 
+Data Carpentry develops and teaches workshops on the fundamental data skills needed to conduct research. Our mission is to provide researchers high-quality, domain-specific training covering the full lifecycle of data-driven research. Data Carpentry is a sibling organization of Software Carpentry. Where Software Carpentry teaches best practices in software development, our focus is on the introductory computational skills needed for data management and analysis in all domains of research. Our lessons are domain specific, from life and physical sciences to social science and build on the existing knowledge of learners to enable them to quickly apply skills learned to their own research. Our initial target audience is learners who have little to no prior computational experience. We create a friendly environment for learning to empower researchers and enable data driven discovery.
 
-From the DataCarpentry [website](http://www.datacarpentry.org/):
+See the Data Carpentry [website](http://www.datacarpentry.org/) for more information.
 
-> Data Carpentry develops and teaches workshops on the fundamental data skills needed to conduct research. Our mission is to provide researchers high-quality, domain-specific training covering the full lifecycle of data-driven research. Data Carpentry is a sibling organization of Software Carpentry. Where Software Carpentry teaches best practices in software development, our focus is on the introductory computational skills needed for data management and analysis in all domains of research. Our lessons are domain specific, from life and physical sciences to social science and build on the existing knowledge of learners to enable them to quickly apply skills learned to their own research. Our initial target audience is learners who have little to no prior computational experience. We create a friendly environment for learning to empower researchers and enable data driven discovery.
+## About the Instructors
+
+**Michael Koontz** 
+
+I'm a 3rd year PhD candidate at University of California, Davis in the Graduate Group in Ecology. I study how complex forest structure affects natural disturbances in the Sierra Nevada mountain range of California. I use satellite imagery, Google Earth Engine, small uncrewed aerial systems (sUAS), and field measurements to map trees and track the spatial patterns of tree mortality as a result of wildfires and bark beetle activity.
+
+I've been using R since 2012, and teaching it since 2014 to a wide variety of folks including grad students, post docs, professors, industry researchers, and government scientists. I became a certified DataCarpentry instructor in 2016.
+
+My favorite part of teaching R is helping people make the leap between novice (no programming experience and not really sure how to start) and beginner (writing their own code and knowledgable about *how* to learn more).  
+
+**Ryan Peek**
+
+Ryan runs the Davis R Users Group (D-RUG) and has spearheaded the organized effort at UC Davis to train fellow ecologists at all career stages to program in R.
+
+## Code of Conduct
 
 
-## About the Data Intensive Biology Summer Institute
+## About the Course Website
 
-More information about the DIBSI can be found at [http://ivory.idyll.org/dibsi/WHO.html](http://ivory.idyll.org/dibsi/WHO.html).
+This website was built entirely using R and RStudio-- the same tools you are learning in this very course.
+
+For this course, we embrace the spirit of [collaborative lesson development](https://github.com/swcarpentry/collaborative-lesson-development). We leverage the community's effort to develop effective approaches to teach this material, and draw lessons from the following open sources:
+* [Data Carpentry: R for data analysis and visualization of Ecological Data](http://www.datacarpentry.org/R-ecology-lesson/)
+* [Data Carpentry for Biologists](http://www.datacarpentry.org/semester-biology/)

@@ -42,4 +42,6 @@ output:
     toc: true
     toc_float:
       collapsed: false
+    include:
+      in_header: header.html
     css: style.css

@@ -50,7 +50,7 @@ Ryan runs the [Davis R Users Group (D-RUG)](http://d-rug.github.io/) and has spe
 
 This website was built entirely using R and RStudio-- the same tools you are learning in this very course.
 
-For this course, we embrace the spirit of [collaborative lesson development](https://github.com/swcarpentry/collaborative-lesson-development). We leverage the community's effort to develop effective approaches to teach this material, and draw lessons from the following open sources:
+For this course, we embrace the spirit of [collaborative lesson development](https://github.com/swcarpentry/collaborative-lesson-development). We leverage the community's effort to develop effective approaches to teach this material using modern educational psychology and instructional design, and draw lessons from the following open sources:
 
 * [Data Carpentry: R for data analysis and visualization of Ecological Data](http://www.datacarpentry.org/R-ecology-lesson/)
 * [Data Carpentry for Biologists](http://www.datacarpentry.org/semester-biology/)
@@ -81,3 +81,6 @@ Thank you for helping make this a welcoming, friendly community for all.
 
 This code of conduct is an adaptation of the one used by the Software Carpentry Foundation and is a modified version of that used by PyCon, which in turn is forked from a template written by the Ada Initiative and hosted on the Geek Feminism Wiki. Contributors to this document: Adam Obeng, Aleksandra Pawlik, Bill Mills, Carol Willing, Erin Becker, Hilmar Lapp, Kara Woo, Karin Lagesen, Pauline Barmby, Sheila Miguez, Simon Waldman, Tracy Teal.
 
+For more information about the Code of Conduct related to the Data Intensive Biology Summer Institute, please see the [website](http://ivory.idyll.org/dibsi/coc.html).
+
+If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact [Titus Brown](mailto:ctbrown@ucdavis.edu) immediately. If Titus is the cause of your concern, please see the [UC Davis ombuds office](http://ombuds.ucdavis.edu/).

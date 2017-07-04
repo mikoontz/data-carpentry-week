@@ -52,8 +52,13 @@ This website was built entirely using R and RStudio-- the same tools you are lea
 
 For this course, we embrace the spirit of [collaborative lesson development](https://github.com/swcarpentry/collaborative-lesson-development). We leverage the community's effort to develop effective approaches to teach this material using modern educational psychology and instructional design, and draw lessons from the following open sources:
 
-* [Data Carpentry: R for data analysis and visualization of Ecological Data](http://www.datacarpentry.org/R-ecology-lesson/)
-* [Data Carpentry for Biologists](http://www.datacarpentry.org/semester-biology/)
+* [Data Carpentry: R for Data Analysis and Visualization of Ecological Data](http://www.datacarpentry.org/R-ecology-lesson/)
+* [Ethan White and Zack Brym's Data Carpentry for Biologists course](http://www.datacarpentry.org/semester-biology/)
+* [Jenny Bryan's Stat545 course](http://stat545.com/)
+* [Chester Ismay and Albert Y. Kim's Modern DiveR book](https://ismayc.github.io/moderndiver-book/)
+* [Software Carpentry: R for Reproducible Scientific Analysis](http://data-lessons.github.io/gapminder-R/)
+* [Ryan Peek's Data wRangling for Ecologists course](https://gge-ucd.github.io/wRangling-Ecology/)
+* [Michael Koontz's Introduction to R course](http://introtor.weebly.com/)
 
 <br>
 

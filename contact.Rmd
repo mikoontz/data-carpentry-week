@@ -2,6 +2,8 @@
 title: "Contact"
 ---
 
+<br>
+
 ## Instructors
 
 **Michael Koontz** 
@@ -20,8 +22,16 @@ title: "Contact"
 <i class="fa fa-github-square" aria-hidden="true"></i> [ryanpeek](https://github.com/ryanpeek)  
 <i class="ai ai-orcid-square"></i> [orcid.org/0000-0002-9577-6885](https://orcid.org/0000-0002-9577-6885) 
 
-## Data Carpentry
+<br>
+
+## Data Carpentry  
+
+<i class="fa fa-envelope-square" aria-hidden="true"></i> [info@datacarpentry.org](mailto:info@datacarpentry.org)  
+<i class="fa fa-user" aria-hidden="true"></i> [http://www.datacarpentry.org/](http://www.datacarpentry.org/)  
+<i class="fa fa-twitter-square" aria-hidden="true"></i> [\@datacarpentry](https://twitter.com/datacarpentry)  
+<br>
 
 ## DIB Summer Institute
 
-[dibsi.training@gmail.com](mailto:dibsi.training@gmail.com)
+<i class="fa fa-envelope-square" aria-hidden="true"></i> [dibsi.training@gmail.com](mailto:dibsi.training@gmail.com)  
+<i class="fa fa-user" aria-hidden="true"></i> [http://ivory.idyll.org/dibsi/](http://ivory.idyll.org/dibsi/)

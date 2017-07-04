@@ -21,16 +21,21 @@ This instance of the course is being taught as a part of the [Data Intensive Bio
 **Etherpad**  
 We will use this Etherpad for chatting, taking notes, and sharing URLs and bits of code.
 
+* [http://pad.software-carpentry.org/2017-07-17-ucdavis-intro-to-R](http://pad.software-carpentry.org/2017-07-17-ucdavis-intro-to-R)  
+
 **Live code**  
-This is the live script file that we are generating throughout each day. Click "refresh" in your browser to see the latest saved version.  
-* [Day 1]()  
-* [Day 2]()  
-* [Day 3]()  
-* [Day 4]()  
-* [Day 5]()  
+This is the live script file that we are generating throughout each day. Click "refresh" in your browser to see the latest saved version.
+
+* [day 1]()
+* [day 2]()
+* [day 3]()
+* [day 4]()
+* [day 5]()
 
 **Feedback form**  
 This is a generic Google Form that we'll use to get immediate feedback to multiple choice questions.
+
+* [feedback form]()
 
 <br>
 
@@ -41,9 +46,11 @@ their own computers to ensure the proper setup of tools for an efficient
 workflow.  *These lessons assume no prior knowledge of the skills or tools*, but
 working through this lesson requires working copies of the software described
 below.  To most effectively use these materials, please make sure to download
-and install everything *before* working through this lesson.
+and install everything *before* working through this lesson. Participants are required to abide by Data Carpentry's [Code of Conduct](about.html#code_of_conduct).
 
-### Setup instructions
+<br>
+
+## Setup instructions
 
 **R** and **RStudio** are separate downloads and installations. R is the underlying statistical computing environment. RStudio is a graphical integrated development environment (IDE) that makes using R much easier and more interactive. You need to install R before you install RStudio.
 

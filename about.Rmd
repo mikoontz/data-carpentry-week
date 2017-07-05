@@ -64,7 +64,7 @@ For this course, we embrace the spirit of [collaborative lesson development](htt
 
 ## Code of Conduct
 
-Data Carpentry and Software Carpentry are dedicated to providing a welcoming and supportive environment for all people, regardless of background or identity. However, we recognise that some groups in our community are subject to historical and ongoing discrimination, and may be vulnerable or disadvantaged. Membership in such a specific group can be on the basis of characteristics such as gender, sexual orientation, disability, physical appearance, body size, race, nationality, sex, colour, ethnic or social origin, pregnancy, citizenship, familial status, veteran status, genetic information, religion or belief, political or any other opinion, membership of a national minority, property, birth, age, or choice of text editor. We do not tolerate harassment of participants on the basis of these categories, or for any other reason.
+We are dedicated to providing a welcoming and supportive environment for all people, regardless of background or identity. However, we recognise that some groups in our community are subject to historical and ongoing discrimination, and may be vulnerable or disadvantaged. Membership in such a specific group can be on the basis of characteristics such as gender, sexual orientation, disability, physical appearance, body size, race, nationality, sex, colour, ethnic or social origin, pregnancy, citizenship, familial status, veteran status, genetic information, religion or belief, political or any other opinion, membership of a national minority, property, birth, age, or choice of text editor. We do not tolerate harassment of participants on the basis of these categories, or for any other reason.
 
 Harassment is any form of behaviour intended to exclude, intimidate, or cause discomfort. Because we are a diverse community, we may have different ways of communicating and of understanding the intent behind actions. Therefore we have chosen to prohibit certain forms of behaviour in our community, regardless of intent. Prohibited harassing behaviour includes but is not limited to:
 
@@ -86,6 +86,18 @@ Thank you for helping make this a welcoming, friendly community for all.
 
 This code of conduct is an adaptation of the one used by the Software Carpentry Foundation and is a modified version of that used by PyCon, which in turn is forked from a template written by the Ada Initiative and hosted on the Geek Feminism Wiki. Contributors to this document: Adam Obeng, Aleksandra Pawlik, Bill Mills, Carol Willing, Erin Becker, Hilmar Lapp, Kara Woo, Karin Lagesen, Pauline Barmby, Sheila Miguez, Simon Waldman, Tracy Teal.
 
-For more information about the Code of Conduct related to the Data Intensive Biology Summer Institute, please see the [website](http://ivory.idyll.org/dibsi/coc.html).
+For more information about the Code of Conduct related to Data Carpentry, please see their [website](http://www.datacarpentry.org/code-of-conduct/).
+
+For more information about the Code of Conduct related to the Data Intensive Biology Summer Institute, please see their [website](http://ivory.idyll.org/dibsi/coc.html).
 
 If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact [Titus Brown](mailto:ctbrown@ucdavis.edu) immediately. If Titus is the cause of your concern, please see the [UC Davis ombuds office](http://ombuds.ucdavis.edu/).
+
+<br>
+
+## Territory Acknowledgement
+
+Acknowledging territory shows recognition of and respect for Native Americans. It is recognition of their presence both in the past and the present. Recognition and respect are essential elements of establishing healthy, reciprocal relations. These relationships are key to reconciliation, a process to which we are committed.
+
+We would like to respectfully acknowledge that the land on which we gather is traditional unceded Patwin territory. We recognize and respect our role as guests here.
+
+This territory acknowledgement is an adaptation of one written by the Canadian Association of University Teachers. For more information, please see their [website](https://www.caut.ca/content/guide-acknowledging-first-peoples-traditional-territory).

@@ -10,9 +10,9 @@ title: "Contact"
 
 <i class="fa fa-envelope-square" aria-hidden="true"></i> [mikoontz@gmail.com](mailto:mikoontz@gmail.com)  
 <i class="fa fa-user" aria-hidden="true"></i> [https://michaeljkoontz.weebly.com/](https://michaeljkoontz.weebly.com/)  
-<i class="fa fa-twitter-square" aria-hidden="true"></i>    [\@_mikoontz](https://twitter.com/_mikoontz)  
-<i class="fa fa-github-square" aria-hidden="true"></i>   [mikoontz](https://github.com/mikoontz)  
-<i class="ai ai-orcid-square"></i>   [orcid.org/0000-0002-8276-210X](https://orcid.org/0000-0002-8276-210X)  
+<i class="fa fa-twitter-square" aria-hidden="true"></i> [\@_mikoontz](https://twitter.com/_mikoontz)  
+<i class="fa fa-github-square" aria-hidden="true"></i> [mikoontz](https://github.com/mikoontz)  
+<i class="ai ai-orcid-square"></i> [orcid.org/0000-0002-8276-210X](https://orcid.org/0000-0002-8276-210X)  
 
 **Ryan Peek** 
 
@@ -24,11 +24,25 @@ title: "Contact"
 
 <br>
 
+## Teaching Assistants
+
+**Taylor Reiter**
+
+<i class="fa fa-envelope-square" aria-hidden="true"></i> [taylorreiter@gmail.com](mailto:taylorreiter@gmail.com)  
+<i class="fa fa-github-square" aria-hidden="true"></i> [taylorreiter](https://github.com/taylorreiter)  
+
+**Martha Wohlfeil**
+
+<i class="fa fa-envelope-square" aria-hidden="true"></i> [wohlfeil.martha@gmail.com](mailto:wohlfeil.martha@gmail.com)  
+
+<br>
+
 ## Data Carpentry  
 
 <i class="fa fa-envelope-square" aria-hidden="true"></i> [info@datacarpentry.org](mailto:info@datacarpentry.org)  
 <i class="fa fa-user" aria-hidden="true"></i> [http://www.datacarpentry.org/](http://www.datacarpentry.org/)  
 <i class="fa fa-twitter-square" aria-hidden="true"></i> [\@datacarpentry](https://twitter.com/datacarpentry)  
+
 <br>
 
 ## DIB Summer Institute

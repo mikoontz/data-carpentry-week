@@ -6,10 +6,8 @@ navbar:
       href: about.html
     - text: "Day 1"
       menu: 
-        - text: "Logistics"
-          href: logistics.html
-        - text: "Broad View"
-          href: gestalt_code.html
+        - text: "Getting Started"
+          href: getting_started.html
         - text: "Orientation to R, RStudio, and Programming"
           href: orientation.html
     - text: "Day 2"

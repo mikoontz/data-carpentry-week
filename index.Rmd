@@ -12,7 +12,7 @@ Welcome to an interactive, week-long introduction to the programming language R!
 
 R is a powerful, cross-platform, open-source, and free software that has been widely adopted across a number of science fields. While incredibly useful, it can also be daunting to learn. This course doesn’t require any prior programming experience. We’ll teach you the basics of R by writing code together and setting up our computers the same way you will to work on your own data after the workshop. By the end of the week, you’ll be able to input, organize, and summarize data in R. You’ll also learn how to visualize and present data using publication-quality plots and dynamic documents that combine descriptive writing with the results of your code. The course will focus on laying a groundwork of basic R skills to enable future self-teaching of specific use cases.
 
-This instance of the course is being taught as a part of the [Data Intensive Biology Summer Institute DIBSI](http://ivory.idyll.org/dibsi/toc.html) using a [Data Carpentry](http://www.datacarpentry.org/) framework.
+This instance of the course is being taught as a part of the [Data Intensive Biology Summer Institute DIBSI](http://ivory.idyll.org/dibsi/toc.html) using a [Data Carpentry](http://www.datacarpentry.org/) framework. We are located in the Valley Hall teaching facility on the Health Sciences side of UC Davis main campus, in Davis, CA. ([Google maps link](https://www.google.com/maps/place/Gladys+Valley+Hall,+Davis,+CA+95616/@38.5328167,-121.7659017,17z/data=!3m1!4b1!4m5!3m4!1s0x80852902c9d969a7:0xaa647225d10f76a3!8m2!3d38.5328167!4d-121.7637077)).
 
 <br>
 
@@ -32,10 +32,11 @@ This is the live script file that we are generating throughout each day. Click "
 * [day 4]()
 * [day 5]()
 
-**Feedback form**  
-This is a generic Google Form that we'll use to get immediate feedback to multiple choice questions.
+**Feedback forms**  
+These are generic Google Forms that we'll use to get immediate feedback throughout the course.
 
-* [feedback form]()
+* [multiple choice question](https://goo.gl/forms/P79MCLErZVPvTGd52)
+* [general feedback](https://goo.gl/forms/xYOnJJ5jS5Nsg2Yn2)
 
 <br>
 

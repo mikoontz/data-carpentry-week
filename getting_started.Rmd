@@ -1,0 +1,96 @@
+---
+title: "Getting Started"
+---
+
+## Orientation to the course
+
+1. Brief introduction of co-instructors
+1. Restrooms
+1. Coffee/tea/water/juice
+1. Code of Conduct
+1. Territory acknowledgement
+1. Data Carpentry
+    + Live coding
+    + Sticky notes
+        + Green: I'm finished with the task; I'm ready to move on; Feedback on something that's going well for you
+        + Red: I have a question; I'm not ready to move on; Feedback on something we can improve
+1. Introductions
+    + Name
+    + Affiliation
+    + Field of study
+    + Something you made recently that you're proud of
+1. Motivating examples
+    + This website!
+    + Where are we coming from?
+
+<br> 
+
+## A motivating example...
+
+This is an example R script. Don't try to take in all the details just yet.
+Instead, let it wash over you and think about the broad view. The gestalt. The
+forest and not the trees.
+
+```{r motivatingExample2, eval = FALSE}
+# Load necessary packages
+library(dplyr)
+library(ggmap)
+
+# Import the data; be sure to make all strings NOT factors because we aren't
+# doing any statistics here so they hurt us more than help
+learners <- read.csv("roster.csv", stringsAsFactors = FALSE)
+
+# Split each students' email into its 2 constituent pieces, the id and the
+# domain, based on what comes before and after the '@' symbol
+# Then, reattach both values back to the file we just imported and renames
+# those columns "id" and "email_affiliation"
+learners <- 
+  learners %>%
+  strsplit(x = .$Email, split = "@") %>%
+  do.call(rbind, .) %>%
+  as.data.frame(stringsAsFactors = FALSE) %>%
+  cbind(learners, .) %>%
+  rename(id = V1, email_affiliation = V2)
+
+# Use the ggmap package to "geocode" the email_affiliation that we just 
+# figured out for each student, which means go to Google and get a latitude
+# and a longitude associated with that email domain. For instance, if your
+# email domain is "ucdavis.edu", the geocode() function will return the
+# latitude and longitude of the University of California, Davis in the United
+# States
+learners <- 
+  geocode(learners$email_affiliation) %>%
+  cbind(learners, .)
+
+# Create a plot of the locations of each student's email_affiliation on a globe 
+# by mapping the longitude to the x position on the plot, and the latitude to
+# the y position on the plot. Use the borders() function from ggplot2 to 
+# generate a rough sketch of the land masses on Earth. Color all the points red
+# and make them twice as large as default. Ensure that the figure has a 1:1
+# ratio between units on the x-axis and units on the y-axis.
+dc_origins <- ggplot(data = learners) + 
+  borders("world", colour="gray50", fill="gray50")  +
+  geom_point(aes(x = lon, y = lat), color="red", size=2) +
+  coord_equal()
+
+# Visualize the plot that we just made
+dc_origins
+
+# Save the plot we made as a .png file to our working directory while
+# specifiying its height and width
+ggsave(plot = dc_origins,
+       filename = "dc_origins.png", 
+       device = "png", 
+       units = "cm",
+       width = 15,
+       height = 5)
+```
+
+<br> 
+
+This code produced the below figure for the Data Intensive Biology Summer 
+Institute course "Introduction to R" on July 17, 2017.
+
+<div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
+![](./img/dc_origins.png)
+</div>

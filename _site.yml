@@ -27,7 +27,9 @@ navbar:
     - text: "Day 5"
       menu:
         - text: "Refresh Day 4"
-          href: refresh_day4.html    
+          href: refresh_day4.html 
+    - text: "Resources"
+      href: resources.html
   right:
     - text: "Contact"
       href: contact.html

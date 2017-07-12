@@ -50,22 +50,6 @@ My favorite part of teaching R is seeing folks make their first plot or read in 
 
 <br>
 
-## About the Course Website
-
-This website was built entirely using R and RStudio-- the same tools you are learning in this very course.
-
-For this course, we embrace the spirit of [collaborative lesson development](https://github.com/swcarpentry/collaborative-lesson-development). We leverage the community's effort to develop effective approaches to teach this material using modern educational psychology and instructional design, and draw lessons from the following open sources:
-
-* [Data Carpentry: R for Data Analysis and Visualization of Ecological Data](http://www.datacarpentry.org/R-ecology-lesson/)
-* [Ethan White and Zack Brym's Data Carpentry for Biologists course](http://www.datacarpentry.org/semester-biology/)
-* [Jenny Bryan's Stat545 course](http://stat545.com/)
-* [Chester Ismay and Albert Y. Kim's Modern DiveR book](https://ismayc.github.io/moderndiver-book/)
-* [Software Carpentry: R for Reproducible Scientific Analysis](http://data-lessons.github.io/gapminder-R/)
-* [Ryan Peek's Data wRangling for Ecologists course](https://gge-ucd.github.io/wRangling-Ecology/)
-* [Michael Koontz's Introduction to R course](http://introtor.weebly.com/)
-
-<br>
-
 ## Code of Conduct
 
 We are dedicated to providing a welcoming and supportive environment for all people, regardless of background or identity. However, we recognise that some groups in our community are subject to historical and ongoing discrimination, and may be vulnerable or disadvantaged. Membership in such a specific group can be on the basis of characteristics such as gender, sexual orientation, disability, physical appearance, body size, race, nationality, sex, colour, ethnic or social origin, pregnancy, citizenship, familial status, veteran status, genetic information, religion or belief, political or any other opinion, membership of a national minority, property, birth, age, or choice of text editor. We do not tolerate harassment of participants on the basis of these categories, or for any other reason.

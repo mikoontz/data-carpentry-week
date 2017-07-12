@@ -33,7 +33,7 @@ title: "Contact"
 
 **Martha Wohlfeil**
 
-<i class="fa fa-envelope-square" aria-hidden="true"></i> [wohlfeil.martha@gmail.com](mailto:wohlfeil.martha@gmail.com)  
+<i class="fa fa-envelope-square" aria-hidden="true"></i> [mwohlfeil@ucdavis.edu](mailto:mwohlfeil@ucdavis.edu)  
 
 <br>
 

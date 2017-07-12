@@ -14,6 +14,7 @@ title: "Getting Started"
     + Sticky notes
         + Green: I'm finished with the task; I'm ready to move on; Feedback on something that's going well for you
         + Red: I have a question; I'm not ready to move on; Feedback on something we can improve
+    + Important links
 1. Introductions
     + Name
     + Affiliation

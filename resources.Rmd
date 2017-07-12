@@ -1,0 +1,29 @@
+---
+title: "Resources"
+---
+
+<br>
+
+## Datasets
+
+Here are handy links to all of the data sets used in the course.
+
+<br>
+
+## Course content
+
+For this course, we embrace the spirit of [collaborative lesson development](https://github.com/swcarpentry/collaborative-lesson-development). We leverage the community's effort to develop effective approaches to teach this material using modern educational psychology and instructional design, and draw lessons from the following open sources:
+
+* [Data Carpentry: R for Data Analysis and Visualization of Ecological Data](http://www.datacarpentry.org/R-ecology-lesson/)
+* [Ethan White and Zack Brym's Data Carpentry for Biologists course](http://www.datacarpentry.org/semester-biology/)
+* [Jenny Bryan's Stat545 course](http://stat545.com/)
+* [Chester Ismay and Albert Y. Kim's Modern DiveR book](https://ismayc.github.io/moderndiver-book/)
+* [Software Carpentry: R for Reproducible Scientific Analysis](http://data-lessons.github.io/gapminder-R/)
+* [The Portal Project Teaching Database](https://doi.org/10.6084/m9.figshare.1314459.v6)
+* [Ryan Peek's Data wRangling for Ecologists course](https://gge-ucd.github.io/wRangling-Ecology/)
+* [Michael Koontz's Introduction to R course](http://introtor.weebly.com/)
+
+<br>
+
+## Extra readings
+

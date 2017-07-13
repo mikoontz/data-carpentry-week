@@ -6,24 +6,38 @@ title: "Resources"
 
 ## Datasets
 
-Here are handy links to all of the data sets used in the course.
+Here are handy links to all of the data sets used in the course that we can't
+get through packages.
+
+* From [The Portal Project Teaching Database](https://doi.org/10.6084/m9.figshare.1314459.v6):
+    + [species.csv](data/species.csv)
+    + [surveys.csv](data/surveys.csv)
+    + [combined.csv](data/combined.csv)
+    + [plots.csv](data/plots.csv)
+* From [Data Carpentry: Genomics Lesson](https://jasonjwilliamsny.github.io/tidiness-genomics/):
+    + [sequencing_results_metadata.txt](data/sequencing_results_metadata.txt) representing metadata from DNA sequencing
+* From [Software Carpentry: R for Reproducible Scientific Analysis](http://data-lessons.github.io/gapminder-R/)
+    + [wide_eg.csv](data/wide_eg.csv) representing blood albumin levels
+    + [stocks.tsv](data/stocks.tsv) representing restaurant stock data
+* From [Ethan White and Zack Brym's Data Carpentry for Biologists course](http://www.datacarpentry.org/semester-biology/)
 
 <br>
 
 ## Course content
 
-For this course, we embrace the spirit of [collaborative lesson development](https://github.com/swcarpentry/collaborative-lesson-development). We leverage the community's effort to develop effective approaches to teach this material using modern educational psychology and instructional design, and draw lessons from the following open sources:
+For this course, we embrace the spirit of [collaborative lesson development](https://arxiv.org/abs/1707.02662). We leverage the community's effort to develop effective approaches to teach this material using modern educational psychology and instructional design, and draw lessons from the following open sources:
 
+* [Software Carpentry: R for Reproducible Scientific Analysis](http://data-lessons.github.io/gapminder-R/)
 * [Data Carpentry: R for Data Analysis and Visualization of Ecological Data](http://www.datacarpentry.org/R-ecology-lesson/)
+* [Data Carpentry: Genomics Lesson](https://jasonjwilliamsny.github.io/tidiness-genomics/)
 * [Ethan White and Zack Brym's Data Carpentry for Biologists course](http://www.datacarpentry.org/semester-biology/)
+* [Ryan Peek's Data wRangling for Ecologists course](https://gge-ucd.github.io/wRangling-Ecology/)
 * [Jenny Bryan's Stat545 course](http://stat545.com/)
 * [Chester Ismay and Albert Y. Kim's Modern DiveR book](https://ismayc.github.io/moderndiver-book/)
-* [Software Carpentry: R for Reproducible Scientific Analysis](http://data-lessons.github.io/gapminder-R/)
-* [The Portal Project Teaching Database](https://doi.org/10.6084/m9.figshare.1314459.v6)
-* [Ryan Peek's Data wRangling for Ecologists course](https://gge-ucd.github.io/wRangling-Ecology/)
 * [Michael Koontz's Introduction to R course](http://introtor.weebly.com/)
 
 <br>
 
 ## Extra readings
 
+* [Wickham, Hadley. 2014. Tidy Data. Journal of Statistical Software. 59(10), 1-23.](https://www.jstatsoft.org/article/view/v059i10)

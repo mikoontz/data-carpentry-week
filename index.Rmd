@@ -53,7 +53,8 @@ their own computers to ensure the proper setup of tools for an efficient
 workflow.  *These lessons assume no prior knowledge of the skills or tools*, but
 working through this lesson requires working copies of the software described
 below.  To most effectively use these materials, please make sure to download
-and install everything *before* working through this lesson. Participants are required to abide by Data Carpentry's [Code of Conduct](about.html#code_of_conduct).
+and install everything *before* working through this lesson. Participants are 
+required to abide by Data Carpentry's [Code of Conduct](about.html#code_of_conduct).
 
 <br>
 

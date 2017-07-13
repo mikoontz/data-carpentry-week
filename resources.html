@@ -281,10 +281,13 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="getting_started.html">Getting Started</a>
+      <a href="lesson_getting_started.html">Getting started</a>
     </li>
     <li>
-      <a href="orientation.html">Orientation to R, RStudio, and Programming</a>
+      <a href="lesson_orientation.html">Orientation to R, RStudio, and programming</a>
+    </li>
+    <li>
+      <a href="lesson_data_frames.html">Data frames</a>
     </li>
   </ul>
 </li>
@@ -296,10 +299,16 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="refresh_day1.html">Refresh Day 1</a>
+      <a href="refresh_day1.html">Refresh day 1</a>
     </li>
     <li>
-      <a href="extending_R.html">Extending R with packages</a>
+      <a href="lesson_dplyr.html">Data frame manipulation</a>
+    </li>
+    <li>
+      <a href="lesson_visualization_ggplot2.html">Data visualization</a>
+    </li>
+    <li>
+      <a href="lesson_data_import.html">Data import</a>
     </li>
   </ul>
 </li>
@@ -311,7 +320,22 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="refresh_day2.html">Refresh Day 2</a>
+      <a href="refresh_day2.html">Refresh day 2</a>
+    </li>
+    <li>
+      <a href="lesson_dynamic_documents.html">Dynamic documents</a>
+    </li>
+    <li>
+      <a href="lesson_tidyr.html">Tidying data</a>
+    </li>
+    <li>
+      <a href="lesson_tidyr_plus.html">Tidying data+</a>
+    </li>
+    <li>
+      <a href="lesson_lubridate.html">Time data with `lubridate`</a>
+    </li>
+    <li>
+      <a href="lesson_functions.html">Custom functions</a>
     </li>
   </ul>
 </li>
@@ -323,7 +347,13 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="refresh_day3.html">Refresh Day 3</a>
+      <a href="refresh_day3.html">Refresh day 3</a>
+    </li>
+    <li>
+      <a href="lesson_joins.html">Table joins</a>
+    </li>
+    <li>
+      <a href="lesson_joins_plus.html">Table joins+</a>
     </li>
   </ul>
 </li>
@@ -335,12 +365,24 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="refresh_day4.html">Refresh Day 4</a>
+      <a href="refresh_day4.html">Refresh day 4</a>
+    </li>
+    <li>
+      <a href="lesson_for_loops.html">Automation with `for` loops</a>
+    </li>
+    <li>
+      <a href="lesson_purrr.html">Automation with `purrr`</a>
+    </li>
+    <li>
+      <a href="lesson_capstone.html">Capstone</a>
+    </li>
+    <li>
+      <a href="lesson_closing_thoughts.html">Closing thoughts</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="resources.html">Data/Resources</a>
+  <a href="resources.html">Resources</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -370,26 +412,47 @@ div.tocify {
 <p><br></p>
 <div id="datasets" class="section level2">
 <h2>Datasets</h2>
-<p>Here are handy links to all of the data sets used in the course.</p>
+<p>Here are handy links to all of the data sets used in the course that we can’t get through packages.</p>
+<ul>
+<li>From <a href="https://doi.org/10.6084/m9.figshare.1314459.v6">The Portal Project Teaching Database</a>:
+<ul>
+<li><a href="data/species.csv">species.csv</a></li>
+<li><a href="data/surveys.csv">surveys.csv</a></li>
+<li><a href="data/combined.csv">combined.csv</a></li>
+<li><a href="data/plots.csv">plots.csv</a></li>
+</ul></li>
+<li>From <a href="https://jasonjwilliamsny.github.io/tidiness-genomics/">Data Carpentry: Genomics Lesson</a>:
+<ul>
+<li><a href="data/sequencing_results_metadata.txt">sequencing_results_metadata.txt</a> representing metadata from DNA sequencing</li>
+</ul></li>
+<li>From <a href="http://data-lessons.github.io/gapminder-R/">Software Carpentry: R for Reproducible Scientific Analysis</a>
+<ul>
+<li><a href="data/wide_eg.csv">wide_eg.csv</a> representing blood albumin levels</li>
+<li><a href="data/stocks.tsv">stocks.tsv</a> representing restaurant stock data</li>
+</ul></li>
+</ul>
 <p><br></p>
 </div>
 <div id="course-content" class="section level2">
 <h2>Course content</h2>
-<p>For this course, we embrace the spirit of <a href="https://github.com/swcarpentry/collaborative-lesson-development">collaborative lesson development</a>. We leverage the community’s effort to develop effective approaches to teach this material using modern educational psychology and instructional design, and draw lessons from the following open sources:</p>
+<p>For this course, we embrace the spirit of <a href="https://arxiv.org/abs/1707.02662">collaborative lesson development</a>. We leverage the community’s effort to develop effective approaches to teach this material using modern educational psychology and instructional design, and draw lessons from the following open sources:</p>
 <ul>
+<li><a href="http://data-lessons.github.io/gapminder-R/">Software Carpentry: R for Reproducible Scientific Analysis</a></li>
 <li><a href="http://www.datacarpentry.org/R-ecology-lesson/">Data Carpentry: R for Data Analysis and Visualization of Ecological Data</a></li>
+<li><a href="https://jasonjwilliamsny.github.io/tidiness-genomics/">Data Carpentry: Genomics Lesson</a></li>
 <li><a href="http://www.datacarpentry.org/semester-biology/">Ethan White and Zack Brym’s Data Carpentry for Biologists course</a></li>
+<li><a href="https://gge-ucd.github.io/wRangling-Ecology/">Ryan Peek’s Data wRangling for Ecologists course</a></li>
 <li><a href="http://stat545.com/">Jenny Bryan’s Stat545 course</a></li>
 <li><a href="https://ismayc.github.io/moderndiver-book/">Chester Ismay and Albert Y. Kim’s Modern DiveR book</a></li>
-<li><a href="http://data-lessons.github.io/gapminder-R/">Software Carpentry: R for Reproducible Scientific Analysis</a></li>
-<li><a href="https://doi.org/10.6084/m9.figshare.1314459.v6">The Portal Project Teaching Database</a></li>
-<li><a href="https://gge-ucd.github.io/wRangling-Ecology/">Ryan Peek’s Data wRangling for Ecologists course</a></li>
 <li><a href="http://introtor.weebly.com/">Michael Koontz’s Introduction to R course</a></li>
 </ul>
 <p><br></p>
 </div>
 <div id="extra-readings" class="section level2">
 <h2>Extra readings</h2>
+<ul>
+<li><a href="https://www.jstatsoft.org/article/view/v059i10">Wickham, Hadley. 2014. Tidy Data. Journal of Statistical Software. 59(10), 1-23.</a></li>
+</ul>
 </div>
 
 

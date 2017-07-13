@@ -6,28 +6,56 @@ navbar:
       href: about.html
     - text: "Day 1"
       menu: 
-        - text: "Getting Started"
-          href: getting_started.html
-        - text: "Orientation to R, RStudio, and Programming"
-          href: orientation.html
+        - text: "Getting started"
+          href: lesson_getting_started.html
+        - text: "Orientation to R, RStudio, and programming"
+          href: lesson_orientation.html
+        - text: "Data frames"
+          href: lesson_data_frames.html
     - text: "Day 2"
       menu:
-        - text: "Refresh Day 1"
+        - text: "Refresh day 1"
           href: refresh_day1.html
-        - text: "Extending R with packages"
-          href: extending_R.html
+        - text: "Data frame manipulation"
+          href: lesson_dplyr.html
+        - text: "Data visualization"
+          href: lesson_visualization_ggplot2.html
+        - text: "Data import"
+          href: lesson_data_import.html
     - text: "Day 3"
       menu:
-        - text: "Refresh Day 2"
+        - text: "Refresh day 2"
           href: refresh_day2.html
+        - text: "Dynamic documents"
+          href: lesson_dynamic_documents.html
+        - text: "Tidying data"
+          href: lesson_tidyr.html
+        - text: "Tidying data+"
+          href: lesson_tidyr_plus.html
+        - text: "Time data with lubridate"
+          href: lesson_lubridate.html
+        - text: "Custom functions"
+          href: lesson_functions.html
     - text: "Day 4"
       menu:
-        - text: "Refresh Day 3"
+        - text: "Refresh day 3"
           href: refresh_day3.html
+        - text: "Table joins"
+          href: lesson_joins.html
+        - text: "Table joins+"
+          href: lesson_joins_plus.html
     - text: "Day 5"
       menu:
-        - text: "Refresh Day 4"
+        - text: "Refresh day 4"
           href: refresh_day4.html 
+        - text: "Automation with for loops"
+          href: lesson_for_loops.html
+        - text: "Automation with purrr"
+          href: lesson_purrr.html
+        - text: "Capstone"
+          href: lesson_capstone.html
+        - text: "Closing thoughts"
+          href: lesson_closing_thoughts.html
     - text: "Resources"
       href: resources.html
   right:

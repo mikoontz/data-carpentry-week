@@ -6,11 +6,9 @@ minutes: ?20
 ---
 
 ```{r, include=FALSE}
-source("tools/chunk-options.R")
-opts_chunk$set(warning = FALSE, message = FALSE)
 # Silently load in the data so the rest of the lesson works
 library(tidyverse)
-gapminder <- read_csv("data/gapminder-FiveYearData.csv")
+library(gapminder)
 ```
 
 > ## Learning objectives {.objectives}

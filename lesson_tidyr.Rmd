@@ -5,15 +5,10 @@ subtitle: Tidy Data
 minutes: 75
 ---
 
-```{r, include=FALSE}
-source("tools/chunk-options.R")
-opts_chunk$set(warning = FALSE, message = FALSE)
-# Silently load in the data so the rest of the lesson works
-gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
+```{r setup, echo = FALSE, message = FALSE}
 library(tidyverse)
 ```
-
-> ## Learning objectives {.objectives}
+> ## Learning objectives
 >
 > - Understand what it means for data to be tidy
 >     - Each variable forms a column.
@@ -32,7 +27,7 @@ Data can be organized many ways. While there may be times that call for other or
 
 What exactly constitutes a variable can be difficult to define out of context, but as a general rule, if observations are measured in different units, they should be in different columns, and if they are measured in the same units, there is a good chance they should be in the same column.
 
-An example will clarify. Download [this fake data](https://raw.githubusercontent.com/michaellevy/gapminder-R/gh-pages/data/wide_eg.csv) on blood readings under several medical treatments. Save it to your data directory and read it into R. Is this data in tidy format? Why not -- which of the three principles does it not satisfy?
+An example will clarify. Download [this fake data](data/wide_eg.csv) on blood readings under several medical treatments. Save it to your data directory and read it into R. Is this data in tidy format? Why not -- which of the three principles does it not satisfy?
 
 ```{r}
 blood <- read_csv('data/wide_eg.csv')
@@ -97,7 +92,7 @@ ggplot(blood.tidy, aes(x = condition, y = albumin, color = sex)) +
           geom_violin()
 ```
 
-> #### Challenge -- Gather and plot {.challenge}
+> #### Challenge -- Gather and plot
 >
 > The following code produces a data.frame with the annual relative standard deviation of gdp among countries, both by per-capita gdp and country-total gdp. Run the code. Is the resulting dataset in tidy form? 
 > 
@@ -115,11 +110,13 @@ ggplot(blood.tidy, aes(x = condition, y = albumin, color = sex)) +
 >
 
 
-> #### Challenge -- More practice with gather {.challenge}
+> #### Challenge -- More practice with gather
 >
-> Download [this dataset](https://raw.githubusercontent.com/michaellevy/gapminder-R/gh-pages/data/stocks.tsv) of closing prices for several restaurant stocks over a year.
+> Download [this dataset](data/stocks.tsv) of closing prices for several restaurant stocks over a year.
 >
 > - Is the data tidy?  
 > - If not, tidy it
 > - Which stock performed the best over this year? Use any method you want to answer that question.
 >
+
+This lesson is adapted from the Software Carpentry: R for Reproducible Scientific Analysis [Tidy Data materials](http://data-lessons.github.io/gapminder-R/06-tidy-data.html).

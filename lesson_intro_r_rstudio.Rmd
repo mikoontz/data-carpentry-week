@@ -430,7 +430,7 @@ message("Hey buddy!")
 ```
 
 
-
+This lesson is adapted from the Software Carpentry: R for Reproducible Scientific Analysis [Introduction to R and RStudio materials](http://data-lessons.github.io/gapminder-R/01-intro-r-rstudio.html).
 
 > #### Challenge -- Extra practice: Assignment & Comparison
 >

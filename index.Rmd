@@ -42,8 +42,9 @@ These are generic Google Forms that we'll use to get immediate feedback througho
 These pre- and post-workshop surveys help us ensure the effectiveness of our
 teaching methodology.
 
-* [pre-workshop survey](https://www.surveymonkey.com/r/dc_pre_workshop_v1)
-* [post-workshop survey](https://www.surveymonkey.com/r/dc_post_workshop_v1)
+* [pre-workshop survey](https://goo.gl/forms/DyiQTimFo4McSORC3)
+* [post-workshop survey]()  
+
 <br>
 
 ## Requirements
@@ -51,14 +52,17 @@ teaching methodology.
 Data Carpentry's teaching is hands-on, so participants are encouraged to use
 their own computers to ensure the proper setup of tools for an efficient
 workflow.  *These lessons assume no prior knowledge of the skills or tools*, but
-working through this lesson requires working copies of the software described
-below.  To most effectively use these materials, please make sure to download
+working through this lesson requires working copies of **R** and **RStudio**. A working
+copy of a **spreadsheet program** is recommended, but not required.
+To most effectively use these materials, please make sure to download
 and install everything *before* working through this lesson. Participants are 
 required to abide by Data Carpentry's [Code of Conduct](about.html#code_of_conduct).
 
 <br>
 
 ## Setup instructions
+
+### R and RStudio
 
 **R** and **RStudio** are separate downloads and installations. R is the underlying statistical computing environment. RStudio is a graphical integrated development environment (IDE) that makes using R much easier and more interactive. You need to install R before you install RStudio.
 
@@ -134,3 +138,35 @@ required to abide by Data Carpentry's [Code of Conduct](about.html#code_of_condu
   rstudio-x.yy.zzz-amd64.deb` at the terminal).
 * Once it's installed, open RStudio to make sure it works and you don't get any
   error messages.
+  
+### Spreadsheet program
+
+To interact with spreadsheets, we can use LibreOffice, Microsoft Excel, Gnumeric, OpenOffice.org, or other programs. Commands may differ a bit between programs, but general ideas for thinking about spreadsheets are the same.
+
+For this lesson, if you don't have a spreadsheet program already, you can use LibreOffice. It's a free, open source spreadsheet program.
+
+#### Windows
+
+- Download the Installer 
+  - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Windows should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you don't need to make one. Your download should begin automatically.
+- Install LibreOffice 
+- Once the installer is downloaded, double click on it and LibreOffice should install.
+
+#### Mac OS X
+
+- Download the Installer 
+  - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Mac should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you don't need to make one. Your download should begin automatically.
+- Install LibreOffice 
+- Once the installer is downloaded, double click on it and LibreOffice should install.
+
+
+#### Linux
+
+- Download the Installer 
+  - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Linux should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you don't need to make one. Your download should begin automatically.
+- Install LibreOffice 
+- Once the installer is downloaded, double click on it and LibreOffice should install.
+
+<br>
+
+These setup instructions are adapted from those written for [Data Carpentry: R for Data Analysis and Visualization of Ecological Data](http://www.datacarpentry.org/R-ecology-lesson/) and [Data Carpentry: Data Organization in Spreadsheets](http://www.datacarpentry.org/spreadsheet-ecology-lesson/).

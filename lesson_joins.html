@@ -330,6 +330,9 @@ div.tocify {
       <a href="lesson_orientation.html">Orientation to R, RStudio, and programming</a>
     </li>
     <li>
+      <a href="lesson_project_management.html">Project management</a>
+    </li>
+    <li>
       <a href="lesson_data_frames.html">Data frames</a>
     </li>
   </ul>
@@ -353,6 +356,9 @@ div.tocify {
     <li>
       <a href="lesson_data_import.html">Data import</a>
     </li>
+    <li>
+      <a href="lesson_import_dplyr_ggplot2.html">Data import %&gt;% dplyr %&gt;% ggplot2</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -375,7 +381,7 @@ div.tocify {
       <a href="lesson_tidyr_plus.html">Tidying data+</a>
     </li>
     <li>
-      <a href="lesson_lubridate.html">Time data with `lubridate`</a>
+      <a href="lesson_lubridate.html">Time data with lubridate</a>
     </li>
     <li>
       <a href="lesson_functions.html">Custom functions</a>
@@ -411,10 +417,10 @@ div.tocify {
       <a href="refresh_day4.html">Refresh day 4</a>
     </li>
     <li>
-      <a href="lesson_for_loops.html">Automation with `for` loops</a>
+      <a href="lesson_for_loops.html">Automation with for loops</a>
     </li>
     <li>
-      <a href="lesson_purrr.html">Automation with `purrr`</a>
+      <a href="lesson_purrr.html">Automation with purrr</a>
     </li>
     <li>
       <a href="lesson_capstone.html">Capstone</a>
@@ -496,71 +502,73 @@ continents</code></pre></div>
 <pre><code>## Joining, by = &quot;continent&quot;</code></pre>
 <pre><code>## Warning: Column `continent` joining factor and character vector, coercing
 ## into character vector</code></pre>
-<pre><code>## # A tibble: 1,704 x 9
-##        country continent  year lifeExp      pop gdpPercap area_km2
-##         &lt;fctr&gt;     &lt;chr&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-##  1 Afghanistan      Asia  1952  28.801  8425333  779.4453 43820000
-##  2 Afghanistan      Asia  1957  30.332  9240934  820.8530 43820000
-##  3 Afghanistan      Asia  1962  31.997 10267083  853.1007 43820000
-##  4 Afghanistan      Asia  1967  34.020 11537966  836.1971 43820000
-##  5 Afghanistan      Asia  1972  36.088 13079460  739.9811 43820000
-##  6 Afghanistan      Asia  1977  38.438 14880372  786.1134 43820000
-##  7 Afghanistan      Asia  1982  39.854 12881816  978.0114 43820000
-##  8 Afghanistan      Asia  1987  40.822 13867957  852.3959 43820000
-##  9 Afghanistan      Asia  1992  41.674 16317921  649.3414 43820000
-## 10 Afghanistan      Asia  1997  41.763 22227415  635.3414 43820000
-## # ... with 1,694 more rows, and 2 more variables: population &lt;dbl&gt;,
-## #   percent_total_pop &lt;dbl&gt;</code></pre>
+<pre><code>## # A tibble: 1,704 x 11
+##        country continent  year lifeExp      pop gdpPercap   total_gdp
+##         &lt;fctr&gt;     &lt;chr&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+##  1 Afghanistan      Asia  1952  28.801  8425333  779.4453  6567086330
+##  2 Afghanistan      Asia  1957  30.332  9240934  820.8530  7585448670
+##  3 Afghanistan      Asia  1962  31.997 10267083  853.1007  8758855797
+##  4 Afghanistan      Asia  1967  34.020 11537966  836.1971  9648014150
+##  5 Afghanistan      Asia  1972  36.088 13079460  739.9811  9678553274
+##  6 Afghanistan      Asia  1977  38.438 14880372  786.1134 11697659231
+##  7 Afghanistan      Asia  1982  39.854 12881816  978.0114 12598563401
+##  8 Afghanistan      Asia  1987  40.822 13867957  852.3959 11820990309
+##  9 Afghanistan      Asia  1992  41.674 16317921  649.3414 10595901589
+## 10 Afghanistan      Asia  1997  41.763 22227415  635.3414 14121995875
+## # ... with 1,694 more rows, and 4 more variables: log_gdp &lt;dbl&gt;,
+## #   area_km2 &lt;dbl&gt;, population &lt;dbl&gt;, percent_total_pop &lt;dbl&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">right_join</span>(gapminder, continents)</code></pre></div>
 <pre><code>## Joining, by = &quot;continent&quot;</code></pre>
 <pre><code>## Warning: Column `continent` joining factor and character vector, coercing
 ## into character vector</code></pre>
-<pre><code>## # A tibble: 1,705 x 9
-##    country continent  year lifeExp      pop gdpPercap area_km2 population
-##     &lt;fctr&gt;     &lt;chr&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
-##  1 Algeria    Africa  1952  43.077  9279525  2449.008 30370000 1022234000
-##  2 Algeria    Africa  1957  45.685 10270856  3013.976 30370000 1022234000
-##  3 Algeria    Africa  1962  48.303 11000948  2550.817 30370000 1022234000
-##  4 Algeria    Africa  1967  51.407 12760499  3246.992 30370000 1022234000
-##  5 Algeria    Africa  1972  54.518 14760787  4182.664 30370000 1022234000
-##  6 Algeria    Africa  1977  58.014 17152804  4910.417 30370000 1022234000
-##  7 Algeria    Africa  1982  61.368 20033753  5745.160 30370000 1022234000
-##  8 Algeria    Africa  1987  65.799 23254956  5681.359 30370000 1022234000
-##  9 Algeria    Africa  1992  67.744 26298373  5023.217 30370000 1022234000
-## 10 Algeria    Africa  1997  69.152 29072015  4797.295 30370000 1022234000
-## # ... with 1,695 more rows, and 1 more variables: percent_total_pop &lt;dbl&gt;</code></pre>
+<pre><code>## # A tibble: 1,705 x 11
+##    country continent  year lifeExp      pop gdpPercap    total_gdp
+##     &lt;fctr&gt;     &lt;chr&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+##  1 Algeria    Africa  1952  43.077  9279525  2449.008  22725632678
+##  2 Algeria    Africa  1957  45.685 10270856  3013.976  30956113720
+##  3 Algeria    Africa  1962  48.303 11000948  2550.817  28061403854
+##  4 Algeria    Africa  1967  51.407 12760499  3246.992  41433235247
+##  5 Algeria    Africa  1972  54.518 14760787  4182.664  61739408943
+##  6 Algeria    Africa  1977  58.014 17152804  4910.417  84227416174
+##  7 Algeria    Africa  1982  61.368 20033753  5745.160 115097120653
+##  8 Algeria    Africa  1987  65.799 23254956  5681.359 132119742845
+##  9 Algeria    Africa  1992  67.744 26298373  5023.217 132102425043
+## 10 Algeria    Africa  1997  69.152 29072015  4797.295 139467033682
+## # ... with 1,695 more rows, and 4 more variables: log_gdp &lt;dbl&gt;,
+## #   area_km2 &lt;dbl&gt;, population &lt;dbl&gt;, percent_total_pop &lt;dbl&gt;</code></pre>
 <p>These operations produce slightly different results, either 1704 or 1705 observations. Can you figure out why? Antarctica contains no countries so doesn’t appear in the gapminder data.frame. When we use <code>left_join</code> it gets filtered from the results, but when we use <code>right_join</code> it appears, with missing values for all of the country-level variables:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">right_join</span>(gapminder, continents) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">filter</span>(continent ==<span class="st"> &quot;Antarctica&quot;</span>)</code></pre></div>
 <pre><code>## Joining, by = &quot;continent&quot;</code></pre>
 <pre><code>## Warning: Column `continent` joining factor and character vector, coercing
 ## into character vector</code></pre>
-<pre><code>## # A tibble: 1 x 9
-##   country  continent  year lifeExp   pop gdpPercap area_km2 population
-##    &lt;fctr&gt;      &lt;chr&gt; &lt;int&gt;   &lt;dbl&gt; &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
-## 1      NA Antarctica    NA      NA    NA        NA 13720000       4490
-## # ... with 1 more variables: percent_total_pop &lt;dbl&gt;</code></pre>
+<pre><code>## # A tibble: 1 x 11
+##   country  continent  year lifeExp   pop gdpPercap total_gdp log_gdp
+##    &lt;fctr&gt;      &lt;chr&gt; &lt;int&gt;   &lt;dbl&gt; &lt;int&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1      NA Antarctica    NA      NA    NA        NA        NA      NA
+## # ... with 3 more variables: area_km2 &lt;dbl&gt;, population &lt;dbl&gt;,
+## #   percent_total_pop &lt;dbl&gt;</code></pre>
 <p>There’s another problem in this data.frame – it has two population measures, one by continent and one by country and it’s not clear which is which! Let’s rename a couple of columns.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">right_join</span>(gapminder, continents) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">rename</span>(<span class="dt">country_pop =</span> pop, <span class="dt">continent_pop =</span> population)</code></pre></div>
 <pre><code>## Joining, by = &quot;continent&quot;</code></pre>
 <pre><code>## Warning: Column `continent` joining factor and character vector, coercing
 ## into character vector</code></pre>
-<pre><code>## # A tibble: 1,705 x 9
-##    country continent  year lifeExp country_pop gdpPercap area_km2
-##     &lt;fctr&gt;     &lt;chr&gt; &lt;int&gt;   &lt;dbl&gt;       &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-##  1 Algeria    Africa  1952  43.077     9279525  2449.008 30370000
-##  2 Algeria    Africa  1957  45.685    10270856  3013.976 30370000
-##  3 Algeria    Africa  1962  48.303    11000948  2550.817 30370000
-##  4 Algeria    Africa  1967  51.407    12760499  3246.992 30370000
-##  5 Algeria    Africa  1972  54.518    14760787  4182.664 30370000
-##  6 Algeria    Africa  1977  58.014    17152804  4910.417 30370000
-##  7 Algeria    Africa  1982  61.368    20033753  5745.160 30370000
-##  8 Algeria    Africa  1987  65.799    23254956  5681.359 30370000
-##  9 Algeria    Africa  1992  67.744    26298373  5023.217 30370000
-## 10 Algeria    Africa  1997  69.152    29072015  4797.295 30370000
-## # ... with 1,695 more rows, and 2 more variables: continent_pop &lt;dbl&gt;,
-## #   percent_total_pop &lt;dbl&gt;</code></pre>
+<pre><code>## # A tibble: 1,705 x 11
+##    country continent  year lifeExp country_pop gdpPercap    total_gdp
+##     &lt;fctr&gt;     &lt;chr&gt; &lt;int&gt;   &lt;dbl&gt;       &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+##  1 Algeria    Africa  1952  43.077     9279525  2449.008  22725632678
+##  2 Algeria    Africa  1957  45.685    10270856  3013.976  30956113720
+##  3 Algeria    Africa  1962  48.303    11000948  2550.817  28061403854
+##  4 Algeria    Africa  1967  51.407    12760499  3246.992  41433235247
+##  5 Algeria    Africa  1972  54.518    14760787  4182.664  61739408943
+##  6 Algeria    Africa  1977  58.014    17152804  4910.417  84227416174
+##  7 Algeria    Africa  1982  61.368    20033753  5745.160 115097120653
+##  8 Algeria    Africa  1987  65.799    23254956  5681.359 132119742845
+##  9 Algeria    Africa  1992  67.744    26298373  5023.217 132102425043
+## 10 Algeria    Africa  1997  69.152    29072015  4797.295 139467033682
+## # ... with 1,695 more rows, and 4 more variables: log_gdp &lt;dbl&gt;,
+## #   area_km2 &lt;dbl&gt;, continent_pop &lt;dbl&gt;, percent_total_pop &lt;dbl&gt;</code></pre>
 <blockquote>
 <h4 id="challenge-putting-the-pieces-together" class="challenge">Challenge – Putting the pieces together</h4>
 <p>A colleague suggests that the more land area an individual has, the greater their gdp will be and that this relationship will be observable at any scale of observation. You chuckle and mutter “Not at the continental scale,” but your colleague insists. Test your colleague’s hypothesis by:</p>
@@ -602,6 +610,8 @@ continents</code></pre></div>
 ## into character vector</code></pre>
 <p><img src="lesson_joins_files/figure-html/Putting%20the%20pieces%20together%20-%20solution-1.png" width="672" /></p>
 </blockquote>
+<p><br></p>
+<p>This lesson is adapted from the Software Carpentry: R for Reproducible Scientific Analysis <a href="http://data-lessons.github.io/gapminder-R/12-joins.html">Multi-Table Joins materials</a>.</p>
 </div>
 
 

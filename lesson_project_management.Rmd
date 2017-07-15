@@ -5,10 +5,6 @@ subtitle: Project management with RStudio
 minutes: 20
 ---
 
-```{r, include=FALSE}
-source("tools/chunk-options.R")
-```
-
 > ## Learning objectives {.objectives}
 >
 > * Understand motivation for code and data management
@@ -85,13 +81,11 @@ each of data, code, results, and papers. You can do this in RStudio by clicking 
 Files pane, or in your OS by navigating to the directory you just created. Then we'll download the data that we're
 going to use in this workshop and put that in a "raw_data" directory inside your "data" directory.
 
-> #### Challenge -- Project Organization {.challenge}
+> #### Challenge -- Project Organization
 >
 > - In your project directory, either using the Project tab of RStudio or your OS' file system, 
 > create the following directories:
 >     - data
->     - code
+>     - scripts
 >     - results
 >     - papers
-> - Clicking on [this link](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/data-lessons/gapminder-R/tree/gh-pages/data/raw_data) will take you to a page that downloads a .zip file that contains all the data needed for this workshop. Download it, unzip it, and move the new "raw_data" folder into the data folder of your project.
->

@@ -119,4 +119,6 @@ ggplot(blood.tidy, aes(x = condition, y = albumin, color = sex)) +
 > - Which stock performed the best over this year? Use any method you want to answer that question.
 >
 
+<br>
+
 This lesson is adapted from the Software Carpentry: R for Reproducible Scientific Analysis [Tidy Data materials](http://data-lessons.github.io/gapminder-R/06-tidy-data.html).

@@ -1,0 +1,37 @@
+---
+title: "Refresh day 1"
+---
+
+> ## Learning objectives
+>
+> * Gain familiarity the RStudio IDE
+> * Manage your workspace in an interactive R session
+> * Take a look at a data frame
+> * Extend R with a package
+> * To be able to seek help via `?` and Google
+
+> #### Challenge 1 -- Make a new directory and project for DIBSI Day 2
+>
+> - In your project directory, either using the Project tab of RStudio or your OS' file system, 
+> create the following directories:
+>     - data
+>     - scripts
+>     - results
+> - Create a new .R script file in the scripts/ folder calling it whatever you like
+
+> #### Challenge 2 -- Explore a data frame
+>
+> - In the script file you just created, write a line of code that will load the 
+> `gapminder` package
+> - Write another line of code using the `head()` function on the `gapminder` 
+> data frame to view the first 6 rows (Remember that, in this case, there is
+> both a data frame and a package that have the same name. This won't always
+> be true. Sometimes packages don't have any data associated with them at all)
+
+> #### Challenge 3 (advanced) -- Extend R with a new package
+> - In the same .R script file, write a line of code that will install the 
+> `dplyr` package.
+> - Use the `glimpse()` function on the `gapminder` data frame view it in a
+> different way than you saw using `head()`.
+> - Did that code work? Why not? How can you fix it? (hint: my first step is
+> often to copy the error and Google it!)

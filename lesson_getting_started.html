@@ -375,7 +375,7 @@ div.tocify {
       <a href="lesson_tidyr_plus.html">Tidying data+</a>
     </li>
     <li>
-      <a href="lesson_lubridate.html">Time data with `lubridate`</a>
+      <a href="lesson_lubridate.html">Time data with lubridate</a>
     </li>
     <li>
       <a href="lesson_functions.html">Custom functions</a>
@@ -411,10 +411,10 @@ div.tocify {
       <a href="refresh_day4.html">Refresh day 4</a>
     </li>
     <li>
-      <a href="lesson_for_loops.html">Automation with `for` loops</a>
+      <a href="lesson_for_loops.html">Automation with for loops</a>
     </li>
     <li>
-      <a href="lesson_purrr.html">Automation with `purrr`</a>
+      <a href="lesson_purrr.html">Automation with purrr</a>
     </li>
     <li>
       <a href="lesson_capstone.html">Capstone</a>
@@ -501,11 +501,11 @@ learners &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span cl
 <span class="co"># Then, reattach both values back to the file we just imported and renames</span>
 <span class="co"># those columns &quot;id&quot; and &quot;email_affiliation&quot;</span>
 learners &lt;-<span class="st"> </span>
-<span class="st">  </span>learners %&gt;%
-<span class="st">  </span><span class="kw">strsplit</span>(<span class="dt">x =</span> .$Email, <span class="dt">split =</span> <span class="st">&quot;@&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">do.call</span>(rbind, .) %&gt;%
-<span class="st">  </span><span class="kw">as.data.frame</span>(<span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>) %&gt;%
-<span class="st">  </span><span class="kw">cbind</span>(learners, .) %&gt;%
+<span class="st">  </span>learners <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">strsplit</span>(<span class="dt">x =</span> .<span class="op">$</span>Email, <span class="dt">split =</span> <span class="st">&quot;@&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">do.call</span>(rbind, .) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">as.data.frame</span>(<span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">cbind</span>(learners, .) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">rename</span>(<span class="dt">id =</span> V1, <span class="dt">email_affiliation =</span> V2)
 
 <span class="co"># Use the ggmap package to &quot;geocode&quot; the email_affiliation that we just </span>
@@ -515,7 +515,7 @@ learners &lt;-<span class="st"> </span>
 <span class="co"># latitude and longitude of the University of California, Davis in the United</span>
 <span class="co"># States</span>
 learners &lt;-<span class="st"> </span>
-<span class="st">  </span><span class="kw">geocode</span>(learners$email_affiliation) %&gt;%
+<span class="st">  </span><span class="kw">geocode</span>(learners<span class="op">$</span>email_affiliation) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">cbind</span>(learners, .)
 
 <span class="co"># Create a plot of the locations of each student&#39;s email_affiliation on a globe </span>
@@ -524,9 +524,9 @@ learners &lt;-<span class="st"> </span>
 <span class="co"># generate a rough sketch of the land masses on Earth. Color all the points red</span>
 <span class="co"># and make them twice as large as default. Ensure that the figure has a 1:1</span>
 <span class="co"># ratio between units on the x-axis and units on the y-axis.</span>
-dc_origins &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> learners) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">borders</span>(<span class="st">&quot;world&quot;</span>, <span class="dt">colour=</span><span class="st">&quot;gray50&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;gray50&quot;</span>)  +
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) +
+dc_origins &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> learners) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">borders</span>(<span class="st">&quot;world&quot;</span>, <span class="dt">colour=</span><span class="st">&quot;gray50&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;gray50&quot;</span>)  <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">coord_equal</span>()
 
 <span class="co"># Visualize the plot that we just made</span>

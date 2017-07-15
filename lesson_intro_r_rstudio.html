@@ -375,7 +375,7 @@ div.tocify {
       <a href="lesson_tidyr_plus.html">Tidying data+</a>
     </li>
     <li>
-      <a href="lesson_lubridate.html">Time data with `lubridate`</a>
+      <a href="lesson_lubridate.html">Time data with lubridate</a>
     </li>
     <li>
       <a href="lesson_functions.html">Custom functions</a>
@@ -411,10 +411,10 @@ div.tocify {
       <a href="refresh_day4.html">Refresh day 4</a>
     </li>
     <li>
-      <a href="lesson_for_loops.html">Automation with `for` loops</a>
+      <a href="lesson_for_loops.html">Automation with for loops</a>
     </li>
     <li>
-      <a href="lesson_purrr.html">Automation with `purrr`</a>
+      <a href="lesson_purrr.html">Automation with purrr</a>
     </li>
     <li>
       <a href="lesson_capstone.html">Capstone</a>
@@ -542,11 +542,11 @@ div.tocify {
 <div id="introduction-to-r" class="section level3">
 <h3>Introduction to R</h3>
 <p>The simplest thing you can do with R is do arithmetic:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> +<span class="st"> </span><span class="dv">100</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">100</span></code></pre></div>
 <pre><code>## [1] 101</code></pre>
 <p>And R will print out the answer, with a preceding “[1]”, which indicates the first item of output.</p>
 <p>If you type in an incomplete command, R will wait for you to complete it:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="dv">1</span> -</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span> <span class="op">-</span></code></pre></div>
 <pre class="output"><code>+</code></pre>
 <p>Any time you execute code and the R session shows a “+” instead of a “&gt;”, it means it’s waiting for you to complete the command. If you want to cancel a command you can simply hit “Esc” and RStudio will give you back the “&gt;” prompt. You can also cancel commands with “Esc” if R is taking too long to finish a calculation.</p>
 <p>Order of operations works in R just like it did in algebra class. From highest to lowest precedence:</p>
@@ -558,18 +558,18 @@ div.tocify {
 <li>Add: <code>+</code></li>
 <li>Subtract: <code>-</code></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">3</span> +<span class="st"> </span><span class="dv">5</span> *<span class="st"> </span><span class="dv">2</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
 <pre><code>## [1] 13</code></pre>
 <p>Use parentheses to group to force the order of evaluation, and/or to make code easier to read.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">3</span> +<span class="st"> </span><span class="dv">5</span>) *<span class="st"> </span><span class="dv">2</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span>) <span class="op">*</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
 <pre><code>## [1] 16</code></pre>
 <div id="whitespace" class="section level4">
 <h4>Whitespace</h4>
 <p>Speaking of being easy to read, whitespace is ignored by R. Use it consistently to make code readable. For example, putting a single space on either side of an operator makes code easy to read.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">3</span> +<span class="st"> </span>(<span class="dv">5</span> *<span class="st"> </span>(<span class="dv">2</span> ^<span class="st"> </span><span class="dv">2</span>))) <span class="co"># hard to read</span>
-<span class="dv">3</span> +<span class="st"> </span><span class="dv">5</span> *<span class="st"> </span><span class="dv">2</span> ^<span class="st"> </span><span class="dv">2</span>       <span class="co"># easier to read, once you know rules</span>
-<span class="dv">3+5</span>*<span class="dv">2</span>^<span class="dv">2</span>             <span class="co"># very hard to read</span>
-<span class="dv">3</span> +<span class="st"> </span><span class="dv">5</span> *<span class="st"> </span>(<span class="dv">2</span> ^<span class="st"> </span><span class="dv">2</span>)     <span class="co"># to make order of operations clear, use parentheses</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">3</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">5</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">^</span><span class="st"> </span><span class="dv">2</span>))) <span class="co"># hard to read</span>
+<span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span> <span class="op">^</span><span class="st"> </span><span class="dv">2</span>       <span class="co"># easier to read, once you know rules</span>
+<span class="dv">3</span><span class="op">+</span><span class="dv">5</span><span class="op">*</span><span class="dv">2</span><span class="op">^</span><span class="dv">2</span>             <span class="co"># very hard to read</span>
+<span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">^</span><span class="st"> </span><span class="dv">2</span>)     <span class="co"># to make order of operations clear, use parentheses</span></code></pre></div>
 </div>
 <div id="comments" class="section level4">
 <h4>Comments</h4>
@@ -579,7 +579,7 @@ div.tocify {
 <div id="scientific-notation" class="section level4">
 <h4>Scientific Notation</h4>
 <p>Really small or large numbers get a scientific notation:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span>/<span class="dv">10000</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">/</span><span class="dv">10000</span></code></pre></div>
 <pre><code>## [1] 2e-04</code></pre>
 <p>Which is shorthand for “multiplied by <code>10^XX</code>”. So <code>2e-4</code> is shorthand for <code>2 * 10^(-4)</code>.</p>
 <p>You can write numbers in scientific notation too:</p>
@@ -609,20 +609,20 @@ div.tocify {
 <div id="comparison" class="section level4">
 <h4>Comparison</h4>
 <p>We can do logical comparison in R. This will be important later, for example, when we want to filter a dataset based on a logical condition.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> ==<span class="st"> </span><span class="dv">1</span>  <span class="co"># equality (note two equals signs, read as &quot;is equal to&quot;)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>  <span class="co"># equality (note two equals signs, read as &quot;is equal to&quot;)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> !=<span class="st"> </span><span class="dv">2</span>  <span class="co"># not-equal (read, &quot;is not equal to&quot;)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">!=</span><span class="st"> </span><span class="dv">2</span>  <span class="co"># not-equal (read, &quot;is not equal to&quot;)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> &lt;<span class="st"> </span><span class="dv">2</span>  <span class="co"># less than</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>  <span class="co"># less than</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> &gt;=<span class="st"> </span>-<span class="dv">9</span> <span class="co"># greater than or equal to</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">&gt;=</span><span class="st"> </span><span class="op">-</span><span class="dv">9</span> <span class="co"># greater than or equal to</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="variables-and-assignment" class="section level4">
 <h4>Variables and assignment</h4>
 <p>We can store values in variables using the assignment operator <code>&lt;-</code>. You can also use a single equals sign, <code>=</code>, for assignment.</p>
 <p>Note that unlike every other expression we have run so far, R doesn’t print anything when we run this next line. Instead, it is stored for later in a <strong>variable</strong>, <code>x</code>. <code>x</code> now contains the <strong>value</strong> <code>0.25</code>. Read this as “Assign 1/4 to x.”</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span>/<span class="dv">4</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span></code></pre></div>
 <p>Look for the <code>Environment</code> tab in one of the panes of RStudio, and you will see that <code>x</code> and its value have appeared. Our variable <code>x</code> can be used in place of a number in any calculation that expects a number:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x</code></pre></div>
 <pre><code>## [1] 0.25</code></pre>
@@ -633,7 +633,7 @@ div.tocify {
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">99</span></code></pre></div>
 <p><code>x</code> used to contain the value 0.25 and and now it has the value 99.</p>
 <p>Assignment values can contain the variable being assigned to:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>x +<span class="st"> </span><span class="dv">1</span> </code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span> </code></pre></div>
 <blockquote>
 <h4 id="mcq-variable-assignment">MCQ – Variable Assignment</h4>
 <p>What does the following code print?</p>
@@ -748,7 +748,7 @@ d. log(10, 1000)</code></pre>
 <div id="warnings" class="section level4">
 <h4>Warnings</h4>
 <p>Warnings appear in the same red font in the console, but they start with “Warning” instead of “Error”. Warnings are R’s way of telling you that it did something, but it suspects it may not have been what you wanted. <em>Warnings can be more insidious than errors</em> because you can keep going, but keep going with a mistake in your pipeline. Here’s an example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">log_of_a_negative &lt;-<span class="st"> </span><span class="kw">log</span>(-<span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">log_of_a_negative &lt;-<span class="st"> </span><span class="kw">log</span>(<span class="op">-</span><span class="dv">2</span>)</code></pre></div>
 <pre><code>## Warning in log(-2): NaNs produced</code></pre>
 <p><code>NaN</code> means “not a number”, and R has kindly told us, “Hey, I think you probably wanted a number here – taking a log of a negative is kind of a weird thing to do. I can do it if you really want, I just want to be make sure it’s what you want.”</p>
 <p>Note that it did work, so if we ask R what <code>log_of_a_negative</code> is, we won’t get an error. Note that we don’t get a warning either, so you need to pay attention when warnings first appear.</p>

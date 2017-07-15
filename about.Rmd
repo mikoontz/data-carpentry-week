@@ -23,7 +23,7 @@ See the Data Carpentry [website](http://www.datacarpentry.org/) for more informa
 ## About the Instructors
 
 **Michael Koontz** 
-<a href="mailto:mikoontz@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true" ></i></a> 
+<a href="mailto:mikoontz@gmail.com"><i class="fa fa-envelope-square" aria-hidden="true" ></i></a> 
 <a href="https://michaeljkoontz.weebly.com/"><i class="fa fa-user" aria-hidden="true"></i></a> 
 <a href="https://twitter.com/_mikoontz"><i class="fa fa-twitter" aria-hidden="true"></i></a> 
 <a href="https://github.com/mikoontz"><i class="fa fa-github" aria-hidden="true"></i></a> 
@@ -36,7 +36,7 @@ I've been using R since 2012, and teaching it since 2014 to a wide variety of fo
 My favorite part of teaching R is helping people make the leap between novice (no programming experience and not really sure how to start) and beginner (writing their own code and knowledgable about *how* to learn more).  
 
 **Ryan Peek** 
-<a href="mailto:rapeek@ucdavis.edu"><i class="fa fa-envelope-o" aria-hidden="true"></i></a> 
+<a href="mailto:rapeek@ucdavis.edu"><i class="fa fa-envelope-square" aria-hidden="true"></i></a> 
 <a href="https://ryanpeek.github.io/"><i class="fa fa-user" aria-hidden="true"></i></a>
 <a href="https://twitter.com/riverpeek"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 <a href="https://github.com/ryanpeek"><i class="fa fa-github" aria-hidden="true"></i></a> 
@@ -46,9 +46,25 @@ I am a 3rd year Ph.D. Candidate in Ecology. I study ecological responses to wate
 
 I’ve been using R since 2011, and became a certified Software/Data Carpentry instructor in 2016 and help teach workshops and classes to a wide variety of folks including grad students, post docs, professors, industry researchers, and government scientists. I help run the [Davis R Users Group (D-RUG)](http://d-rug.github.io/) and spearheaded a more organized effort at UC Davis to train fellow ecologists in data science using the R programming language.
 
-My favorite part of teaching R is seeing folks make their first plot or read in their first dataset, and recognizing that programming can be useful and fun. It is an amazing experience learning from teaching and empowering others to become better scientists and data wranglers.
+My favorite part of teaching R is seeing folks make their first plot or read in their first dataset, and recognizing that programming can be useful and fun. It is an amazing experience learning from teaching and empowering others to become better scientists and data wranglers.  
 
 <br>
+
+## About the TAs
+
+**Taylor Reiter** 
+<a href="mailto:taylorreiter@gmail.com"><i class="fa fa-envelope-square" aria-hidden="true"></i></a> 
+<a href="https://github.com/taylorreiter"><i class="fa fa-github-square" aria-hidden="true"></i></a>  
+
+Taylor seeks to understand how microbial communities in olive tree soil and on olive fruits affect the flavor chemistry profile of olive oil. Her research is performed through the UCD Olive Center and the lab for Data Intensive Biology in the UCD School of Veterinary Medicine. She uses both bioinformatics and analytical chemistry methods in order to understand the development of flavor in olive oil.  
+
+**Martha Wohlfeil**
+<a href="mailto:mwohlfeil@ucdavis.edu"><i class="fa fa-envelope-square" aria-hidden="true"></i></a>  
+
+Martha is a second year graduate student in the ecology department at UC Davis. She studies avian biogeography in the Great Basin and has experience building statistical models and working with mapping software. 
+
+<br> 
+
 
 ## Code of Conduct
 

@@ -5,11 +5,8 @@ subtitle: Creating functions
 minutes: 45
 ---
 
-```{r, include=FALSE}
-source("tools/chunk-options.R")
-opts_chunk$set(fig.path = "fig/07-functions/", cache = TRUE)
-# Silently load in the data so the rest of the lesson works
-gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
+```{r, include = FALSE}
+library(gapminder)
 library(tidyverse)
 ```
 
@@ -61,7 +58,7 @@ my_sum2(b = 7)
 > R automatically returns the output of the last line of the body
 > of the function unless a `return` statement is specified elsewhere.
 > Since other languages require a `return` statement and because it can make
-> reading a funciton easier, we will explicitly define the return statement.
+> reading a function easier, we will explicitly define the return statement.
 
 
 #### Temperature conversion
@@ -186,4 +183,6 @@ And by year
 > ```
 > 
 
+<br>
 
+This lesson is adapted from the Software Carpentry: R for Reproducible Scientific Analysis [Creating Functions materials](http://data-lessons.github.io/gapminder-R/07-functions.html).

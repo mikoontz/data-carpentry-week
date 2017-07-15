@@ -108,3 +108,7 @@ right_join(gapminder, continents) %>%
 >     geom_text(aes(label = continent), nudge_y = 5e3)  
 > ```
 >
+
+<br>
+
+This lesson is adapted from the Software Carpentry: R for Reproducible Scientific Analysis [Multi-Table Joins materials](http://data-lessons.github.io/gapminder-R/12-joins.html).

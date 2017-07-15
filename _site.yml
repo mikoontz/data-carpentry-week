@@ -10,6 +10,8 @@ navbar:
           href: lesson_getting_started.html
         - text: "Orientation to R, RStudio, and programming"
           href: lesson_orientation.html
+        - text: "Project management"
+          href: lesson_project_management.html
         - text: "Data frames"
           href: lesson_data_frames.html
     - text: "Day 2"
@@ -22,6 +24,8 @@ navbar:
           href: lesson_visualization_ggplot2.html
         - text: "Data import"
           href: lesson_data_import.html
+        - text: "Data import %>% dplyr %>% ggplot2"
+          href: lesson_import_dplyr_ggplot2.html
     - text: "Day 3"
       menu:
         - text: "Refresh day 2"

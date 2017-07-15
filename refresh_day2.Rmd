@@ -1,0 +1,16 @@
+---
+title: "Refresh day 2"
+---
+
+> ## Learning objectives
+>
+> * To be able to seek help via `?` and Google
+
+> #### Challenge 1 -- Make a new directory and project for DIBSI Day 3
+>
+> - In your project directory, either using the Project tab of RStudio or your OS' file system, 
+> create the following directories:
+>     - data
+>     - scripts
+>     - results
+> - Create a new .R script file in the scripts/ folder calling it whatever you like

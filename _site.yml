@@ -33,7 +33,7 @@ navbar:
         - text: "Tidying data+"
           href: lesson_tidyr_plus.html
         - text: "Time data with lubridate"
-          href: lesson_lubridate.html
+          href: lesson_lubridate.nb.html
         - text: "Custom functions"
           href: lesson_functions.html
     - text: "Day 4"

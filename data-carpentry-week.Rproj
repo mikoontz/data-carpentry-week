@@ -13,4 +13,4 @@ RnwWeave: Sweave
 LaTeX: pdfLaTeX
 
 BuildType: Website
-WebsitePath: ~/dev/data-carpentry-week
+WebsitePath: ~/Documents/github/teaching/data-carpentry-week

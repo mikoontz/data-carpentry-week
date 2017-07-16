@@ -2,8 +2,14 @@
 title: "Getting Started"
 ---
 
+<br>
+
 ## Orientation to the course
 
+1. Setup (as you arrive)
+    + software installation
+    + power outlets
+    + internet access
 1. Brief introduction of co-instructors
 1. Restrooms
 1. Coffee/tea/water/juice
@@ -11,10 +17,13 @@ title: "Getting Started"
 1. Territory acknowledgement
 1. Data Carpentry
     + Live coding
+        + slows the pace
+        + increasing retention with multiple ways of getting information
+        + watch my mistakes and how I fix them
     + Sticky notes
         + Green: I'm finished with the task; I'm ready to move on; Feedback on something that's going well for you
         + Red: I have a question; I'm not ready to move on; Feedback on something we can improve
-    + Important links
+1. Important links
 1. Introductions
     + Name
     + Affiliation
@@ -22,46 +31,85 @@ title: "Getting Started"
     + Something you made recently that you're proud of
 1. Motivating examples
     + This website!
-    + Where are we coming from?
+    + Where are we coming from and where are we going...
 
 <br> 
 
 ## A motivating example...
 
 This is an example R script. Don't try to take in all the details just yet.
-Instead, let it wash over you and think about the broad view. The gestalt. The
-forest and not the trees.
+Instead, let it wash over you and get a gestalt sense of where we are coming 
+from and where we are headed...
 
 ```{r motivatingExample2, eval = FALSE}
 # Load necessary packages
-library(dplyr)
+library(tidyverse)
+library(viridis)
+library(geosphere)
 library(ggmap)
 
-# Import the data; be sure to make all strings NOT factors because we aren't
-# doing any statistics here so they hurt us more than help
-learners <- read.csv("roster.csv", stringsAsFactors = FALSE)
+# What is the current location of the workshop?
+currentLocation_str <- "Davis, California"
+currentLocation <- geocode(currentLocation_str)
 
-# Split each students' email into its 2 constituent pieces, the id and the
-# domain, based on what comes before and after the '@' symbol
-# Then, reattach both values back to the file we just imported and renames
-# those columns "id" and "email_affiliation"
+# Import the data
+learners <- read_csv("dc_origins.csv")
+
+# Use the mutate_geocode() function in the ggmap package on that new column to 
+# add new columns to the dataframe representing the longitude and latitude of
+# each learner's hometown as a result of a Google Maps lookup.
+# [For instance, if your hometown is "Davis, California", the mutate_geocode() 
+# function will return -121.7405 in the "lon" column and 38.54491 in the "lat"
+# column]
+# Remove any rows that fail to geocode. Sorry!
+
 learners <- 
   learners %>%
-  strsplit(x = .$Email, split = "@") %>%
-  do.call(rbind, .) %>%
-  as.data.frame(stringsAsFactors = FALSE) %>%
-  cbind(learners, .) %>%
-  rename(id = V1, email_affiliation = V2)
+  as.data.frame() %>%
+  mutate_geocode(location) %>%
+  filter(complete.cases(.))
 
-# Use the ggmap package to "geocode" the email_affiliation that we just 
-# figured out for each student, which means go to Google and get a latitude
-# and a longitude associated with that email domain. For instance, if your
-# email domain is "ucdavis.edu", the geocode() function will return the
-# latitude and longitude of the University of California, Davis in the United
-# States
-learners <- 
-  geocode(learners$email_affiliation) %>%
-  cbind(learners, .)
+# Use the gcIntermediate() function from the geosphere package to get points
+# representing the Great Circle paths between each learner's hometown and the
+# current location of the workshop.
+gcPoints <- 
+  gcIntermediate(p1 = learners[, c("lon", "lat")], 
+                 p2 = currentLocation[, c("lon", "lat")],
+                 breakAtDateLine = TRUE
+                )
+
+# Loop through each Great Circle path and assign each a unique identifier. If
+# the Great Circle passes the International Date Line, each segment on either
+# side of the Date Line needs to get it's own group identifier so it can be
+# plotted separately. In these cases, assign each of the 2 segments a unique
+# id, then bind the 2 list elements into a single data frame. If the Great
+# Circle does *not* cross the International Date Line, add the unique identifier
+# and coerce the list element into a data frame (from a matrix). Ensure all
+# column names for each list element data frame have the same names.
+
+for (i in seq_along(gcPoints)) {
+  currentPath <- gcPoints[[i]]
+  if(is.list(currentPath)) {
+    currentPath[[1]] <- data.frame(currentPath[[1]], 
+                                   path = paste0(i, ".1"), 
+                                   stringsAsFactors = FALSE)
+    currentPath[[2]] <- data.frame(currentPath[[2]], 
+                                   path = paste0(i, ".2"), 
+                                   stringsAsFactors = FALSE)
+    currentPath <- bind_rows(currentPath)
+  } else {
+    currentPath <- data.frame(currentPath, 
+                              path = paste0(i), 
+                              stringsAsFactors = FALSE)
+  }
+  colnames(currentPath) <- c("lon", "lat", "path")
+  gcPoints[[i]] <- currentPath
+}
+
+# Combine the list of data frame elements into a single dataframe, since we know
+# each list element data frame has the same number of columns and the same
+# column names
+gcPoints <- bind_rows(gcPoints)
 
 # Create a plot of the locations of each student's email_affiliation on a globe 
 # by mapping the longitude to the x position on the plot, and the latitude to
@@ -69,10 +117,12 @@ learners <-
 # generate a rough sketch of the land masses on Earth. Color all the points red
 # and make them twice as large as default. Ensure that the figure has a 1:1
 # ratio between units on the x-axis and units on the y-axis.
-dc_origins <- ggplot(data = learners) + 
-  borders("world", colour="gray50", fill="gray50")  +
-  geom_point(aes(x = lon, y = lat), color="red", size=2) +
-  coord_equal()
+dc_origins <- ggplot() + 
+  borders("world", colour = "gray50", fill = "gray50")  +
+  geom_point(data = learners, aes(x = lon, y = lat, color = location), size = 2) +
+  scale_color_viridis(discrete = TRUE) +
+  coord_equal() +
+  geom_line(data = gcPoints, aes(x = lon, y = lat, group = factor(path)), color = "red")
 
 # Visualize the plot that we just made
 dc_origins
@@ -83,14 +133,13 @@ ggsave(plot = dc_origins,
        filename = "dc_origins.png", 
        device = "png", 
        units = "cm",
-       width = 15,
-       height = 5)
+       width = 20,
+       height = 12)
 ```
 
 <br> 
 
-This code produced the below figure for the Data Intensive Biology Summer 
-Institute course "Introduction to R" on July 17, 2017.
+This code produced the below figure for an example dataset.
 
 <div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
 ![](./img/dc_origins.png)

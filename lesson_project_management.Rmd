@@ -89,3 +89,5 @@ going to use in this workshop and put that in a "raw_data" directory inside your
 >     - scripts
 >     - results
 >     - papers
+
+This lesson is adapted from the Software Carpentry: R for Reproducible Scientific Analysis [Project management with RStudio materials](http://data-lessons.github.io/gapminder-R/02-project-intro.html).

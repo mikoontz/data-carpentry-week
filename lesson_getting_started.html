@@ -327,7 +327,7 @@ div.tocify {
       <a href="lesson_getting_started.html">Getting started</a>
     </li>
     <li>
-      <a href="lesson_orientation.html">Orientation to R, RStudio, and programming</a>
+      <a href="lesson_intro_r_rstudio.html">Orientation to R, RStudio, and programming</a>
     </li>
     <li>
       <a href="lesson_project_management.html">Project management</a>
@@ -458,9 +458,16 @@ div.tocify {
 </div>
 
 
+<p><br></p>
 <div id="orientation-to-the-course" class="section level2">
 <h2>Orientation to the course</h2>
 <ol style="list-style-type: decimal">
+<li>Setup (as you arrive)
+<ul>
+<li>software installation</li>
+<li>power outlets</li>
+<li>internet access</li>
+</ul></li>
 <li>Brief introduction of co-instructors</li>
 <li>Restrooms</li>
 <li>Coffee/tea/water/juice</li>
@@ -468,14 +475,19 @@ div.tocify {
 <li>Territory acknowledgement</li>
 <li>Data Carpentry
 <ul>
-<li>Live coding</li>
+<li>Live coding
+<ul>
+<li>slows the pace</li>
+<li>increasing retention with multiple ways of getting information</li>
+<li>watch my mistakes and how I fix them</li>
+</ul></li>
 <li>Sticky notes
 <ul>
 <li>Green: I’m finished with the task; I’m ready to move on; Feedback on something that’s going well for you</li>
 <li>Red: I have a question; I’m not ready to move on; Feedback on something we can improve</li>
 </ul></li>
-<li>Important links</li>
 </ul></li>
+<li>Important links</li>
 <li>Introductions
 <ul>
 <li>Name</li>
@@ -486,43 +498,82 @@ div.tocify {
 <li>Motivating examples
 <ul>
 <li>This website!</li>
-<li>Where are we coming from?</li>
+<li>Where are we coming from and where are we going…</li>
 </ul></li>
 </ol>
 <p><br></p>
 </div>
 <div id="a-motivating-example" class="section level2">
 <h2>A motivating example…</h2>
-<p>This is an example R script. Don’t try to take in all the details just yet. Instead, let it wash over you and think about the broad view. The gestalt. The forest and not the trees.</p>
+<p>This is an example R script. Don’t try to take in all the details just yet. Instead, let it wash over you and get a gestalt sense of where we are coming from and where we are headed…</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load necessary packages</span>
-<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(viridis)
+<span class="kw">library</span>(geosphere)
 <span class="kw">library</span>(ggmap)
 
-<span class="co"># Import the data; be sure to make all strings NOT factors because we aren&#39;t</span>
-<span class="co"># doing any statistics here so they hurt us more than help</span>
-learners &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;roster.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+<span class="co"># What is the current location of the workshop?</span>
+currentLocation_str &lt;-<span class="st"> &quot;Davis, California&quot;</span>
+currentLocation &lt;-<span class="st"> </span><span class="kw">geocode</span>(currentLocation_str)
 
-<span class="co"># Split each students&#39; email into its 2 constituent pieces, the id and the</span>
-<span class="co"># domain, based on what comes before and after the &#39;@&#39; symbol</span>
-<span class="co"># Then, reattach both values back to the file we just imported and renames</span>
-<span class="co"># those columns &quot;id&quot; and &quot;email_affiliation&quot;</span>
+<span class="co"># Import the data</span>
+learners &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;dc_origins.csv&quot;</span>)
+
+<span class="co"># Use the mutate_geocode() function in the ggmap package on that new column to </span>
+<span class="co"># add new columns to the dataframe representing the longitude and latitude of</span>
+<span class="co"># each learner&#39;s hometown as a result of a Google Maps lookup.</span>
+<span class="co"># [For instance, if your hometown is &quot;Davis, California&quot;, the mutate_geocode() </span>
+<span class="co"># function will return -121.7405 in the &quot;lon&quot; column and 38.54491 in the &quot;lat&quot;</span>
+<span class="co"># column]</span>
+<span class="co"># Remove any rows that fail to geocode. Sorry!</span>
+
 learners &lt;-<span class="st"> </span>
 <span class="st">  </span>learners %&gt;%
-<span class="st">  </span><span class="kw">strsplit</span>(<span class="dt">x =</span> .$Email, <span class="dt">split =</span> <span class="st">&quot;@&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">do.call</span>(rbind, .) %&gt;%
-<span class="st">  </span><span class="kw">as.data.frame</span>(<span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>) %&gt;%
-<span class="st">  </span><span class="kw">cbind</span>(learners, .) %&gt;%
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">id =</span> V1, <span class="dt">email_affiliation =</span> V2)
+<span class="st">  </span><span class="kw">as.data.frame</span>() %&gt;%
+<span class="st">  </span><span class="kw">mutate_geocode</span>(location) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(.))
 
-<span class="co"># Use the ggmap package to &quot;geocode&quot; the email_affiliation that we just </span>
-<span class="co"># figured out for each student, which means go to Google and get a latitude</span>
-<span class="co"># and a longitude associated with that email domain. For instance, if your</span>
-<span class="co"># email domain is &quot;ucdavis.edu&quot;, the geocode() function will return the</span>
-<span class="co"># latitude and longitude of the University of California, Davis in the United</span>
-<span class="co"># States</span>
-learners &lt;-<span class="st"> </span>
-<span class="st">  </span><span class="kw">geocode</span>(learners$email_affiliation) %&gt;%
-<span class="st">  </span><span class="kw">cbind</span>(learners, .)
+<span class="co"># Use the gcIntermediate() function from the geosphere package to get points</span>
+<span class="co"># representing the Great Circle paths between each learner&#39;s hometown and the</span>
+<span class="co"># current location of the workshop.</span>
+gcPoints &lt;-<span class="st"> </span>
+<span class="st">  </span><span class="kw">gcIntermediate</span>(<span class="dt">p1 =</span> learners[, <span class="kw">c</span>(<span class="st">&quot;lon&quot;</span>, <span class="st">&quot;lat&quot;</span>)], 
+                 <span class="dt">p2 =</span> currentLocation[, <span class="kw">c</span>(<span class="st">&quot;lon&quot;</span>, <span class="st">&quot;lat&quot;</span>)],
+                 <span class="dt">breakAtDateLine =</span> <span class="ot">TRUE</span>
+                )
+
+<span class="co"># Loop through each Great Circle path and assign each a unique identifier. If</span>
+<span class="co"># the Great Circle passes the International Date Line, each segment on either</span>
+<span class="co"># side of the Date Line needs to get it&#39;s own group identifier so it can be</span>
+<span class="co"># plotted separately. In these cases, assign each of the 2 segments a unique</span>
+<span class="co"># id, then bind the 2 list elements into a single data frame. If the Great</span>
+<span class="co"># Circle does *not* cross the International Date Line, add the unique identifier</span>
+<span class="co"># and coerce the list element into a data frame (from a matrix). Ensure all</span>
+<span class="co"># column names for each list element data frame have the same names.</span>
+
+for (i in <span class="kw">seq_along</span>(gcPoints)) {
+  currentPath &lt;-<span class="st"> </span>gcPoints[[i]]
+  if(<span class="kw">is.list</span>(currentPath)) {
+    currentPath[[<span class="dv">1</span>]] &lt;-<span class="st"> </span><span class="kw">data.frame</span>(currentPath[[<span class="dv">1</span>]], 
+                                   <span class="dt">path =</span> <span class="kw">paste0</span>(i, <span class="st">&quot;.1&quot;</span>), 
+                                   <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+    currentPath[[<span class="dv">2</span>]] &lt;-<span class="st"> </span><span class="kw">data.frame</span>(currentPath[[<span class="dv">2</span>]], 
+                                   <span class="dt">path =</span> <span class="kw">paste0</span>(i, <span class="st">&quot;.2&quot;</span>), 
+                                   <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+    currentPath &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(currentPath)
+  } else {
+    currentPath &lt;-<span class="st"> </span><span class="kw">data.frame</span>(currentPath, 
+                              <span class="dt">path =</span> <span class="kw">paste0</span>(i), 
+                              <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+  }
+  <span class="kw">colnames</span>(currentPath) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;lon&quot;</span>, <span class="st">&quot;lat&quot;</span>, <span class="st">&quot;path&quot;</span>)
+  gcPoints[[i]] &lt;-<span class="st"> </span>currentPath
+}
+
+<span class="co"># Combine the list of data frame elements into a single dataframe, since we know</span>
+<span class="co"># each list element data frame has the same number of columns and the same</span>
+<span class="co"># column names</span>
+gcPoints &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(gcPoints)
 
 <span class="co"># Create a plot of the locations of each student&#39;s email_affiliation on a globe </span>
 <span class="co"># by mapping the longitude to the x position on the plot, and the latitude to</span>
@@ -530,10 +581,12 @@ learners &lt;-<span class="st"> </span>
 <span class="co"># generate a rough sketch of the land masses on Earth. Color all the points red</span>
 <span class="co"># and make them twice as large as default. Ensure that the figure has a 1:1</span>
 <span class="co"># ratio between units on the x-axis and units on the y-axis.</span>
-dc_origins &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> learners) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">borders</span>(<span class="st">&quot;world&quot;</span>, <span class="dt">colour=</span><span class="st">&quot;gray50&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;gray50&quot;</span>)  +
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">coord_equal</span>()
+dc_origins &lt;-<span class="st"> </span><span class="kw">ggplot</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">borders</span>(<span class="st">&quot;world&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;gray50&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;gray50&quot;</span>)  +
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> learners, <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, <span class="dt">color =</span> location), <span class="dt">size =</span> <span class="dv">2</span>) +
+<span class="st">  </span><span class="kw">scale_color_viridis</span>(<span class="dt">discrete =</span> <span class="ot">TRUE</span>) +
+<span class="st">  </span><span class="kw">coord_equal</span>() +
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data =</span> gcPoints, <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, <span class="dt">group =</span> <span class="kw">factor</span>(path)), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)
 
 <span class="co"># Visualize the plot that we just made</span>
 dc_origins
@@ -544,10 +597,10 @@ dc_origins
        <span class="dt">filename =</span> <span class="st">&quot;dc_origins.png&quot;</span>, 
        <span class="dt">device =</span> <span class="st">&quot;png&quot;</span>, 
        <span class="dt">units =</span> <span class="st">&quot;cm&quot;</span>,
-       <span class="dt">width =</span> <span class="dv">15</span>,
-       <span class="dt">height =</span> <span class="dv">5</span>)</code></pre></div>
+       <span class="dt">width =</span> <span class="dv">20</span>,
+       <span class="dt">height =</span> <span class="dv">12</span>)</code></pre></div>
 <p><br></p>
-<p>This code produced the below figure for the Data Intensive Biology Summer Institute course “Introduction to R” on July 17, 2017.</p>
+<p>This code produced the below figure for an example dataset.</p>
 <div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
 <div class="figure">
 <img src="img/dc_origins.png" />

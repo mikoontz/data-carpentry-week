@@ -277,7 +277,7 @@ head(mloa_2001$datetime) # in POSIXct
 
 **Solutions**
 
-```{r solution, eval=F, echo=F}
+```{r solution, eval=T, echo=F}
 library(dplyr)
 library(ggplot2)
 library(lubridate)

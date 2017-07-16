@@ -34,6 +34,8 @@ The different join functions control what happens to rows that exist in one tabl
 - `right_join` keeps all the entries that are present in the right table and excludes any that are only in the left table.
 - `inner_join` keeps only the entries that are present in both tables. `inner_join` is the only function that guarantees you won't generate any missing entries.
 - `full_join` keeps all of the entries in both tables, regardless of whether or not they appear in the other table.
+- `anti_join` find entries in one table that don't match the other table, a useful technique to identify the rows that are missing or won't join.
+- `semi_join` Return all rows from left table (x) where there are matching values in right table (y), keeping just columns from (x). A semi join differs from an inner join because an inner join will return one row of x for each matching row of y, where a semi join will never duplicate rows of x. This is a filtering join.
 
 ![dplyr joins, via RStudio](fig/dplyr-joins.png)
 

@@ -1,9 +1,8 @@
 ---
-layout: page
-title: R for reproducible scientific analysis
-subtitle: Project management with RStudio
-minutes: 20
+title: Project management with RStudio
 ---
+
+<br>
 
 > ## Learning objectives {.objectives}
 >
@@ -52,42 +51,62 @@ At a minimum, it's useful to have separate directories for each of the following
 
 ### RStudio Projects
 
-RStudio has a feature to help keep everything organized in a self-contained, reproducible package, called a "project".
+RStudio has a feature to help keep everything organized in a self-contained, 
+reproducible package, called a "project".
 
-A project is a small file with a `.Rproj` extension, but you can think of all the files and sub-directories as belonging to that project. We recommend creating a directory and a project file for each project you work on. It should look something like this:
+A project is a small file with a `.Rproj` extension, but you can think of all 
+the files and sub-directories as belonging to that project. We recommend 
+creating a directory and a project file for each project you work on. It should 
+look something like this:
 
-![](img/good_project_organization.png)
+![Example of a working directory structure](img/working-directory-structure.png)
 
-When you want to work on this project using R, double click on the .Rproj file, and RStudio will open it and keep everything organized for you. You can also open an existing project from RStudio by clicking "File -> Open project..."
 
-> #### Challenge -- Create a Project {.challenge}
+When you want to work on this project using R, double click on the .Rproj file, 
+and RStudio will open it and keep everything organized for you. You can also 
+open an existing project from RStudio by clicking "File -> Open project..."
+
+> #### Challenge -- Create a Project
 >
-> Let's create a new project in RStudio that will contain all of our work for this workshop.
+> Let's create a new project in RStudio that will contain all of our work for 
+> today.
 >
 > 1. Click the "File" menu button, then "New Project".
 > 2. Click "New Directory".
 > 3. Click "Empty Project".
-> 4. Type a descriptive directory name: This is the title of your project, so for this one you might use "DataCarpentry" or something similar.
-> 5. Store the new directory in a sensable place in your computer's organizational scheme. 
-> If you have a "workshops" or "classes" directory that would make sense. 
-> This will create a new directory called "DataCarpentry" in that directory.
+> 4. Type a descriptive directory name: This is the title of your project, so 
+>   for this one you might use "DataCarpentry-day1" or something similar.
+> 5. Store the new directory in a sensible place in your computer's 
+>   organizational scheme. If you have a "workshops" or "classes" directory that
+>   would make sense. This will create a new directory called 
+>   "DataCarpentry-day1" in that directory.
 > 6. Click "Create Project".
 >
 
-If everything went right, RStudio should've flickered and you should be looking at a pretty bare RStudio instance. 
-That's okay. Click on the "Files" tab in the lower right pane. Your .Rproj file should be there with nothing else. 
-You've got the bare bones of a new project. Let's now create the directory structure described above, a folder for
-each of data, code, results, and papers. You can do this in RStudio by clicking on the "New Folder" button in the 
-Files pane, or in your OS by navigating to the directory you just created. Then we'll download the data that we're
-going to use in this workshop and put that in a "raw_data" directory inside your "data" directory.
+If everything went right, RStudio should've flickered and you should be looking 
+at a pretty bare RStudio instance. That's okay. Click on the "Files" tab in the 
+lower right pane. Your .Rproj file should be there with nothing else. You've got 
+the bare bones of a new project. Let's now create the directory structure 
+described above, a folder for each of data, code, results, and papers. You can 
+do this in RStudio by clicking on the "New Folder" button in the Files pane, or 
+in your OS by navigating to the directory you just created. 
 
 > #### Challenge -- Project Organization
 >
 > - In your project directory, either using the Project tab of RStudio or your OS' file system, 
 > create the following directories:
 >     - data
->     - scripts
+>     - code
 >     - results
 >     - papers
+>
+> The finished product should look something like this on your computer:  
+>
+> ![](img/good_project_organization.png)
 
-This lesson is adapted from the Software Carpentry: R for Reproducible Scientific Analysis [Project management with RStudio materials](http://data-lessons.github.io/gapminder-R/02-project-intro.html).
+<br>
+
+This lesson is adapted from the Software Carpentry: R for Reproducible Scientific Analysis [Project management with RStudio materials](http://data-lessons.github.io/gapminder-R/02-project-intro.html) and
+the Data Carpentry: R for data analysis and visualization of Ecological Data 
+[Before We Start materials](http://www.datacarpentry.org/R-ecology-lesson/00-before-we-start.html).
+.

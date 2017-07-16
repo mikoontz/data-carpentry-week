@@ -8,7 +8,7 @@ navbar:
       menu: 
         - text: "Getting started"
           href: lesson_getting_started.html
-        - text: "Orientation to R, RStudio, and programming"
+        - text: "Orientation to programming, R, and RStudio"
           href: lesson_intro_r_rstudio.html
         - text: "Project management"
           href: lesson_project_management.html

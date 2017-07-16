@@ -327,7 +327,7 @@ div.tocify {
       <a href="lesson_getting_started.html">Getting started</a>
     </li>
     <li>
-      <a href="lesson_intro_r_rstudio.html">Orientation to R, RStudio, and programming</a>
+      <a href="lesson_intro_r_rstudio.html">Orientation to programming, R, and RStudio</a>
     </li>
     <li>
       <a href="lesson_project_management.html">Project management</a>
@@ -473,10 +473,11 @@ div.tocify {
 </blockquote>
 <div id="why-programming" class="section level2">
 <h2>Why programming?</h2>
+<p>Programming can make your science even better than it already is.</p>
 <p>The basis of programming is that we write down instructions for the computer to follow, and then we tell the computer to follow those instructions. We write, or <em>code</em>, instructions in R because it is a common language that both the computer and we can understand. We call the instructions <em>commands</em> and we tell the computer to follow the instructions by <em>executing</em> (also called <em>running</em>) those commands.</p>
-<p>Programming makes your science:</p>
+<p>The benefits of programming parallel many of the cornerstones of science. Programming makes your workflow:</p>
 <ul>
-<li>Precise<br />
+<li>Precise and flexible<br />
 </li>
 <li>Efficient<br />
 </li>
@@ -487,7 +488,9 @@ div.tocify {
 </div>
 <div id="why-r" class="section level2">
 <h2>Why R?</h2>
-<p>R is a free, open-source programming language that is designed for data analysis and statistics. It has a huge user-community and is highly extensible, with thousands of packages that add extra functionality at the official Comprehensive R Archive Network. For almost anything you want to do, there is an R package to help. In short, for most social scientists, it is the best tool to organize, visualize, and analyze data.</p>
+<p>R is a free, open-source programming language that is designed for data analysis and statistics.</p>
+<p>We write code in R because it is a language that both we and the computer can understand. It is a common language between us.</p>
+<p>R also has a huge user-community and is highly extensible, with thousands of packages that add extra functionality. Lots of researchers use R, so it is also a common language between us and our colleagues. In short, for many researchers, it is the best tool to organize, visualize, and analyze data.</p>
 </div>
 <div id="why-rstudio" class="section level2">
 <h2>Why RStudio?</h2>
@@ -499,35 +502,35 @@ div.tocify {
 <h2>Introduction to RStudio</h2>
 <p>When you open RStudio you should see three panels:</p>
 <ol style="list-style-type: decimal">
-<li>The interactive R console (entire left)</li>
-<li>Workspace/History (tabbed in upper right)</li>
-<li>Files/Plots/Packages/Help (tabbed in lower right)</li>
+<li>The interactive R <strong>Console</strong> (entire left)</li>
+<li><strong>Environment/History</strong> (tabbed in upper right)</li>
+<li><strong>Files/Plots/Packages/Help/Viewer</strong> (tabbed in lower right)</li>
 </ol>
+<p>The placement of these panes and their content can be customized (see menu, Tools -&gt; Global Options -&gt; Pane Layout).</p>
+<p>One of the advantages of using RStudio is that all the information you need to write code is available in a single window. Additionally, with many shortcuts, autocompletion, and highlighting for the major file types you use while developing in R, RStudio will make typing easier and less error-prone.</p>
 <div id="workflow-within-rstudio" class="section level3">
 <h3>Workflow within Rstudio</h3>
 <p>Console vs. script</p>
 <ul>
 <li>Console
 <ul>
-<li>The R console is where code is run
-<ul>
-<li>The console in RStudio is the same as if typed in <code>R</code> in your command line</li>
-</ul></li>
-<li>When you start RStudio, you’ll see a bunch of information, followed by a “&gt;” and a blinking cursor. This is a “Read, evaluate, print loop”. It’s highly interactive: You can type in commands and R will execute them and print the result.</li>
+<li>The R console is where code is run/executed</li>
+<li>When you start RStudio, you’ll see a bunch of information, followed by a “&gt;” and a blinking cursor.</li>
+<li>You can type in commands here and, by pressing <code>Enter</code>, R will execute those commands and print the result.</li>
 <li>You can work here, and your history is saved, but that is a laborious way to work</li>
 </ul></li>
 <li>Script
 <ul>
 <li>Preserve work in a plain-text file (with .R extension)</li>
-<li>Create new R script with <code>File -&gt; New File -&gt; R Script</code> or ctrl/cmd-shift-N</li>
+<li>Create new R script with <code>File -&gt; New File -&gt; R Script</code> or ‘ctrl/cmd-shift-N’</li>
 <li>There’s now a fourth RStudio panel, which is your plain-text script
 <ul>
 <li>Do your work here, and save this to be able to reproduce or edit it at a later date.</li>
-<li>For now your script is unsaved and called “untitled1” or something. We’ll fix that shortly.</li>
+<li>For now your script is unsaved and called “Untitled1” or something. We’ll fix that shortly.</li>
 </ul></li>
-<li>cmd/ctrl-enter executes the line the cursor is on by copying that line and sending it to the Console
+<li><code>cmd/ctrl-enter</code> executes the line the cursor is on by copying that line and sending it to the Console
 <ul>
-<li>You can run multiple lines at once by highlighting them and pressing cmd/ctrl-enter</li>
+<li>You can run multiple lines at once by highlighting them and pressing <code>cmd/ctrl-enter</code></li>
 </ul></li>
 <li>Benefits of working in a script:
 <ul>
@@ -539,8 +542,8 @@ div.tocify {
 </ul>
 <blockquote>
 <h4 id="tip-pushing-to-the-interactive-r-console">Tip: Pushing to the interactive R console</h4>
-<p>To run the line of your script where the cursor is, you can click on the <code>Run</code> button at the top-right of the script pane or use the keyboard short cut: cmd/ctrl-enter.</p>
-<p>To run a block of code, select (highlight) it and click <code>Run</code> or cmd/ctrl-enter.</p>
+<p>To run the line of your script where the cursor is, you can click on the <code>Run</code> button at the top-right of the script pane or use the keyboard short cut: <code>cmd/ctrl-enter</code>.</p>
+<p>To run a block of code, select (highlight) it and click <code>Run</code> or <code>cmd/ctrl-enter</code>.</p>
 <p>You are working toward selecting a whole script and running it.</p>
 <ul>
 <li>You’ll write your script interactively, running each line to make sure it works, and at the end, you’ll be able to run the whole analysis by selecting all and running the script. This way you can later rerun the analysis on new or modified data or change part of the analysis and everything will work with the click of a button.</li>
@@ -653,12 +656,7 @@ b &lt;- 4
 a &lt;- b
 c &lt;- a
 c </code></pre>
-<ol style="list-style-type: lower-alpha">
-<li>a</li>
-<li>3</li>
-<li>4</li>
-<li>::nothing::</li>
-</ol>
+<p>Option 1) a Option 2) 3 Option 3) 4 Option 4) ::nothing::</p>
 </blockquote>
 </div>
 <div id="variable-name-conventions" class="section level3">
@@ -775,7 +773,7 @@ d. log(10, 1000)</code></pre>
 elephant2_lb &lt;-<span class="st"> </span><span class="dv">7757</span></code></pre></div>
 </blockquote>
 <p><br></p>
-<p>This lesson is adapted from the Software Carpentry: R for Reproducible Scientific Analysis <a href="http://data-lessons.github.io/gapminder-R/01-intro-r-rstudio.html">Introduction to R and RStudio materials</a>.</p>
+<p>This lesson is adapted from the Software Carpentry: R for Reproducible Scientific Analysis <a href="http://data-lessons.github.io/gapminder-R/01-intro-r-rstudio.html">Introduction to R and RStudio materials</a> and the Data Carpentry: R for data analysis and visualization of Ecological Data <a href="http://www.datacarpentry.org/R-ecology-lesson/00-before-we-start.html">Before We Start materials</a>.</p>
 </div>
 </div>
 </div>

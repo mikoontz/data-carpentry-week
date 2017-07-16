@@ -16,6 +16,8 @@ title: "Orientation to programming, R, and RStudio"
 
 ## Why programming?
 
+Programming can make your science even better than it already is.
+
 The basis of programming is that we write down instructions for the computer to
 follow, and then we tell the computer to follow those instructions. We write, or
 *code*, instructions in R because it is a common language that both the computer
@@ -23,9 +25,10 @@ and we can understand. We call the instructions *commands* and we tell the
 computer to follow the instructions by *executing* (also called *running*) those
 commands.
 
-Programming makes your science: 
+The benefits of programming parallel many of the cornerstones of science.
+Programming makes your workflow: 
 
-- Precise  
+- Precise and flexible  
 - Efficient  
 - Reproducible  
 - Transparent  
@@ -34,10 +37,15 @@ Programming makes your science:
 ## Why R?
 
 R is a free, open-source programming language that is designed for data analysis 
-and statistics. It has a huge user-community and is highly extensible, with 
-thousands of packages that add extra functionality at the official Comprehensive
-R Archive Network. For almost anything you want to do, there is an R package to 
-help. In short, for most social scientists, it is the best tool to organize, 
+and statistics.  
+
+We write code in R because it is a language that both we and the
+computer can understand. It is a common language between us.  
+
+R also has a huge user-community and is highly extensible, with 
+thousands of packages that add extra functionality. Lots of researchers use R,
+so it is also a common language between us and our colleagues. In short, for 
+many researchers, it is the best tool to organize, 
 visualize, and analyze data.
 
 ## Why RStudio?
@@ -56,37 +64,43 @@ same way. RStudio helps by keeping things nicely organized.
 
 When you open RStudio you should see three panels:
 
-1. The interactive R console (entire left)
-1. Workspace/History (tabbed in upper right)
-1. Files/Plots/Packages/Help (tabbed in lower right)
+1. The interactive R **Console** (entire left)
+1. **Environment/History** (tabbed in upper right)
+1. **Files/Plots/Packages/Help/Viewer** (tabbed in lower right)
+
+The placement of these panes and their content can be customized (see menu, 
+Tools -> Global Options -> Pane Layout). 
+
+One of the advantages of using RStudio is that all the information
+you need to write code is available in a single window. Additionally, with many
+shortcuts, autocompletion, and highlighting for the major file types you use
+while developing in R, RStudio will make typing easier and less error-prone.
 
 ### Workflow within Rstudio
 
 Console vs. script
 
 - Console
-    - The R console is where code is run
-        - The console in RStudio is the same as if typed in `R` in your command 
-        line
+    - The R console is where code is run/executed
     - When you start RStudio, you'll see a bunch of information, followed by a 
-    ">" and a blinking cursor. This is a "Read, evaluate, print loop". It's 
-    highly interactive: You can type in commands and R will execute them and 
-    print the result.
+    ">" and a blinking cursor. 
+    - You can type in commands here and, by pressing `Enter`, R will execute 
+    those commands and print the result.
     - You can work here, and your history is saved, but that is a laborious way 
     to work
 - Script
     - Preserve work in a plain-text file (with .R extension)
     - Create new R script with `File -> New File -> R Script` or 
-    ctrl/cmd-shift-N
+    'ctrl/cmd-shift-N'
     - There's now a fourth RStudio panel, which is your plain-text script
         - Do your work here, and save this to be able to reproduce or edit it at 
         a later date.
-        - For now your script is unsaved and called "untitled1" or something. 
+        - For now your script is unsaved and called "Untitled1" or something. 
         We'll fix that shortly.
-    - cmd/ctrl-enter executes the line the cursor is on by copying that line and 
-    sending it to the Console
+    - `cmd/ctrl-enter` executes the line the cursor is on by copying that line 
+    and sending it to the Console
         - You can run multiple lines at once by highlighting them and pressing 
-        cmd/ctrl-enter
+        `cmd/ctrl-enter`
     - Benefits of working in a script:
         - Mixes interactivity and preservation
         - Save just text and can get same results at another time or on another 
@@ -96,11 +110,11 @@ Console vs. script
 
 > #### Tip: Pushing to the interactive R console
 > To run the line of your script where the cursor is, you can click on the `Run` 
-> button at the top-right of the
-> script pane or use the keyboard short cut: cmd/ctrl-enter.
+> button at the top-right of the script pane or use the keyboard short cut: 
+> `cmd/ctrl-enter`.
 >
 > To run a block of code, select (highlight) it and click `Run` or 
-> cmd/ctrl-enter. 
+> `cmd/ctrl-enter`. 
 >
 > You are working toward selecting a whole script and running it. 
 >
@@ -315,10 +329,10 @@ x <- x + 1
 > c 
 > ```
 >
-> a. a
-> b. 3
-> c. 4
-> d. ::nothing::
+> Option 1) a
+> Option 2) 3
+> Option 3) 4
+> Option 4) ::nothing::
 >
 
 
@@ -513,4 +527,6 @@ test whether elephant1 weights more than elephant2 (1 kg ≈ 2.2 lb).
 <br>
 
 This lesson is adapted from the Software Carpentry: R for Reproducible 
-Scientific Analysis [Introduction to R and RStudio materials](http://data-lessons.github.io/gapminder-R/01-intro-r-rstudio.html).
+Scientific Analysis [Introduction to R and RStudio materials](http://data-lessons.github.io/gapminder-R/01-intro-r-rstudio.html)
+and the Data Carpentry: R for data analysis and visualization of Ecological Data 
+[Before We Start materials](http://www.datacarpentry.org/R-ecology-lesson/00-before-we-start.html).

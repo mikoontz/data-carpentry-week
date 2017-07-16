@@ -45,4 +45,6 @@ For this course, we embrace the spirit of [collaborative lesson development](htt
 
 ## Extra readings
 
-* [Wickham, Hadley. 2014. Tidy Data. Journal of Statistical Software. 59(10), 1-23.](https://www.jstatsoft.org/article/view/v059i10)
+* [Tidy Data paper by Hadley Wickham in the Journal of Statistical Software (2014)](https://www.jstatsoft.org/article/view/v059i10)
+* [R for Data Science book by Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/)
+* [RStudio Cheatsheets](https://www.rstudio.com/resources/cheatsheets/)

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Getting Started</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="site_libs/academicons-1.8.0/css/academicons.css"/>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Day 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lesson_getting_started.html">Getting started</a>
+    </li>
+    <li>
+      <a href="lesson_intro_r_rstudio.html">Orientation to R, RStudio, and programming</a>
+    </li>
+    <li>
+      <a href="lesson_project_management.html">Project management</a>
+    </li>
+    <li>
+      <a href="lesson_data_frames.html">Data frames</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Day 2
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="refresh_day1.html">Refresh day 1</a>
+    </li>
+    <li>
+      <a href="lesson_dplyr.html">Data frame manipulation</a>
+    </li>
+    <li>
+      <a href="lesson_visualization_ggplot2.html">Data visualization</a>
+    </li>
+    <li>
+      <a href="lesson_data_import.html">Data import</a>
+    </li>
+    <li>
+      <a href="lesson_import_dplyr_ggplot2.html">Data import %&gt;% dplyr %&gt;% ggplot2</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Day 3
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="refresh_day2.html">Refresh day 2</a>
+    </li>
+    <li>
+      <a href="lesson_dynamic_documents.html">Dynamic documents</a>
+    </li>
+    <li>
+      <a href="lesson_tidyr.html">Tidying data</a>
+    </li>
+    <li>
+      <a href="lesson_tidyr_plus.html">Tidying data+</a>
+    </li>
+    <li>
+      <a href="lesson_lubridate.html">Time data with lubridate</a>
+    </li>
+    <li>
+      <a href="lesson_functions.html">Custom functions</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Day 4
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="refresh_day3.html">Refresh day 3</a>
+    </li>
+    <li>
+      <a href="lesson_joins.html">Table joins</a>
+    </li>
+    <li>
+      <a href="lesson_joins_plus.html">Table joins+</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Day 5
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="refresh_day4.html">Refresh day 4</a>
+    </li>
+    <li>
+      <a href="lesson_for_loops.html">Automation with for loops</a>
+    </li>
+    <li>
+      <a href="lesson_purrr.html">Automation with purrr</a>
+    </li>
+    <li>
+      <a href="lesson_capstone.html">Capstone</a>
+    </li>
+    <li>
+      <a href="lesson_closing_thoughts.html">Closing thoughts</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="resources.html">Resources</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="contact.html">Contact</a>
+</li>
+<li>
+  <a href="https://github.com/mikoontz/data-carpentry-week">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Getting Started</h1>
+
+</div>
+
+
+<p><br></p>
+<div id="orientation-to-the-course" class="section level2">
+<h2>Orientation to the course</h2>
+<ol style="list-style-type: decimal">
+<li>Setup (as you arrive)
+<ul>
+<li>software installation</li>
+<li>power outlets</li>
+<li>internet access</li>
+</ul></li>
+<li>Brief introduction of co-instructors</li>
+<li>Restrooms</li>
+<li>Coffee/tea/water/juice</li>
+<li>Code of Conduct</li>
+<li>Territory acknowledgement</li>
+<li>Data Carpentry
+<ul>
+<li>Live coding
+<ul>
+<li>slows the pace</li>
+<li>increasing retention with multiple ways of getting information</li>
+<li>watch my mistakes and how I fix them</li>
+</ul></li>
+<li>Sticky notes
+<ul>
+<li>Green: I’m finished with the task; I’m ready to move on; Feedback on something that’s going well for you</li>
+<li>Red: I have a question; I’m not ready to move on; Feedback on something we can improve</li>
+</ul></li>
+</ul></li>
+<li>Important links</li>
+<li>Introductions
+<ul>
+<li>Name</li>
+<li>Affiliation</li>
+<li>Field of study</li>
+<li>Something you made recently that you’re proud of</li>
+</ul></li>
+<li>Motivating examples
+<ul>
+<li>This website!</li>
+<li>Where are we coming from and where are we going…</li>
+</ul></li>
+</ol>
+<p><br></p>
+</div>
+<div id="a-motivating-example" class="section level2">
+<h2>A motivating example…</h2>
+<p>This is an example R script. Don’t try to take in all the details just yet. Instead, let it wash over you and get a gestalt sense of where we are coming from and where we are headed…</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load necessary packages</span>
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(viridis)
+<span class="kw">library</span>(geosphere)
+<span class="kw">library</span>(ggmap)
+
+<span class="co"># What is the current location of the workshop?</span>
+currentLocation_str &lt;-<span class="st"> &quot;Davis, California&quot;</span>
+currentLocation &lt;-<span class="st"> </span><span class="kw">geocode</span>(currentLocation_str)
+
+<span class="co"># Import the data</span>
+learners &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;dc_origins.csv&quot;</span>)
+
+<span class="co"># Use the mutate_geocode() function in the ggmap package on that new column to </span>
+<span class="co"># add new columns to the dataframe representing the longitude and latitude of</span>
+<span class="co"># each learner&#39;s hometown as a result of a Google Maps lookup.</span>
+<span class="co"># [For instance, if your hometown is &quot;Davis, California&quot;, the mutate_geocode() </span>
+<span class="co"># function will return -121.7405 in the &quot;lon&quot; column and 38.54491 in the &quot;lat&quot;</span>
+<span class="co"># column]</span>
+<span class="co"># Remove any rows that fail to geocode. Sorry!</span>
+
+learners &lt;-<span class="st"> </span>
+<span class="st">  </span>learners %&gt;%
+<span class="st">  </span><span class="kw">as.data.frame</span>() %&gt;%
+<span class="st">  </span><span class="kw">mutate_geocode</span>(location) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(.))
+
+<span class="co"># Use the gcIntermediate() function from the geosphere package to get points</span>
+<span class="co"># representing the Great Circle paths between each learner&#39;s hometown and the</span>
+<span class="co"># current location of the workshop.</span>
+gcPoints &lt;-<span class="st"> </span>
+<span class="st">  </span><span class="kw">gcIntermediate</span>(<span class="dt">p1 =</span> learners[, <span class="kw">c</span>(<span class="st">&quot;lon&quot;</span>, <span class="st">&quot;lat&quot;</span>)], 
+                 <span class="dt">p2 =</span> currentLocation[, <span class="kw">c</span>(<span class="st">&quot;lon&quot;</span>, <span class="st">&quot;lat&quot;</span>)],
+                 <span class="dt">breakAtDateLine =</span> <span class="ot">TRUE</span>
+                )
+
+<span class="co"># Loop through each Great Circle path and assign each a unique identifier. If</span>
+<span class="co"># the Great Circle passes the International Date Line, each segment on either</span>
+<span class="co"># side of the Date Line needs to get it&#39;s own group identifier so it can be</span>
+<span class="co"># plotted separately. In these cases, assign each of the 2 segments a unique</span>
+<span class="co"># id, then bind the 2 list elements into a single data frame. If the Great</span>
+<span class="co"># Circle does *not* cross the International Date Line, add the unique identifier</span>
+<span class="co"># and coerce the list element into a data frame (from a matrix). Ensure all</span>
+<span class="co"># column names for each list element data frame have the same names.</span>
+
+for (i in <span class="kw">seq_along</span>(gcPoints)) {
+  currentPath &lt;-<span class="st"> </span>gcPoints[[i]]
+  if(<span class="kw">is.list</span>(currentPath)) {
+    currentPath[[<span class="dv">1</span>]] &lt;-<span class="st"> </span><span class="kw">data.frame</span>(currentPath[[<span class="dv">1</span>]], 
+                                   <span class="dt">path =</span> <span class="kw">paste0</span>(i, <span class="st">&quot;.1&quot;</span>), 
+                                   <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+    currentPath[[<span class="dv">2</span>]] &lt;-<span class="st"> </span><span class="kw">data.frame</span>(currentPath[[<span class="dv">2</span>]], 
+                                   <span class="dt">path =</span> <span class="kw">paste0</span>(i, <span class="st">&quot;.2&quot;</span>), 
+                                   <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+    currentPath &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(currentPath)
+  } else {
+    currentPath &lt;-<span class="st"> </span><span class="kw">data.frame</span>(currentPath, 
+                              <span class="dt">path =</span> <span class="kw">paste0</span>(i), 
+                              <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+  }
+  <span class="kw">colnames</span>(currentPath) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;lon&quot;</span>, <span class="st">&quot;lat&quot;</span>, <span class="st">&quot;path&quot;</span>)
+  gcPoints[[i]] &lt;-<span class="st"> </span>currentPath
+}
+
+<span class="co"># Combine the list of data frame elements into a single dataframe, since we know</span>
+<span class="co"># each list element data frame has the same number of columns and the same</span>
+<span class="co"># column names</span>
+gcPoints &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(gcPoints)
+
+<span class="co"># Create a plot of the locations of each student&#39;s email_affiliation on a globe </span>
+<span class="co"># by mapping the longitude to the x position on the plot, and the latitude to</span>
+<span class="co"># the y position on the plot. Use the borders() function from ggplot2 to </span>
+<span class="co"># generate a rough sketch of the land masses on Earth. Color all the points red</span>
+<span class="co"># and make them twice as large as default. Ensure that the figure has a 1:1</span>
+<span class="co"># ratio between units on the x-axis and units on the y-axis.</span>
+dc_origins &lt;-<span class="st"> </span><span class="kw">ggplot</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">borders</span>(<span class="st">&quot;world&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;gray50&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;gray50&quot;</span>)  +
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> learners, <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, <span class="dt">color =</span> location), <span class="dt">size =</span> <span class="dv">2</span>) +
+<span class="st">  </span><span class="kw">scale_color_viridis</span>(<span class="dt">discrete =</span> <span class="ot">TRUE</span>) +
+<span class="st">  </span><span class="kw">coord_equal</span>() +
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data =</span> gcPoints, <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, <span class="dt">group =</span> <span class="kw">factor</span>(path)), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)
+
+<span class="co"># Visualize the plot that we just made</span>
+dc_origins
+
+<span class="co"># Save the plot we made as a .png file to our working directory while</span>
+<span class="co"># specifiying its height and width</span>
+<span class="kw">ggsave</span>(<span class="dt">plot =</span> dc_origins,
+       <span class="dt">filename =</span> <span class="st">&quot;dc_origins.png&quot;</span>, 
+       <span class="dt">device =</span> <span class="st">&quot;png&quot;</span>, 
+       <span class="dt">units =</span> <span class="st">&quot;cm&quot;</span>,
+       <span class="dt">width =</span> <span class="dv">20</span>,
+       <span class="dt">height =</span> <span class="dv">12</span>)</code></pre></div>
+<p><br></p>
+<p>This code produced the below figure for an example dataset.</p>
+<div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
+<div class="figure">
+<img src="img/dc_origins.png" />
+
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

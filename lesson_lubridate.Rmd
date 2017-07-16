@@ -298,6 +298,9 @@ df %>%
             avg_temp_10m = mean(temp_C_10m),
             avg_temp_tower = mean(temp_C_towertop)) %>% 
   knitr::kable(digits = 2)
+```
+
+```{r, echo=F}
 
 df %>% 
   group_by(mon) %>% 
@@ -308,7 +311,10 @@ df %>%
   geom_point(aes(x=mon, y=avg_temp_10m), color="maroon") + 
   geom_point(aes(x=mon, y=avg_temp_tower), color="forestgreen") +
   ylab("Avg Monthly Temperature (C)") + xlab("Month")
+```
 
+
+```{r, echo=F}
 
 # or with legend
 # use viridis color palette 
@@ -327,7 +333,12 @@ df %>%
   ylab("2001 Avg Monthly Temperature (C)") + xlab("Month") + 
   scale_fill_manual(name="Temperature (C)",values=cols1) +
   theme(legend.position = "bottom")
-  
+ 
+```
+
+ 
+
+```{r, echo=F}
 library(magrittr) # for the %T>% pipe...the "tee"
 
 # avg daily for july 
@@ -349,7 +360,11 @@ df %>% filter(mon=="Jul") %>% # or month==7
   scale_fill_manual(name="Temperature (C)",values=cols1) + 
   scale_color_manual(name="Temperature (C)",values=cols1) + 
   theme(legend.position = "bottom")
-  
+```
+
+
+
+```{r, echo=F}
 
 # avg hourly for july 
 df %>% filter(mon=="Jul") %>% # or month==7

@@ -23,6 +23,7 @@ get through packages.
     + [continents.RDA](data/continents.RDA) [gapminder continent-level data]
     + [wide_eg.csv](data/wide_eg.csv) [blood albumin levels]
     + [stocks.tsv](data/stocks.tsv) [restaurant stock data]
+    + [gapminder.csv](data/gapminder.csv) [country characteristics by year]
 * From [Ethan White and Zack Brym's Data Carpentry for Biologists course](http://www.datacarpentry.org/semester-biology/)
 
 <br>

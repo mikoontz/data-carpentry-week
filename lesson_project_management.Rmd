@@ -2,9 +2,7 @@
 title: Project management with RStudio
 ---
 
-<br>
-
-> ## Learning objectives {.objectives}
+> ## Learning objectives
 >
 > * Understand motivation for code and data management
 > * Know how to organize code, data, and results

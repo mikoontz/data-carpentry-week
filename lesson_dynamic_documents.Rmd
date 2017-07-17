@@ -68,8 +68,9 @@ With just one added file (a template), and installing a program called LaTeX, it
 **The following lesson/showcase will require 3 pieces:**  
 
  - Folks need to have a version of LaTeX installed, and it can take awhile, so if you don't already have it downloaded, please do so ahead of time if possible (here: http://www.latex-project.org/get/)  
- - You'll need the **`svm_template_latex_cv.tex`** file (the template that dictates how the PDF will look)
- - And you'll need the actual **`CV_template.Rmd`** file.
+ - You'll need the **`rap-latex-cv.tex`** file (the template that dictates how the PDF will look), you can download from [here](https://raw.githubusercontent.com/ryanpeek/markdown_cv/master/Rmarkdown/rap-latex-cv.tex)
+ 
+ - And you'll need the actual **`template-2pg-cv.Rmd`** file, [here](https://raw.githubusercontent.com/ryanpeek/markdown_cv/master/Rmarkdown/template-2pg-cv.Rmd).
 
 ### Important tips:
 

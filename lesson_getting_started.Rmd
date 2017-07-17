@@ -2,7 +2,12 @@
 title: "Getting Started"
 ---
 
-<br>
+> ## Learning objectives
+>
+> * Get familiar with the room
+> * Get familiar with the course mechanics
+> * Become etherpad and sticky note masters
+>
 
 ## Orientation to the course
 

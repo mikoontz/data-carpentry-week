@@ -9,7 +9,33 @@ minutes: 130
 >
 > - Be able to use the six major dplyr verbs (`filter`, `select`, `arrange`, `mutate`, `group_by`, `summarize`)
 > - Be able to use and understand the advantages of the `magrittr` pipe: `%>%`
+
+## Installing and loading packages
+
+`dplyr` is not part of "base R"; rather it is a package -- a library of functions that an R user wrote. This extensibility is part of the beauty of R. As of December 2016, there are 9,600 such packages in the official Comprehensive R Archive Network, better known as [CRAN](https://cran.r-project.org/). 
+
+`dplyr` is one of the most popular packages for R. It is part of a suite of R tools that make up "The Tidyverse". Its author conveniently bundled these tools together in a super-package called `tidyverse`. To use the tidyverse tools, you first need to download them to your machine (once) and then load them (each R session you want to use them). You can download a package via the RStudio menu bar Tools -> Install Packages..., or with a line of code:
+
+```{r, eval = FALSE}
+install.packages('tidyverse')
+```
+
+You only have to download the code once. But whenever you want to *use* a package, you have to load it in your R session. For that, use the `library` function:
+
+```{r, warning = FALSE}
+library(tidyverse)
+```
+
+
+> #### Challenge -- Install and load tidyverse {.challenge}
 >
+> - Install the `tidyverse` & `gapminder` packages, either with `install.packages('tidyverse', 'gapminder')` or via the menu bar: Tools -> Install Packages...  
+> - Load `tidyverse` with `library(tidyverse)`
+> - Load `gapminder` with `library(gapminder)`
+>   - You will see some warnings about conflicts. That's okay.
+
+
+## Data Wrangling with `dplyr`
 
 It is an often bemoaned fact that a data scientist spends much, and often most, of her time wrangling data: getting it organized and clean. In this lesson we will learn an efficient set of tools that can handle the vast majority of most data management tasks. 
 
@@ -318,21 +344,13 @@ gapminder %>%
 > - Calculate a new column: the total GDP of each country in each year. 
 > - Calculate the variance -- `var()` of countries' gdps in each year.
 > - Is country-level GDP getting more or less equal over time?
-> - Plot your findings.
 > 
 
 > #### Challenge -- Part 2 {.challenge}
 > 
 > - Modify the code you just wrote to calculate the variance in both country-level GDP and per-capita GDP.
 > - Do both measures support the conclusion you arrived at above?
-> 
 
-> #### Challenge -- Part 3 (Advanced) {.challenge}
-> 
-> The above plotting exercise asked you to plot summarized information, but it is generally preferable to avoid summarizing before plotting. Can you generate a plot that shows the information you calculated in Part 1 without summarizing?  
->
-> - Hint: `ggplot` interprets the `gapminder$year` as a numeric variable, which may be okay, but there are some plot types for which you need `ggplot` to see `gapminder$year` as a category. You can accomplish this by wrapping it in `factor` -- e.g. `ggplot(gapminder, aes(x = factor(year) ...`
->
 
 #### Resources
 

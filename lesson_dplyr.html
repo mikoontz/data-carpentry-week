@@ -466,8 +466,12 @@ div.tocify {
 <li>Be able to use and understand the advantages of the <code>magrittr</code> pipe: <code>%&gt;%</code></li>
 </ul>
 </blockquote>
-<p>It is an often bemoaned fact that a data scientist spends much, and often most, of her time wrangling data: getting it organized and clean. In this lesson we will learn an efficient set of tools that can handle the vast majority of most data management tasks.</p>
-<p>Enter <code>dplyr</code>, a package for making data manipulation easier. More on <code>dplyr</code> later. <code>dplyr</code> is part of <code>tidyverse</code>, so it is already installed on your machine. You can load it individually, or with the other tidyverse packages like this:</p>
+<div id="installing-and-loading-packages" class="section level2">
+<h2>Installing and loading packages</h2>
+<p><code>dplyr</code> is not part of “base R”; rather it is a package – a library of functions that an R user wrote. This extensibility is part of the beauty of R. As of December 2016, there are 9,600 such packages in the official Comprehensive R Archive Network, better known as <a href="https://cran.r-project.org/">CRAN</a>.</p>
+<p><code>dplyr</code> is one of the most popular packages for R. It is part of a suite of R tools that make up “The Tidyverse”. Its author conveniently bundled these tools together in a super-package called <code>tidyverse</code>. To use the tidyverse tools, you first need to download them to your machine (once) and then load them (each R session you want to use them). You can download a package via the RStudio menu bar Tools -&gt; Install Packages…, or with a line of code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;tidyverse&#39;</span>)</code></pre></div>
+<p>You only have to download the code once. But whenever you want to <em>use</em> a package, you have to load it in your R session. For that, use the <code>library</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
 <pre><code>## Loading tidyverse: ggplot2
 ## Loading tidyverse: tibble
@@ -479,7 +483,23 @@ div.tocify {
 <pre><code>## filter(): dplyr, stats
 ## lag():    dplyr, stats
 ## n():      dplyr, .env</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gapminder)</code></pre></div>
+<blockquote>
+<h4 id="challenge-install-and-load-tidyverse" class="challenge">Challenge – Install and load tidyverse</h4>
+<ul>
+<li>Install the <code>tidyverse</code> &amp; <code>gapminder</code> packages, either with <code>install.packages('tidyverse', 'gapminder')</code> or via the menu bar: Tools -&gt; Install Packages…<br />
+</li>
+<li>Load <code>tidyverse</code> with <code>library(tidyverse)</code></li>
+<li>Load <code>gapminder</code> with <code>library(gapminder)</code></li>
+<li>You will see some warnings about conflicts. That’s okay.</li>
+</ul>
+</blockquote>
+</div>
+<div id="data-wrangling-with-dplyr" class="section level2">
+<h2>Data Wrangling with <code>dplyr</code></h2>
+<p>It is an often bemoaned fact that a data scientist spends much, and often most, of her time wrangling data: getting it organized and clean. In this lesson we will learn an efficient set of tools that can handle the vast majority of most data management tasks.</p>
+<p>Enter <code>dplyr</code>, a package for making data manipulation easier. More on <code>dplyr</code> later. <code>dplyr</code> is part of <code>tidyverse</code>, so it is already installed on your machine. You can load it individually, or with the other tidyverse packages like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(gapminder)</code></pre></div>
 <p>Those messages and conflicts are normal. The conflicts are R telling you that there are two packages with functions named “filter” and “lag”. When R gives you red text, it’s not always a bad thing, but it does mean you should pay attention and try to understand what it’s trying to tell you.</p>
 <p>Remember that you only have to install each package once (per computer), but you have to load them for each R session in which you want to use them.</p>
 <p>You also have to load any data you want to use each time you start a new R session. So, if it’s not already loaded, read in the gapminder data. We’re going to use tidyverse’s <code>read_csv</code> instead of base R’s <code>read.csv</code> here. It has a few nice features; the most obvious is that it makes a special kind of data.frame that only prints the first ten rows instead of all 1704.</p>
@@ -506,6 +526,7 @@ div.tocify {
 ##  $ gdpPercap: num  779 821 853 836 740 ...</code></pre>
 <p>You can always convert a data.frame into this special kind of data.frame like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder &lt;-<span class="st"> </span><span class="kw">tbl_df</span>(gapminder)</code></pre></div>
+</div>
 <div id="what-is-dplyr" class="section level2">
 <h2>What is dplyr?</h2>
 <p>The package <code>dplyr</code> is a fairly new (2014) package that tries to provide easy tools for the most common data manipulation tasks. It is built to work directly with data frames. The thinking behind it was largely inspired by the package <code>plyr</code> which has been in use for some time but suffered from being slow in some cases.<code>dplyr</code> addresses this by porting much of the computation to C++. An additional feature is the ability to work with data stored directly in an external database. The benefits of doing this are that the data can be managed natively in a relational database, queries can be conducted on that database, and only the results of the query returned.</p>
@@ -994,7 +1015,6 @@ USdata</code></pre></div>
 <li>Calculate a new column: the total GDP of each country in each year.</li>
 <li>Calculate the variance – <code>var()</code> of countries’ gdps in each year.</li>
 <li>Is country-level GDP getting more or less equal over time?</li>
-<li>Plot your findings.</li>
 </ul>
 </blockquote>
 <blockquote>
@@ -1002,13 +1022,6 @@ USdata</code></pre></div>
 <ul>
 <li>Modify the code you just wrote to calculate the variance in both country-level GDP and per-capita GDP.</li>
 <li>Do both measures support the conclusion you arrived at above?</li>
-</ul>
-</blockquote>
-<blockquote>
-<h4 id="challenge-part-3-advanced" class="challenge">Challenge – Part 3 (Advanced)</h4>
-<p>The above plotting exercise asked you to plot summarized information, but it is generally preferable to avoid summarizing before plotting. Can you generate a plot that shows the information you calculated in Part 1 without summarizing?</p>
-<ul>
-<li>Hint: <code>ggplot</code> interprets the <code>gapminder$year</code> as a numeric variable, which may be okay, but there are some plot types for which you need <code>ggplot</code> to see <code>gapminder$year</code> as a category. You can accomplish this by wrapping it in <code>factor</code> – e.g. <code>ggplot(gapminder, aes(x = factor(year) ...</code></li>
 </ul>
 </blockquote>
 </div>

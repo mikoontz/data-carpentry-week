@@ -29,7 +29,8 @@ You also have to load any data you want to use each time you start a new R sessi
 ```{r load, warning = FALSE, message = FALSE}
 # gapminder <- read_csv('data/gapminder-FiveYearData.csv')
 class(gapminder)
-gapminder
+head(gapminder) # look at first few rows
+str(gapminder) # look at data structure
 ```
 
 You can always convert a data.frame into this special kind of data.frame like this:

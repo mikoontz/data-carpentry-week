@@ -1,13 +1,16 @@
 ---
 title: "Dates & Times in R"
-output: 
-  html_notebook:
-    toc: TRUE
 subtitle: Working with datetimes and `lubridate`
 minutes: 30
 ---
 
 ---
+
+```{r, include=FALSE}
+# Silently load in the data so the rest of the lesson works
+library(tidyverse)
+library(lubridate)
+```
 
 ## Learning objectives
 > * Learn the basic date/datetime data types in R

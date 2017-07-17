@@ -375,7 +375,7 @@ div.tocify {
       <a href="lesson_tidyr_plus.html">Tidying data+</a>
     </li>
     <li>
-      <a href="lesson_lubridate.html">Time data with `lubridate`</a>
+      <a href="lesson_lubridate.html">Time data with lubridate</a>
     </li>
     <li>
       <a href="lesson_functions.html">Custom functions</a>
@@ -411,10 +411,10 @@ div.tocify {
       <a href="refresh_day4.html">Refresh day 4</a>
     </li>
     <li>
-      <a href="lesson_for_loops.html">Automation with `for` loops</a>
+      <a href="lesson_for_loops.html">Automation with for loops</a>
     </li>
     <li>
-      <a href="lesson_purrr.html">Automation with `purrr`</a>
+      <a href="lesson_purrr.html">Automation with purrr</a>
     </li>
     <li>
       <a href="lesson_capstone.html">Capstone</a>
@@ -476,6 +476,8 @@ div.tocify {
 <li><code>right_join</code> keeps all the entries that are present in the right table and excludes any that are only in the left table.</li>
 <li><code>inner_join</code> keeps only the entries that are present in both tables. <code>inner_join</code> is the only function that guarantees you won’t generate any missing entries.</li>
 <li><code>full_join</code> keeps all of the entries in both tables, regardless of whether or not they appear in the other table.</li>
+<li><code>anti_join</code> find entries in one table that don’t match the other table, a useful technique to identify the rows that are missing or won’t join.</li>
+<li><code>semi_join</code> Return all rows from left table (x) where there are matching values in right table (y), keeping just columns from (x). A semi join differs from an inner join because an inner join will return one row of x for each matching row of y, where a semi join will never duplicate rows of x. This is a filtering join.</li>
 </ul>
 <div class="figure">
 <img src="fig/dplyr-joins.png" alt="dplyr joins, via RStudio" />
@@ -530,8 +532,8 @@ continents</code></pre></div>
 ## 10 Algeria    Africa  1997  69.152 29072015  4797.295 30370000 1022234000
 ## # ... with 1,695 more rows, and 1 more variables: percent_total_pop &lt;dbl&gt;</code></pre>
 <p>These operations produce slightly different results, either 1704 or 1705 observations. Can you figure out why? Antarctica contains no countries so doesn’t appear in the gapminder data.frame. When we use <code>left_join</code> it gets filtered from the results, but when we use <code>right_join</code> it appears, with missing values for all of the country-level variables:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">right_join</span>(gapminder, continents) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(continent ==<span class="st"> &quot;Antarctica&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">right_join</span>(gapminder, continents) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Antarctica&quot;</span>)</code></pre></div>
 <pre><code>## Joining, by = &quot;continent&quot;</code></pre>
 <pre><code>## Warning: Column `continent` joining factor and character vector, coercing
 ## into character vector</code></pre>
@@ -541,7 +543,7 @@ continents</code></pre></div>
 ## 1      NA Antarctica    NA      NA    NA        NA 13720000       4490
 ## # ... with 1 more variables: percent_total_pop &lt;dbl&gt;</code></pre>
 <p>There’s another problem in this data.frame – it has two population measures, one by continent and one by country and it’s not clear which is which! Let’s rename a couple of columns.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">right_join</span>(gapminder, continents) %&gt;%<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">right_join</span>(gapminder, continents) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">rename</span>(<span class="dt">country_pop =</span> pop, <span class="dt">continent_pop =</span> population)</code></pre></div>
 <pre><code>## Joining, by = &quot;continent&quot;</code></pre>
 <pre><code>## Warning: Column `continent` joining factor and character vector, coercing
@@ -582,19 +584,19 @@ continents</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 
 <span class="co"># Calculate country-level GDP</span>
-<span class="kw">mutate</span>(gapminder, <span class="dt">GDP =</span> gdpPercap *<span class="st"> </span>pop) %&gt;%<span class="st">  </span>
+<span class="kw">mutate</span>(gapminder, <span class="dt">GDP =</span> gdpPercap <span class="op">*</span><span class="st"> </span>pop) <span class="op">%&gt;%</span><span class="st">  </span>
 <span class="co"># Group by continent</span>
-<span class="st">    </span><span class="kw">group_by</span>(continent) %&gt;%<span class="st">  </span>
+<span class="st">    </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span><span class="st">  </span>
 <span class="co"># Calculate continent-level GDP</span>
-<span class="st">    </span><span class="kw">summarize</span>(<span class="dt">cont_gdp =</span> <span class="kw">sum</span>(GDP)) %&gt;%<span class="st">  </span>
+<span class="st">    </span><span class="kw">summarize</span>(<span class="dt">cont_gdp =</span> <span class="kw">sum</span>(GDP)) <span class="op">%&gt;%</span><span class="st">  </span>
 <span class="co"># Join the continent-GDP data.frame to the continents data.frame</span>
-<span class="st">    </span><span class="kw">left_join</span>(continents) %&gt;%<span class="st">  </span>
+<span class="st">    </span><span class="kw">left_join</span>(continents) <span class="op">%&gt;%</span><span class="st">  </span>
 <span class="co"># Calculate continent-level per-capita GDP</span>
-<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">per_cap =</span> cont_gdp /<span class="st"> </span>population) %&gt;%<span class="st">  </span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">per_cap =</span> cont_gdp <span class="op">/</span><span class="st"> </span>population) <span class="op">%&gt;%</span><span class="st">  </span>
 <span class="co"># Plot gdp versus land area</span>
-<span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> area_km2, <span class="dt">y =</span> per_cap)) +<span class="st">  </span>
+<span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> area_km2, <span class="dt">y =</span> per_cap)) <span class="op">+</span><span class="st">  </span>
 <span class="co"># Draw points</span>
-<span class="st">    </span><span class="kw">geom_point</span>() +<span class="st">  </span>
+<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span>
 <span class="co"># And label them</span>
 <span class="st">    </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> continent), <span class="dt">nudge_y =</span> <span class="fl">5e3</span>)  </code></pre></div>
 <pre><code>## Joining, by = &quot;continent&quot;</code></pre>

@@ -27,6 +27,49 @@
 <link rel="stylesheet" href="site_libs/academicons-1.8.0/css/academicons.css"/>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -420,8 +463,10 @@ div.tocify {
 <ul>
 <li>Gain familiarity the RStudio IDE</li>
 <li>Manage your workspace in an interactive R session</li>
+<li>Understand variable assignment</li>
+<li>Use load() to import a data set</li>
 <li>Take a look at a data frame</li>
-<li>Extend R with a package</li>
+<li>Add columns, subset, and summarize a data frame</li>
 <li>To be able to seek help via <code>?</code> and Google</li>
 </ul>
 </blockquote>
@@ -438,20 +483,45 @@ div.tocify {
 </ul>
 </blockquote>
 <blockquote>
-<h4 id="challenge-2-explore-a-data-frame">Challenge 2 – Explore a data frame</h4>
-<ul>
-<li>In the script file you just created, write a line of code that will load the <code>gapminder</code> package</li>
-<li>Write another line of code using the <code>head()</code> function on the <code>gapminder</code> data frame to view the first 6 rows (Remember that, in this case, there is both a data frame and a package that have the same name. This won’t always be true. Sometimes packages don’t have any data associated with them at all)</li>
-</ul>
+<h4 id="mcq-variable-assignment">MCQ – Variable Assignment</h4>
+<p>What does the following code print?</p>
+<pre><code>a &lt;- 1
+b &lt;- 2
+c &lt;- a + b
+b &lt;- 4
+a &lt;- b
+c &lt;- a
+c </code></pre>
+<pre><code>Option 1) a  
+Option 2) 3  
+Option 3) 4  
+Option 4) ::nothing::  </code></pre>
 </blockquote>
 <blockquote>
-<h4 id="challenge-3-advanced-extend-r-with-a-new-package">Challenge 3 (advanced) – Extend R with a new package</h4>
-<ul>
-<li>In the same .R script file, write a line of code that will install the <code>dplyr</code> package.</li>
-<li>Use the <code>glimpse()</code> function on the <code>gapminder</code> data frame view it in a different way than you saw using <code>head()</code>.</li>
-<li>Did that code work? Why not? How can you fix it? (hint: my first step is often to copy the error and Google it!)</li>
-</ul>
+<h4 id="challenge-2-extra-practice-assignment-comparison">Challenge 2 – Extra practice: Assignment &amp; Comparison</h4>
+<p>Which elephant weighs more? Convert one’s weight to the units of the other, and store the result in an appropriately-named new variable. Write a command to test whether elephant1 weights more than elephant2 (1 kg ≈ 2.2 lb).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">elephant1_kg &lt;-<span class="st"> </span><span class="dv">3492</span>
+elephant2_lb &lt;-<span class="st"> </span><span class="dv">7757</span></code></pre></div>
 </blockquote>
+<blockquote>
+<h4 id="mcq-subset-and-vectorize">MCQ – Subset and vectorize</h4>
+<p>Load the continents data frame again. Make a copy from your day 1 project folder, and move it to the data folder you just created for day 2.</p>
+<p>What is the total land area of continents that have at least 10% of the world’s population?</p>
+<ul>
+<li>Use subsetting to get the areas you want</li>
+<li>Use the <code>sum()</code> function to find the total land area</li>
+</ul>
+<pre><code>Option 1) 149428500
+Option 2) 126700000
+Option 3) 22728500
+Option 4) 100</code></pre>
+</blockquote>
+<div id="data-types-in-r" class="section level2">
+<h2>Data types in R</h2>
+<p>For a brief note on data types in R, we turn to the Data Carpentry: R for data analysis and visualization of Ecological Data <a href="http://www.datacarpentry.org/R-ecology-lesson/01-intro-to-r.html#vectors_and_data_types">Introduction to R materials</a>.</p>
+<p><br></p>
+<p>This lesson is adapted from the Software Carpentry: R for Reproducible Scientific Analysis <a href="http://data-lessons.github.io/gapminder-R/03-data-types-subsetting.html">Vectors and Data Frames materials</a> and the Data Carpentry: R for data analysis and visualization of Ecological Data <a href="http://www.datacarpentry.org/R-ecology-lesson/01-intro-to-r.html#vectors_and_data_types">Introduction to R materials</a>.</p>
+</div>
 
 
 

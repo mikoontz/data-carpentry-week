@@ -6,8 +6,10 @@ title: "Refresh day 1"
 >
 > * Gain familiarity the RStudio IDE
 > * Manage your workspace in an interactive R session
+> * Understand variable assignment
+> * Use load() to import a data set
 > * Take a look at a data frame
-> * Extend R with a package
+> * Add columns, subset, and summarize a data frame
 > * To be able to seek help via `?` and Google
 
 > #### Challenge 1 -- Make a new directory and project for DIBSI Day 2
@@ -19,19 +21,66 @@ title: "Refresh day 1"
 >     - results
 > - Create a new .R script file in the scripts/ folder calling it whatever you like
 
-> #### Challenge 2 -- Explore a data frame
+> #### MCQ -- Variable Assignment
 >
-> - In the script file you just created, write a line of code that will load the 
-> `gapminder` package
-> - Write another line of code using the `head()` function on the `gapminder` 
-> data frame to view the first 6 rows (Remember that, in this case, there is
-> both a data frame and a package that have the same name. This won't always
-> be true. Sometimes packages don't have any data associated with them at all)
+> What does the following code print?
+> ```
+> a <- 1
+> b <- 2
+> c <- a + b
+> b <- 4
+> a <- b
+> c <- a
+> c 
+> ```
+>
+> ```
+> Option 1) a  
+> Option 2) 3  
+> Option 3) 4  
+> Option 4) ::nothing::  
+> ```
+>
 
-> #### Challenge 3 (advanced) -- Extend R with a new package
-> - In the same .R script file, write a line of code that will install the 
-> `dplyr` package.
-> - Use the `glimpse()` function on the `gapminder` data frame view it in a
-> different way than you saw using `head()`.
-> - Did that code work? Why not? How can you fix it? (hint: my first step is
-> often to copy the error and Google it!)
+> #### Challenge 2 -- Extra practice: Assignment & Comparison
+>
+> Which elephant weighs more? Convert one's weight to the units of the other, 
+and store the result in an appropriately-named new variable. Write a command to 
+test whether elephant1 weights more than elephant2 (1 kg ≈ 2.2 lb).
+>
+> ```{r, eval=FALSE}
+> elephant1_kg <- 3492
+> elephant2_lb <- 7757
+> ```
+>
+
+> #### MCQ -- Subset and vectorize 
+>
+> Load the continents data frame again. Make a copy from your day 1 project
+> folder, and move it to the data folder you just created for day 2.
+>
+> What is the total land area of continents that have at least 10% of the 
+> world's population? 
+>
+> - Use subsetting to get the areas you want
+> - Use the `sum()` function to find the total land area
+>
+> ```
+> Option 1) 149428500
+> Option 2) 126700000
+> Option 3) 22728500
+> Option 4) 100
+> ```
+
+## Data types in R
+
+For a brief note on data types in R, we turn to the Data Carpentry: R for data 
+analysis and visualization of Ecological Data [Introduction to R materials](http://www.datacarpentry.org/R-ecology-lesson/01-intro-to-r.html#vectors_and_data_types).  
+
+<br>
+
+This lesson is adapted from the Software Carpentry: R for Reproducible 
+Scientific Analysis [Vectors and Data Frames materials](http://data-lessons.github.io/gapminder-R/03-data-types-subsetting.html)
+and the Data Carpentry: R for data analysis and visualization of Ecological Data 
+[Introduction to R materials](http://www.datacarpentry.org/R-ecology-lesson/01-intro-to-r.html#vectors_and_data_types).
+

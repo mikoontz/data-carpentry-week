@@ -6,7 +6,7 @@ minutes: 130
 ---
 
 > ## Learning objectives
->
+> - Understand the 6 main data types in R
 > - Be able to use the six major dplyr verbs (`filter`, `select`, `arrange`, `mutate`, `group_by`, `summarize`)
 > - Be able to use and understand the advantages of the `magrittr` pipe: `%>%`
 
@@ -22,7 +22,7 @@ install.packages('tidyverse')
 
 You only have to download the code once. But whenever you want to *use* a package, you have to load it in your R session. For that, use the `library` function:
 
-```{r, warning = FALSE}
+```{r, echo=T, eval=F, warning = FALSE}
 library(tidyverse)
 ```
 
@@ -34,6 +34,208 @@ library(tidyverse)
 > - Load `gapminder` with `library(gapminder)`
 >   - You will see some warnings about conflicts. That's okay.
 
+## Vectors & Data Types
+
+ > There are six main types of data in R. We've already covered 2--3 of them. Can anyone help me list them?
+
+A vector is the most common and basic data type in R, and is pretty much the workhorse of R. A vector is composed by a series of values, which can be either numbers or characters. We can assign a series of values to a vector using the **`c()`** function. For example we can create a vector of animal weights and assign it to a new object `weight_g`:
+
+```{r}
+weight_g <- c(50, 60, 65, 82)
+weight_g
+```
+
+A vector can also contain characters:
+
+```{r}
+animals <- c("mouse", "rat", "dog")
+animals
+```
+
+The quotes around “mouse”, “rat”, etc. are essential here. Without the quotes R will assume there are objects called mouse, rat and dog. As these objects don’t exist in R’s memory, there will be an error message.
+
+There are many functions that allow you to inspect the content of a vector. `length()` tells you how many elements are in a particular vector:
+
+```{r}
+length(weight_g)
+length(animals)
+```
+
+An important feature of a vector, is that all of the elements are the same type of data. The function `class()` indicates the class (the type of element) of an object:
+
+```{r}
+class(weight_g)
+class(animals)
+```
+
+The function `str()` provides an overview of the structure of an object and its elements. It is a useful function when working with large and complex objects:
+
+```{r}
+str(weight_g)
+str(animals)
+```
+
+You can also use the `c()` function to add other elements to your vector:
+
+```{r}
+weight_g <- c(weight_g, 90) # add to the end of the vector
+weight_g <- c(30, weight_g) # add to the beginning of the vector
+weight_g
+```
+
+In the first line, we take the original vector `weight_g`, add the value 90 to the end of it, and save the result back into `weight_g`. Then we add the value 30 to the beginning, again saving the result back into `weight_g`.
+
+We can do this over and over again to grow a vector, or assemble a dataset. As we program, this may be useful to add results that we are collecting or calculating.
+
+We just saw 2 of the 6 main atomic vector types (or data types) that R uses:  **"character"** and **"numeric"**. These are the basic building blocks that all R objects are built from. The other 4 are:
+
+ - **"logical"** for TRUE and FALSE (the boolean data type)
+ - **"integer"** for integer numbers (e.g., 2L, the L indicates to R that it’s an integer)
+ - **"complex"** to represent complex numbers with real and imaginary parts (e.g., `1+4i`) and that’s all we’re going to say about them
+ - **"raw"** that we won’t discuss further
+
+Vectors are one of the many data structures that R uses. Other important ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`), factors (`factor`) and arrays (`array`).
+
+#### Challenge
+ > We’ve seen that atomic vectors can be of type character, numeric, integer, and logical. But what happens if we try to mix these types in a single vector?
+ > What will happen in each of these examples? (hint: use class() to check the data type of your objects):
+
+```{r}
+num_char <- c(1, 2, 3, 'a')
+num_logical <- c(1, 2, 3, TRUE)
+char_logical <- c('a', 'b', 'c', TRUE)
+tricky <- c(1, 2, 3, '4')
+```
+
+ > - Why do you think it happens?
+ > - You’ve probably noticed that objects of different types get converted into a single, shared type within a vector. In R, we call converting objects from one class into another class coercion. These conversions happen according to a hierarchy, whereby some types get preferentially coerced into other types. Can you draw a diagram that represents the hierarchy of how these data types are coerced?
+
+## Factors
+
+Sometimes if we look at a data set with `str()` we can see columns consist of integers, character, etc. However, sometimes the columns are of a special class called a `factor`. Factors are very useful and are actually something that make R particularly well suited to working with data, so we’re going to spend a little time introducing them.
+
+**Factors are used to represent categorical data**. Factors can be ordered or unordered, and understanding them is necessary for statistical analysis and for plotting.
+
+Factors are stored as integers, and have labels (text) associated with these unique integers. While factors look (and often behave) like character vectors, they are actually integers under the hood, and you need to be careful when treating them like strings.
+
+Once created, factors can only contain a pre-defined set of values, known as levels. By default, R always sorts levels in alphabetical order. For instance, if you have a factor with 2 levels:
+
+```{r}
+sex <- factor(c("male", "female", "female", "male"))
+```
+
+R will assign 1 to the level "`female`" and 2 to the level "`male`" (because **f** comes before **m**, even though the first element in this vector is "`male`"). You can check this by using the function `levels()`, and check the number of levels using `nlevels()`:
+
+```{r}
+levels(sex)
+nlevels(sex)
+```
+
+Sometimes, the order of the factors does not matter, other times you might want to specify the order because it is meaningful (e.g., “low”, “medium”, “high”), it improves your visualization, or it is required by a particular type of analysis. Here, one way to reorder our levels in the sex vector would be:
+
+```{r}
+sex # current order
+#> [1] male   female female male  
+#> Levels: female male
+sex <- factor(sex, levels = c("male", "female"))
+sex # after re-ordering
+#> [1] male   female female male  
+#> Levels: male female
+```
+
+
+In R’s memory, these factors are represented by integers (1, 2, 3), but are more informative than integers because factors are self describing: "`female`", "`male`" is more descriptive than 1, 2. Which one is “`male`”? You wouldn’t be able to tell just from the integer data. Factors, on the other hand, have this information built in. It is particularly helpful when there are many levels (like the species names in our ecology example dataset [dataset](https://mikoontz.github.io/data-carpentry-week/data/species.csv)).
+
+### Converting factors
+
+If you need to convert a factor to a character vector, you use `as.character(x)`.
+
+```{r}
+as.character(sex)
+```
+
+Converting factors where the levels appear as numbers (such as concentration levels, or years) to a numeric vector is a little trickier. One method is to convert factors to characters and then numbers. Another method is to use the `levels()` function. Compare:
+
+```{r}
+f <- factor(c(1990, 1983, 1977, 1998, 1990))
+as.numeric(f)               # wrong! and there is no warning...
+as.numeric(as.character(f)) # works...
+as.numeric(levels(f))[f]    # The recommended way.
+```
+
+Notice that in the `levels()` approach, three important steps occur:
+
+ - We obtain all the factor levels using `levels(f)`
+ - We convert these levels to numeric values using `as.numeric(levels(f))`
+ - We then access these numeric values using the underlying integers of the vector `f` inside the square brackets
+
+### Using `stringsAsFactors=FALSE`
+
+By default, when building or importing a data frame, the columns that contain characters (i.e., text) are coerced (=converted) into the factor data type. Depending on what you want to do with the data, you may want to keep these columns as character. To do so, `read.csv()` and `read.table()` have an argument called `stringsAsFactors` which can be set to `FALSE`.
+
+ > In most cases, it’s preferable to set `stringsAsFactors = FALSE` when importing your data, and converting as a factor only the columns that require this data type.
+
+Compare the output of `str(surveys)` when setting `stringsAsFactors = TRUE` (default) and `stringsAsFactors = FALSE`:
+
+We are going to use the R function `download.file()` to download the CSV file that contains the survey data from figshare, and we will use `read.csv()` to load into memory the content of the CSV file as an object of class data.frame.
+
+To download the data into the `data/` subdirectory, run the following:
+
+```{r, eval=F, echo=T}
+
+download.file("https://ndownloader.figshare.com/files/2292169",
+              "data/portal_data_joined.csv")
+```
+
+You are now ready to load the data:
+
+```{r eval=F, echo=T}
+surveys <- read.csv('data/portal_data_joined.csv')
+```
+
+This statement doesn’t produce any output because, as you might recall, assignments don’t display anything. If we want to check that our data has been loaded, we can print the first 6 lines of this data using `head(surveys)`
+
+Now we can look at how reading in the data in different ways affects the different data types (`factor` vs. `character`):
+
+```{r, eval=F, echo=T}
+
+## Compare the difference between when the data are being read as
+## `factor`, and when they are being read as `character`.
+surveys <- read.csv("data/portal_data_joined.csv", stringsAsFactors = TRUE)
+str(surveys)
+surveys <- read.csv("data/portal_data_joined.csv", stringsAsFactors = FALSE)
+str(surveys)
+## Convert the column "plot_type" into a factor
+surveys$plot_type <- factor(surveys$plot_type)
+```
+
+
+#### Challenge
+
+We have seen how data frames are created when using the `read.csv()`, but they can also be created by hand with the `data.frame()` function. There are a few mistakes in this hand-crafted data.frame, can you spot and fix them? Don’t hesitate to experiment!
+
+```{r, eval=FALSE, echo=T}
+animal_data <- data.frame(animal=c("dog", "cat", "sea cucumber", "sea urchin"),
+                          feel=c("furry", "squishy", "spiny"),
+                          weight=c(45, 8 1.1, 0.8))
+```
+
+> - Can you predict the class for each of the columns in the following example? Check your guesses using str(country_climate):
+>   - Are they what you expected? Why? Why not?
+>   - What would have been different if we had added  stringsAsFactors = FALSE to this call?
+>   - What would you need to change to ensure that each column had the accurate data type?
+
+```{r eval=F, echo=T}
+country_climate <- data.frame(
+       country=c("Canada", "Panama", "South Africa", "Australia"),
+       climate=c("cold", "hot", "temperate", "hot/temperate"),
+       temperature=c(10, 30, 18, "15"),
+       northern_hemisphere=c(TRUE, TRUE, FALSE, "FALSE"),
+       has_kangaroo=c(FALSE, FALSE, FALSE, 1)
+       )
+```
+
+The automatic conversion of data type is sometimes a blessing, sometimes an annoyance. Be aware that it exists, learn the rules, and double check that data you import in R are of the correct type within your data frame. If not, use it to your advantage to detect mistakes that might have been introduced during data entry (a letter in a column that should only contain numbers for instance.).
 
 ## Data Wrangling with `dplyr`
 
@@ -357,7 +559,7 @@ gapminder %>%
 That is the core of `dplyr`'s functionality, but it does more. RStudio makes a great [cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) that covers all the `dplyr` functions we just learned, plus what we will learn in the next lesson: keeping data tidy.
 
 
-## Challenge solutions
+<!-- >## Challenge solutions
 
 <!-- > #### Solution to challenge Subsetting {.challenge} -->
 <!-- > -->

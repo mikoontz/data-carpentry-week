@@ -11,7 +11,7 @@
 
 
 
-<title>Data import</title>
+<title>Data import %&gt;% dplyr %&gt;% ggplot2</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,49 +27,6 @@
 <link rel="stylesheet" href="site_libs/academicons-1.8.0/css/academicons.css"/>
 
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
 <style type="text/css">
@@ -453,7 +410,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Data import</h1>
+<h1 class="title toc-ignore">Data import %&gt;% dplyr %&gt;% ggplot2</h1>
 
 </div>
 
@@ -462,55 +419,135 @@ div.tocify {
 <h2 id="learning-objectives">Learning objectives</h2>
 <ul>
 <li>Get comfortable importing different kinds of data</li>
-<li>Understand the concept of “tidy data”</li>
+<li>Get comfortable manipulating a new data set</li>
+<li>Get comforatble visualizing a new data set</li>
 </ul>
 </blockquote>
-<div id="reading-csv-data" class="section level3">
-<h3>Reading csv data</h3>
-<p>Data come in many forms, and we need to be able to load them in R. For our own use and with others who use R, there are R-specific data structures we can use, like the .RDA file-type we just saw, but we need to be able to work with more general data types too. Comma-separated value (csv) tables are perhaps the most universal data structure.</p>
-<p>The species dataset provides genus and species information for animals caught during a trapping survey. I downloaded it and put it in the data directory of my project. You will do the same in a minute.</p>
-<p>We can read csv’s with the <code>read.csv</code> function. The argument to <code>read.csv</code> is the location of the file, relative to your working directory. Since I saved the gapminder data to the <code>data</code> directory of my project, I can load it with this. Note the use of tab-completion to find the file and get it exactly right without typos.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.csv</span>(<span class="st">&#39;data/species.csv&#39;</span>)</code></pre></div>
-<p>Whoa! What just happened? R executed the function and printed the result, just like when you enter <code>log(1)</code>. How do you store an object to a variable?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">species &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;data/species.csv&#39;</span>)</code></pre></div>
-<p>Now, a data.frame called <code>species</code> is in my Environment, and I can see that it is a data.frame with 54 rows and 4 columns.</p>
+<div id="a-long-form-challenge" class="section level2">
+<h2>A long form challenge</h2>
+<p>Let’s see a workflow from start to finish. You’re going to go find a dataset online, get it into R, learn some things from it, and visualize it. Finally, we’ll save some of the results of our data manipulations and our figures so we can easily send them to our colleagues.</p>
+<p>Close out of RStudio entirely, then open today’s project folder fresh. Create a new script file for this exercise and save it to the appropriate subfolder within your project folder.</p>
+</div>
+<div id="presentation-of-the-survey-data" class="section level2">
+<h2>Presentation of the survey data</h2>
+<p>We are studying the species and weight of animals caught in plots in our study area. The dataset is stored as a comma separated value (CSV) file. Each row holds information for a single animal, and the columns represent:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>record_id</td>
+<td>Unique id for the observation</td>
+</tr>
+<tr class="even">
+<td>month</td>
+<td>month of observation</td>
+</tr>
+<tr class="odd">
+<td>day</td>
+<td>day of observation</td>
+</tr>
+<tr class="even">
+<td>year</td>
+<td>year of observation</td>
+</tr>
+<tr class="odd">
+<td>plot_id</td>
+<td>ID of a particular plot</td>
+</tr>
+<tr class="even">
+<td>species_id</td>
+<td>2-letter code</td>
+</tr>
+<tr class="odd">
+<td>sex</td>
+<td>sex of animal (“M”, “F”)</td>
+</tr>
+<tr class="even">
+<td>hindfoot_length</td>
+<td>length of the hindfoot in mm</td>
+</tr>
+<tr class="odd">
+<td>weight</td>
+<td>weight of the animal in grams</td>
+</tr>
+<tr class="even">
+<td>genus</td>
+<td>genus of animal</td>
+</tr>
+<tr class="odd">
+<td>species</td>
+<td>species of animal</td>
+</tr>
+<tr class="even">
+<td>taxa</td>
+<td>e.g. Rodent, Reptile, Bird, Rabbit</td>
+</tr>
+<tr class="odd">
+<td>plot_type</td>
+<td>type of plot</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="load-libraries" class="section level2">
+<h2>Load libraries</h2>
+<p>Remember libraries need to be loaded before you can use them in a new R session. Be sure to include all of the libraries you use in your script by using the <code>library()</code> function at the top of your code.</p>
+</div>
+<div id="get-the-data" class="section level2">
+<h2>Get the data</h2>
+<p>The data can be found on Figshare at <a href="https://figshare.com/articles/Portal_Project_Teaching_Database/1314459">this link</a>. The file we want is called “combined.csv” and can be found as one of the icons labeled “dataset” near the top of the page. Get the <code>combined.csv</code> file using either of the 2 methods we’ve seen so far. If you are choosing a download option, be sure to put the file in the appropriate subfolder within your project folder.</p>
+<p>For a third way to get data from a web source, check out the <code>download.file()</code> using <code>?download.file()</code> or Google.</p>
+<p>Load the data into R if your method from above didn’t do this already. Be sure to assign the data a variable name!</p>
+</div>
+<div id="inspect-the-data" class="section level2">
+<h2>Inspect the data</h2>
+<p>How would you inspect this? Write a few lines of code that will describe it (e.g., what kind of object is it? how many observations? how many variables? what are the column names? what does the head look like?)</p>
+</div>
+<div id="filter-rows-and-select-columns" class="section level2">
+<h2>Filter rows and select columns</h2>
 <blockquote>
-<h4 id="challenge-read-csv-data">Challenge – read csv data</h4>
-<p>The species data are available at <a href="data/species.csv">this link</a>.<br />
-- Right click on the link to “save file as…”<br />
-- Save the .csv file in the <code>/data</code> directory of your project.<br />
-- Read the data with the <code>read.csv</code> function and assign it to the variable <code>species</code>.<br />
-- Inspect the data.frame using whatever means you like - Use a dplyr verb to reorder the data frame in alphabetical order by genus</p>
-<p><strong>Advanced challenge</strong></p>
-<p>Suppose you get a .csv file from a colleague in Europe. Because they use “,” (comma) as a decimal separator, they use “;” (semi-colons) to separate fields. How can you read it into R?</p>
-<p>Feel free to use the web and/or R’s helpfiles.</p>
+<h3 id="challenge">Challenge</h3>
+<p>Using pipes, subset the <code>survey</code> data to include individuals collected before 1995 and retain only the columns <code>year</code>, <code>sex</code>, and <code>weight</code>.</p>
 </blockquote>
 </div>
-<div id="reading-messier-data" class="section level2">
-<h2>Reading messier data</h2>
-<p>Sometimes data can be a bit trickier to read because it isn’t in tidy format. If it is <strong>close</strong> to being tidy, we may be able add some more arguments to the <code>read.csv()</code> call to to help R interpret how the file should be read. If there are a few things that R will need help with, using the <code>read.table()</code> gives you the most flexibility but you’ll also have to always specify more information about the file to help R interpret it.</p>
-<p>Use <a href="data/wide_eg.csv">this link</a> to download this dataset and inspect it with a spreadsheet program. Why isn’t it tidy?</p>
-<p>Try using the <code>read.csv()</code> function on the file.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.csv</span>(<span class="st">&quot;data/wide_eg.csv&quot;</span>)</code></pre></div>
-<p>We need to tell R to skip 2 rows!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.csv</span>(<span class="st">&quot;data/wide_eg.csv&quot;</span>, <span class="dt">skip =</span> <span class="dv">2</span>)</code></pre></div>
-<p>Or using <code>read.table()</code>…</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.table</span>(<span class="st">&quot;data/wide_eg.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">skip =</span> <span class="dv">2</span>)</code></pre></div>
+<div id="modify-the-data-frame" class="section level2">
+<h2>Modify the data frame</h2>
+<blockquote>
+<h3 id="challenge-1">Challenge</h3>
+<p>Create a new data frame from the <code>surveys</code> data that meets the following criteria: contains only the <code>species_id</code> column and a new column called <code>hindfoot_half</code> containing values that are half the <code>hindfoot_length</code> values. In this <code>hindfoot_half</code> column, there are no <code>NA</code>s and all values are less than 30.</p>
+<p><strong>Hint</strong>: think about how the commands should be ordered to produce this data frame!</p>
+</blockquote>
 </div>
-<div id="reading-directly-from-websites" class="section level2">
-<h2>Reading directly from websites</h2>
-<p>We can use the <code>read.csv()</code> function to read files directly from a website if we first call the <code>url()</code> function on the web address.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://mikoontz.github.io/data-carpentry-week/data/wide_eg.csv&quot;</span>), <span class="dt">skip =</span> <span class="dv">2</span>)</code></pre></div>
-<p>We can also use the <code>read_csv()</code> (note that’s an underscore in the function name, not a period) from the <code>readr</code> package which is part of the <code>tidyverse</code>. In this case, we don’t have to use the <code>url()</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_csv</span>(<span class="st">&quot;https://mikoontz.github.io/data-carpentry-week/data/wide_eg.csv&quot;</span>, <span class="dt">skip =</span> <span class="dv">2</span>)</code></pre></div>
+<div id="learn-from-the-data-frame" class="section level2">
+<h2>Learn from the data frame</h2>
+<blockquote>
+<h3 id="challenge-2">Challenge</h3>
+<ol style="list-style-type: decimal">
+<li><p>How many individuals were caught in each <code>plot_type</code> surveyed? (<strong>Hint: </strong> <strong>Check out the <code>tally()</code> function</strong>)</p></li>
+<li><p>Use <code>group_by()</code> and <code>summarize()</code> to find the mean, min, and max hindfoot length for each species (using <code>species_id</code>).</p></li>
+<li><p>What was the heaviest animal measured in each year? Return the columns <code>year</code>, <code>genus</code>, <code>species_id</code>, and <code>weight</code>.</p></li>
+<li><p>You saw above how to count the number of individuals of each <code>sex</code> using a combination of <code>group_by()</code> and <code>tally()</code>. How could you get the same result using <code>group_by()</code> and <code>summarize()</code>? Hint: see <code>?n</code>.</p></li>
+</ol>
+</blockquote>
 </div>
-<div id="exporting-data" class="section level2">
-<h2>Exporting data</h2>
-<p>Now that you have learned how to use <strong><code>dplyr</code></strong> to extract information from or summarize your raw data, you may want to export these new datasets to share them with your collaborators or for archival.</p>
-<p>Similar to the <code>read.csv()</code> function used for reading CSV files into R, there is a <code>write.csv()</code> function that generates CSV files from data frames.</p>
-<p>Before using <code>write.csv()</code>, we are going to create a new folder, <code>data_output</code>, in our working directory that will store this generated dataset. We don’t want to write generated datasets in the same directory as our raw data. It’s good practice to keep them separate. The <code>data</code> folder should only contain the raw, unaltered data, and should be left alone to make sure we don’t delete or modify it. In contrast, our script will generate the contents of the <code>data_output</code> directory, so even if the files it contains are deleted, we can always re-generate them.</p>
+<div id="clean-the-data" class="section level2">
+<h2>Clean the data</h2>
+<p>In preparation for plotting these data, prepare a cleaned up version of the dataset that doesn’t include any missing data.</p>
+<p>Let’s start by removing observations for which the <code>species_id</code> is missing. In this dataset, the missing species are represented by an empty string and not an <code>NA</code>. Let’s also remove observations for which <code>weight</code> and the <code>hindfoot_length</code> are missing. This dataset should also only contain observations of animals for which the sex has been determined:</p>
+<p>Save the result to a new object called <code>surveys_complete</code>.</p>
+<p>Because we are interested in plotting how species abundances have changed through time, we are also going to remove observations for rare species (i.e., that have been observed less than 50 times). We will do this in two steps: first we are going to create a dataset that counts how often each species has been observed, and filter out the rare species; then, we will extract only the observations for these more common species:</p>
+<p>To make sure that everyone has the same dataset, check that <code>surveys_complete</code> has 30463 rows and 13 columns by typing <code>dim(surveys_complete)</code>.</p>
+</div>
+<div id="export-the-cleaned-data-set" class="section level2">
+<h2>Export the cleaned data set</h2>
+<p>Save the <code>surveys_complete</code> object as a CSV file in a <code>data_output</code> folder. By default, <code>write.csv()</code> includes a column with row names (in our case the names are just the row numbers), so add the <code>row.names = FALSE</code> argument to the <code>write.csv()</code> function call so they are not included.</p>
 <p><br></p>
-<p>This lesson is adapted from the Software Carpentry: R for Reproducible Scientific Analysis <a href="http://data-lessons.github.io/gapminder-R/03-data-types-subsetting.html">Vectors and Data Frames materials</a> and the Data Carpentry: R for Data Analysis and Visualization of Ecological Data <a href="http://www.datacarpentry.org/R-ecology-lesson/03-dplyr.html">Exporting Data materials</a>.</p>
+<p>This lesson is adapted from the Data Carpentry: R for Data Analysis and Visualization of Ecological Data <a href="http://www.datacarpentry.org/R-ecology-lesson/02-starting-with-data.html">Starting with Data materials</a> and the Data Carpentry: R for Data Analysis and Visualization of Ecological Data <a href="http://www.datacarpentry.org/R-ecology-lesson/03-dplyr.html">Manipulating and Analyzing Data with dplyr materials</a>.</p>
 </div>
 
 

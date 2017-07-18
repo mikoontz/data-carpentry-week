@@ -21,7 +21,7 @@ navbar:
         - text: "Data frame manipulation"
           href: lesson_dplyr.html
         - text: "Data visualization"
-          href: lesson_ggplot2.html
+          href: lesson_visualization_ggplot2.html
         - text: "Data import"
           href: lesson_data_import.html
         - text: "Data import %>% dplyr %>% ggplot2"

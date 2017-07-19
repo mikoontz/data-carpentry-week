@@ -22,36 +22,35 @@ navbar:
           href: lesson_dplyr.html
         - text: "Data visualization"
           href: lesson_visualization_ggplot2.html
-        - text: "Data import"
-          href: lesson_data_import.html
-        - text: "Data import %>% dplyr %>% ggplot2"
-          href: lesson_import_dplyr_ggplot2.html
     - text: "Day 3"
       menu:
         - text: "Refresh day 2"
           href: refresh_day2.html
+        - text: "Spreadsheets"
+          href: http://www.datacarpentry.org/spreadsheet-ecology-lesson/
+        - text: "Data import"
+          href: lesson_data_import.html
         - text: "Dynamic documents"
           href: lesson_dynamic_documents.html
-        - text: "Tidying data"
-          href: lesson_tidyr.html
-        - text: "Tidying data+"
-          href: lesson_tidyr_plus.html
-        - text: "Time data with lubridate"
-          href: lesson_lubridate.html
-        - text: "Custom functions"
-          href: lesson_functions.html
+        - text: "Data import %>% dplyr %>% ggplot2"
+          href: lesson_import_dplyr_ggplot2.html
+
     - text: "Day 4"
       menu:
         - text: "Refresh day 3"
           href: refresh_day3.html
-        - text: "Table joins"
-          href: lesson_joins.html
-        - text: "Table joins+"
-          href: lesson_joins_plus.html
+        - text: "Tidying data"
+          href: lesson_tidyr.html
+        - text: "Time data with lubridate"
+          href: lesson_lubridate.html
+        - text: "Custom functions"
+          href: lesson_functions.html
     - text: "Day 5"
       menu:
         - text: "Refresh day 4"
           href: refresh_day4.html 
+        - text: "Table joins"
+          href: lesson_joins.html
         - text: "Automation with for loops"
           href: lesson_for_loops.html
         - text: "Automation with purrr"

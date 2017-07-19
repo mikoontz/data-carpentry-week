@@ -353,12 +353,6 @@ div.tocify {
     <li>
       <a href="lesson_visualization_ggplot2.html">Data visualization</a>
     </li>
-    <li>
-      <a href="lesson_data_import.html">Data import</a>
-    </li>
-    <li>
-      <a href="lesson_import_dplyr_ggplot2.html">Data import %&gt;% dplyr %&gt;% ggplot2</a>
-    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -372,19 +366,16 @@ div.tocify {
       <a href="refresh_day2.html">Refresh day 2</a>
     </li>
     <li>
+      <a href="http://www.datacarpentry.org/spreadsheet-ecology-lesson/">Spreadsheets</a>
+    </li>
+    <li>
+      <a href="lesson_data_import.html">Data import</a>
+    </li>
+    <li>
       <a href="lesson_dynamic_documents.html">Dynamic documents</a>
     </li>
     <li>
-      <a href="lesson_tidyr.html">Tidying data</a>
-    </li>
-    <li>
-      <a href="lesson_tidyr_plus.html">Tidying data+</a>
-    </li>
-    <li>
-      <a href="lesson_lubridate.html">Time data with lubridate</a>
-    </li>
-    <li>
-      <a href="lesson_functions.html">Custom functions</a>
+      <a href="lesson_import_dplyr_ggplot2.html">Data import %&gt;% dplyr %&gt;% ggplot2</a>
     </li>
   </ul>
 </li>
@@ -399,10 +390,13 @@ div.tocify {
       <a href="refresh_day3.html">Refresh day 3</a>
     </li>
     <li>
-      <a href="lesson_joins.html">Table joins</a>
+      <a href="lesson_tidyr.html">Tidying data</a>
     </li>
     <li>
-      <a href="lesson_joins_plus.html">Table joins+</a>
+      <a href="lesson_lubridate.html">Time data with lubridate</a>
+    </li>
+    <li>
+      <a href="lesson_functions.html">Custom functions</a>
     </li>
   </ul>
 </li>
@@ -415,6 +409,9 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="refresh_day4.html">Refresh day 4</a>
+    </li>
+    <li>
+      <a href="lesson_joins.html">Table joins</a>
     </li>
     <li>
       <a href="lesson_for_loops.html">Automation with for loops</a>
@@ -601,19 +598,19 @@ sex <span class="co"># after re-ordering</span></code></pre></div>
 <p>We are going to use the R function <code>download.file()</code> to download the CSV file that contains the survey data from figshare, and we will use <code>read.csv()</code> to load into memory the content of the CSV file as an object of class data.frame.</p>
 <p>To download the data into the <code>data/</code> subdirectory, run the following:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">download.file</span>(<span class="st">&quot;https://ndownloader.figshare.com/files/2292169&quot;</span>,
-              <span class="st">&quot;data/portal_data_joined.csv&quot;</span>)</code></pre></div>
+              <span class="st">&quot;data/combined.csv&quot;</span>)</code></pre></div>
 <p>You are now ready to load the data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;data/portal_data_joined.csv&#39;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;data/combined.csv&#39;</span>)</code></pre></div>
 <p>This statement doesn’t produce any output because, as you might recall, assignments don’t display anything. If we want to check that our data has been loaded, we can print the first 6 lines of this data using <code>head(surveys)</code></p>
 <p>Now we can look at how reading in the data in different ways affects the different data types (<code>factor</code> vs. <code>character</code>):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Compare the difference between when the data are being read as
 ## `factor`, and when they are being read as `character`.
-surveys &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/portal_data_joined.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">TRUE</span>)
+surveys &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/combined.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">TRUE</span>)
 <span class="kw">str</span>(surveys)
-surveys &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/portal_data_joined.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+surveys &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/combined.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
 <span class="kw">str</span>(surveys)
 ## Convert the column &quot;plot_type&quot; into a factor
-surveys<span class="op">$</span>plot_type &lt;-<span class="st"> </span><span class="kw">factor</span>(surveys<span class="op">$</span>plot_type)</code></pre></div>
+surveys$plot_type &lt;-<span class="st"> </span><span class="kw">factor</span>(surveys$plot_type)</code></pre></div>
 <div id="challenge-1" class="section level4">
 <h4>Challenge</h4>
 <p>We have seen how data frames are created when using the <code>read.csv()</code>, but they can also be created by hand with the <code>data.frame()</code> function. There are a few mistakes in this hand-crafted data.frame, can you spot and fix them? Don’t hesitate to experiment!</p>
@@ -643,18 +640,8 @@ surveys<span class="op">$</span>plot_type &lt;-<span class="st"> </span><span cl
 <h2>Data Wrangling with <code>dplyr</code></h2>
 <p>It is an often bemoaned fact that a data scientist spends much, and often most, of her time wrangling data: getting it organized and clean. In this lesson we will learn an efficient set of tools that can handle the vast majority of most data management tasks.</p>
 <p>Enter <code>dplyr</code>, a package for making data manipulation easier. More on <code>dplyr</code> later. <code>dplyr</code> is part of <code>tidyverse</code>, so it is already installed on your machine. You can load it individually, or with the other tidyverse packages like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## Loading tidyverse: ggplot2
-## Loading tidyverse: tibble
-## Loading tidyverse: tidyr
-## Loading tidyverse: readr
-## Loading tidyverse: purrr
-## Loading tidyverse: dplyr</code></pre>
-<pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
-<pre><code>## filter(): dplyr, stats
-## lag():    dplyr, stats
-## n():      dplyr, .env</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gapminder)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(gapminder)</code></pre></div>
 <p>Those messages and conflicts are normal. The conflicts are R telling you that there are two packages with functions named “filter” and “lag”. When R gives you red text, it’s not always a bad thing, but it does mean you should pay attention and try to understand what it’s trying to tell you.</p>
 <p>Remember that you only have to install each package once (per computer), but you have to load them for each R session in which you want to use them.</p>
 <p>You also have to load any data you want to use each time you start a new R session. So, if it’s not already loaded, read in the gapminder data. We’re going to use tidyverse’s <code>read_csv</code> instead of base R’s <code>read.csv</code> here. It has a few nice features; the most obvious is that it makes a special kind of data.frame that only prints the first ten rows instead of all 1704.</p>
@@ -700,7 +687,7 @@ surveys<span class="op">$</span>plot_type &lt;-<span class="st"> </span><span cl
 <div id="filter" class="section level4">
 <h4><code>filter()</code></h4>
 <p>Suppose we want to see just the gapminder data for the USA. First, we need to know how “USA” is written in the dataset: Is it USA or United States or what? We can see all the unique values of a variable with the <code>unique</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unique</span>(gapminder<span class="op">$</span>country)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unique</span>(gapminder$country)</code></pre></div>
 <pre><code>##   [1] Afghanistan              Albania                 
 ##   [3] Algeria                  Angola                  
 ##   [5] Argentina                Australia               
@@ -774,7 +761,7 @@ surveys<span class="op">$</span>plot_type &lt;-<span class="st"> </span><span cl
 ## [141] Zambia                   Zimbabwe                
 ## 142 Levels: Afghanistan Albania Algeria Angola Argentina ... Zimbabwe</code></pre>
 <p>Okay, now we want to see just the rows of the data.frame where country is “United States”. The syntax for all <code>dplyr</code> functions is the same: The first argument is the data.frame, the rest of the arguments are whatever you want to do in that data.frame.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(gapminder, country <span class="op">==</span><span class="st"> &quot;United States&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(gapminder, country ==<span class="st"> &quot;United States&quot;</span>)</code></pre></div>
 <pre><code>## # A tibble: 12 x 6
 ##          country continent  year lifeExp       pop gdpPercap
 ##           &lt;fctr&gt;    &lt;fctr&gt; &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
@@ -791,14 +778,14 @@ surveys<span class="op">$</span>plot_type &lt;-<span class="st"> </span><span cl
 ## 11 United States  Americas  2002  77.310 287675526  39097.10
 ## 12 United States  Americas  2007  78.242 301139947  42951.65</code></pre>
 <p>We can also apply multiple conditions, e.g. the US after 2000:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(gapminder, country <span class="op">==</span><span class="st"> &quot;United States&quot;</span> <span class="op">&amp;</span><span class="st"> </span>year <span class="op">&gt;</span><span class="st"> </span><span class="dv">2000</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(gapminder, country ==<span class="st"> &quot;United States&quot;</span> &amp;<span class="st"> </span>year &gt;<span class="st"> </span><span class="dv">2000</span>)</code></pre></div>
 <pre><code>## # A tibble: 2 x 6
 ##         country continent  year lifeExp       pop gdpPercap
 ##          &lt;fctr&gt;    &lt;fctr&gt; &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
 ## 1 United States  Americas  2002  77.310 287675526  39097.10
 ## 2 United States  Americas  2007  78.242 301139947  42951.65</code></pre>
 <p>We can also use “or” conditions with the vertical pipe: <code>|</code>. Notice that the variable (column) names don’t go in quotes, but values of character variables do.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(gapminder, country <span class="op">==</span><span class="st"> &quot;United States&quot;</span> <span class="op">|</span><span class="st"> </span>country <span class="op">==</span><span class="st"> &quot;Mexico&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(gapminder, country ==<span class="st"> &quot;United States&quot;</span> |<span class="st"> </span>country ==<span class="st"> &quot;Mexico&quot;</span>)</code></pre></div>
 <pre><code>## # A tibble: 24 x 6
 ##    country continent  year lifeExp      pop gdpPercap
 ##     &lt;fctr&gt;    &lt;fctr&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -821,7 +808,7 @@ surveys<span class="op">$</span>plot_type &lt;-<span class="st"> </span><span cl
 <p>Suppose we only want to see country and life expectancy.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">select</span>(gapminder, country, lifeExp)</code></pre></div>
 <p>We can choose which columns we don’t want</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">select</span>(gapminder, <span class="op">-</span>continent, <span class="dt">income =</span> gdpPercap)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">select</span>(gapminder, -continent, <span class="dt">income =</span> gdpPercap)</code></pre></div>
 <pre><code>## # A tibble: 1,704 x 5
 ##        country  year lifeExp      pop   income
 ##         &lt;fctr&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;    &lt;dbl&gt;
@@ -853,8 +840,8 @@ surveys<span class="op">$</span>plot_type &lt;-<span class="st"> </span><span cl
 ## 10 Afghanistan          41.763
 ## # ... with 1,694 more rows</code></pre>
 <p>As usual, R isn’t saving any of these outputs; just printing them to the screen. If we want to keep them around, we need to assign them to a variable.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">justUS =<span class="st"> </span><span class="kw">filter</span>(gapminder, country <span class="op">==</span><span class="st"> &quot;United States&quot;</span>)
-USdata =<span class="st"> </span><span class="kw">select</span>(justUS, <span class="op">-</span>country, <span class="op">-</span>continent)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">justUS =<span class="st"> </span><span class="kw">filter</span>(gapminder, country ==<span class="st"> &quot;United States&quot;</span>)
+USdata =<span class="st"> </span><span class="kw">select</span>(justUS, -country, -continent)
 USdata</code></pre></div>
 <pre><code>## # A tibble: 12 x 4
 ##     year lifeExp       pop gdpPercap
@@ -937,7 +924,7 @@ USdata</code></pre></div>
 <div id="mutate" class="section level4">
 <h4><code>mutate()</code></h4>
 <p>We have learned how to drop rows, drop columns, and rearrange rows. To make a new column we use the <code>mutate</code> function. As usual, the first argument is a data.frame. The second argument is the name of the new column you want to create, followed by an equal sign, followed by what to put in that column. You can reference other variables in the data.frame, and <code>mutate</code> will treat each row independently. E.g. we can calculate the total GDP of each country in each year by multiplying the per-capita GDP by the population.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mutate</span>(gapminder, <span class="dt">total_gdp =</span> gdpPercap <span class="op">*</span><span class="st"> </span>pop)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mutate</span>(gapminder, <span class="dt">total_gdp =</span> gdpPercap *<span class="st"> </span>pop)</code></pre></div>
 <pre><code>## # A tibble: 1,704 x 7
 ##        country continent  year lifeExp      pop gdpPercap   total_gdp
 ##         &lt;fctr&gt;    &lt;fctr&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;       &lt;dbl&gt;
@@ -956,7 +943,7 @@ USdata</code></pre></div>
 <p>Note that didn’t change gapminder: We didn’t assign the output to anything, so it was just printed, with the new column. If we want to modify our gapminder data.frame, we can assign the output of <code>mutate</code> back to the gapminder variable, but be careful doing this – if you make a mistake, you can’t just re-run that line of code, you’ll need to go back to loading the gapminder data.frame.</p>
 <p>Also, you can create multiple columns in one call to <code>mutate</code>, even using variables that you just created, separating them with commas:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder =<span class="st"> </span><span class="kw">mutate</span>(gapminder, 
-                   <span class="dt">total_gdp =</span> gdpPercap <span class="op">*</span><span class="st"> </span>pop,
+                   <span class="dt">total_gdp =</span> gdpPercap *<span class="st"> </span>pop,
                    <span class="dt">log_gdp =</span> <span class="kw">log10</span>(total_gdp))</code></pre></div>
 <blockquote>
 <h4 id="mcq-data-reduction" class="challenge">MCQ: Data Reduction</h4>
@@ -978,7 +965,7 @@ USdata</code></pre></div>
 <div id="cest-ne-pas-une-pipe" class="section level4">
 <h4>C’est ne pas une pipe</h4>
 <p>Suppose we want to look at all the countries where life expectancy is greater than 80 years, sorted from poorest to richest. First, we <code>filter</code>, then we <code>arrange</code>. We could assign the intermediate data.frame to a variable:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lifeExpGreater80 =<span class="st"> </span><span class="kw">filter</span>(gapminder, lifeExp <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lifeExpGreater80 =<span class="st"> </span><span class="kw">filter</span>(gapminder, lifeExp &gt;<span class="st"> </span><span class="dv">80</span>)
 (<span class="dt">lifeExpGreater80sorted =</span> <span class="kw">arrange</span>(lifeExpGreater80, gdpPercap))</code></pre></div>
 <pre><code>## # A tibble: 21 x 8
 ##             country continent  year lifeExp       pop gdpPercap
@@ -997,7 +984,7 @@ USdata</code></pre></div>
 ## #   log_gdp &lt;dbl&gt;</code></pre>
 <p>In this case it doesn’t much matter, but we make a whole new data.frame (<code>lifeExpGreater80</code>) and only use it once; that’s a little wasteful of system resources, and it clutters our environment. If the data are large, that can be a big problem.</p>
 <p>Or, we could nest each function so that it appears on one line:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">arrange</span>(<span class="kw">filter</span>(gapminder, lifeExp <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span>), gdpPercap)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">arrange</span>(<span class="kw">filter</span>(gapminder, lifeExp &gt;<span class="st"> </span><span class="dv">80</span>), gdpPercap)</code></pre></div>
 <pre><code>## # A tibble: 21 x 8
 ##             country continent  year lifeExp       pop gdpPercap
 ##              &lt;fctr&gt;    &lt;fctr&gt; &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
@@ -1015,7 +1002,7 @@ USdata</code></pre></div>
 ## #   log_gdp &lt;dbl&gt;</code></pre>
 <p>This would become difficult to read if we are performing a number of operations that would require a repeated nesting. But…</p>
 <p>There is a better way, and it makes both writing and reading the code easier. The pipe from the <code>magrittr</code> package (which is automatically installed and loaded with <code>dplyr</code> and <code>tidyverse</code>) takes the output of first line, and plugs it in as the first argument of the next line. Since many <code>tidyverse</code> functions expect a data.frame as the first argument and output a data.frame, this works fluidly.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(gapminder, lifeExp <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span>) <span class="op">%&gt;%</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(gapminder, lifeExp &gt;<span class="st"> </span><span class="dv">80</span>) %&gt;%
 <span class="st">    </span><span class="kw">arrange</span>(gdpPercap)</code></pre></div>
 <pre><code>## # A tibble: 21 x 8
 ##             country continent  year lifeExp       pop gdpPercap
@@ -1033,13 +1020,13 @@ USdata</code></pre></div>
 ## # ... with 11 more rows, and 2 more variables: total_gdp &lt;dbl&gt;,
 ## #   log_gdp &lt;dbl&gt;</code></pre>
 <p>To demonstrate how it works, here are some examples where it’s unnecessary.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sqrt</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> %&gt;%<span class="st"> </span><span class="kw">sqrt</span>()</code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">^</span><span class="st"> </span><span class="dv">2</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>(<span class="dv">1</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> ^<span class="st"> </span><span class="dv">2</span> %&gt;%<span class="st"> </span><span class="kw">sum</span>(<span class="dv">1</span>)</code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <p>Whatever goes through the pipe becomes the first argument of the function after the pipe. This is convenient, because all <code>dplyr</code> functions produce a data.frame as their output and take a data.frame as the first argument. Since R ignores white-space, we can put each function on a new line, which RStudio will automatically indent, making everything easy to read. Now each line represents a step in a sequential operation. You can read this as “Take the gapminder data.frame, filter to the rows where lifeExp is greater than 80, and arrange by gdpPercap.”</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">filter</span>(lifeExp <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span>) <span class="op">%&gt;%</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder %&gt;%
+<span class="st">    </span><span class="kw">filter</span>(lifeExp &gt;<span class="st"> </span><span class="dv">80</span>) %&gt;%
 <span class="st">    </span><span class="kw">arrange</span>(gdpPercap)</code></pre></div>
 <pre><code>## # A tibble: 21 x 8
 ##             country continent  year lifeExp       pop gdpPercap
@@ -1065,8 +1052,8 @@ USdata</code></pre></div>
 <div id="summarize" class="section level4">
 <h4><code>summarize()</code></h4>
 <p>Often we want to calculate a new variable, but rather than keeping each row as an independent observation, we want to group observations together to calculate some summary statistic. To do this we need two functions, one to do the grouping and one to calculate the summary statistic: <code>group_by</code> and <code>summarize</code>. By itself <code>group_by</code> doesn’t change a data.frame; it just sets up the grouping. <code>summarize</code> then goes over each group in the data.frame and does whatever calculation you want. E.g. suppose we want the average global gdp for each year. While we’re at it, let’s calculate the mean and median and see how they differ.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder %&gt;%
+<span class="st">    </span><span class="kw">group_by</span>(year) %&gt;%
 <span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdp =</span> <span class="kw">mean</span>(gdpPercap), <span class="dt">median_gdp =</span> <span class="kw">median</span>(gdpPercap))</code></pre></div>
 <pre><code>## # A tibble: 12 x 3
 ##     year  mean_gdp median_gdp
@@ -1085,12 +1072,12 @@ USdata</code></pre></div>
 ## 12  2007 11680.072   6124.371</code></pre>
 <p><strong>Shoutout Q: Note that <code>summarize</code> eliminates any other columns. Why? What else can it do? E.g. What country should it list for the year 1952!?</strong></p>
 <p>There are several different summary statistics that can be generated from our data. The R base package provides many built-in functions such as <code>mean</code>, <code>median</code>, <code>min</code>, <code>max</code>, and <code>range</code>. By default, all <strong>R functions operating on vectors that contains missing data will return NA</strong>. It’s a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. When dealing with simple statistics like the mean, the easiest way to ignore <code>NA</code> (the missing data) is to use <code>na.rm=TRUE</code> (<code>rm</code> stands for remove). An alternate option is to use the function <code>is.na()</code>, which evaluates to true if the value passed to it is not a number. This function is more useful as a part of a filter, where you can filter out everything that is not a number. For that purpose you would do something like</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(someColumn)) </code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(!<span class="kw">is.na</span>(someColumn)) </code></pre></div>
 <p>The <code>!</code> symbol negates it, so we’re asking for everything that is not an <code>NA</code>.</p>
 <p>We often want to calculate the number of entries within a group. E.g. we might wonder if our dataset is balanced by country. We can do this with the <code>n()</code> function, or <code>dplyr</code> provides a <code>count</code> function as a convenience:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">group_by</span>(country) <span class="op">%&gt;%</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder %&gt;%
+<span class="st">    </span><span class="kw">group_by</span>(country) %&gt;%
 <span class="st">    </span><span class="kw">summarize</span>(<span class="dt">number_entries =</span> <span class="kw">n</span>())</code></pre></div>
 <pre><code>## # A tibble: 142 x 2
 ##        country number_entries
@@ -1122,8 +1109,8 @@ USdata</code></pre></div>
 ## 10     Belgium    12
 ## # ... with 132 more rows</code></pre>
 <p>We can also do multiple groupings. Suppose we want the maximum life expectancy in each continent for each year. We group by continent and year and calculate the maximum with the <code>max</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder %&gt;%
+<span class="st">    </span><span class="kw">group_by</span>(continent, year) %&gt;%
 <span class="st">    </span><span class="kw">summarize</span>(<span class="dt">longest_life =</span> <span class="kw">max</span>(lifeExp))</code></pre></div>
 <pre><code>## # A tibble: 60 x 3
 ## # Groups:   continent [?]
@@ -1146,8 +1133,8 @@ USdata</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">which.max</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">4</span>))</code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Now, back to the question: Where lifeExp is at a maximum, what is the entry in country?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder %&gt;%
+<span class="st">    </span><span class="kw">group_by</span>(continent, year) %&gt;%
 <span class="st">    </span><span class="kw">summarize</span>(<span class="dt">longest_life =</span> <span class="kw">max</span>(lifeExp), <span class="dt">country =</span> country[<span class="kw">which.max</span>(lifeExp)])</code></pre></div>
 <pre><code>## # A tibble: 60 x 4
 ## # Groups:   continent [?]

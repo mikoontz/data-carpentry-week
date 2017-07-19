@@ -310,12 +310,6 @@ div.tocify {
     <li>
       <a href="lesson_visualization_ggplot2.html">Data visualization</a>
     </li>
-    <li>
-      <a href="lesson_data_import.html">Data import</a>
-    </li>
-    <li>
-      <a href="lesson_import_dplyr_ggplot2.html">Data import %&gt;% dplyr %&gt;% ggplot2</a>
-    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -329,19 +323,16 @@ div.tocify {
       <a href="refresh_day2.html">Refresh day 2</a>
     </li>
     <li>
+      <a href="http://www.datacarpentry.org/spreadsheet-ecology-lesson/">Spreadsheets</a>
+    </li>
+    <li>
+      <a href="lesson_data_import.html">Data import</a>
+    </li>
+    <li>
       <a href="lesson_dynamic_documents.html">Dynamic documents</a>
     </li>
     <li>
-      <a href="lesson_tidyr.html">Tidying data</a>
-    </li>
-    <li>
-      <a href="lesson_tidyr_plus.html">Tidying data+</a>
-    </li>
-    <li>
-      <a href="lesson_lubridate.html">Time data with lubridate</a>
-    </li>
-    <li>
-      <a href="lesson_functions.html">Custom functions</a>
+      <a href="lesson_import_dplyr_ggplot2.html">Data import %&gt;% dplyr %&gt;% ggplot2</a>
     </li>
   </ul>
 </li>
@@ -356,10 +347,13 @@ div.tocify {
       <a href="refresh_day3.html">Refresh day 3</a>
     </li>
     <li>
-      <a href="lesson_joins.html">Table joins</a>
+      <a href="lesson_tidyr.html">Tidying data</a>
     </li>
     <li>
-      <a href="lesson_joins_plus.html">Table joins+</a>
+      <a href="lesson_lubridate.html">Time data with lubridate</a>
+    </li>
+    <li>
+      <a href="lesson_functions.html">Custom functions</a>
     </li>
   </ul>
 </li>
@@ -372,6 +366,9 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="refresh_day4.html">Refresh day 4</a>
+    </li>
+    <li>
+      <a href="lesson_joins.html">Table joins</a>
     </li>
     <li>
       <a href="lesson_for_loops.html">Automation with for loops</a>
@@ -418,11 +415,13 @@ div.tocify {
 <blockquote>
 <h2 id="learning-objectives">Learning objectives</h2>
 <ul>
+<li>Refresh our skills with <code>dplyr</code> functions</li>
+<li>Refresh our skills with <code>ggplot2</code> functions</li>
 <li>To be able to seek help via <code>?</code> and Google</li>
 </ul>
 </blockquote>
 <blockquote>
-<h4 id="challenge-1-make-a-new-directory-and-project-for-dibsi-day-3">Challenge 1 – Make a new directory and project for DIBSI Day 3</h4>
+<h3 id="challenge-1-make-a-new-directory-and-project-for-dibsi-day-3">Challenge 1 – Make a new directory and project for DIBSI Day 3</h3>
 <ul>
 <li>In your project directory, either using the Project tab of RStudio or your OS’ file system, create the following directories:
 <ul>
@@ -431,6 +430,41 @@ div.tocify {
 <li>results</li>
 </ul></li>
 <li>Create a new .R script file in the scripts/ folder calling it whatever you like</li>
+</ul>
+</blockquote>
+<blockquote>
+<h3 id="challenge-2-subsetting">Challenge 2 – Subsetting</h3>
+<ul>
+<li>Load any libraries you may need</li>
+<li>Subset the gapminder data to only Oceania countries post-1980.</li>
+<li>Remove the continent column</li>
+<li>Make a scatter plot of gdpPercap vs. population colored by country</li>
+</ul>
+<p><strong>Advanced</strong> How would you determine the median population for the North American countries between 1970 and 1980?</p>
+</blockquote>
+<blockquote>
+<h3 id="challenge-3-add-new-information-to-a-plot-weve-seen">Challenge 3 – Add new information to a plot we’ve seen</h3>
+<p>Recreate the plot below. It uses the gapminder data and shows life expectancy plotted against GDP per capita as a scatterplot. Points are colored by continent, we have made the x axis a log scale, and we have added a single best-fit line through all the points.</p>
+<p><img src="refresh_day2_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Now, modify the previous plot to size the points in proportion to the population of the county.</p>
+</blockquote>
+<blockquote>
+<h3 id="mcq-data-reduction">MCQ: Data Reduction</h3>
+<p>Produce a data.frame with only the names, years, and per-capita GDP of countries where per capita gdp is less than a dollar a day sorted from most- to least-recent.</p>
+<ul>
+<li>Tip: The <code>gdpPercap</code> variable is annual gdp. You’ll need to adjust.</li>
+<li>Tip: For complex tasks, it often helps to use pencil and paper to write/draw/map the various steps needed and how they fit together before writing any code.</li>
+</ul>
+<p>What is the annual per-capita gdp, rounded to the nearest dollar, of the first row in the data.frame?</p>
+<ol style="list-style-type: lower-alpha">
+<li>$278</li>
+<li>$312</li>
+<li>$331</li>
+<li>$339</li>
+</ol>
+<p><strong>Advanced</strong>: Use dplyr functions and ggplot to plot per-capita GDP versus population for North American countries after 1970.</p>
+<ul>
+<li>Once you’ve made the graph, transform both axes to a log10 scale. There are two ways to do this, one by creating new columns in the data frame, and another using functions provided by ggplot to transform the axes. Implement both, in that order. Which do you prefer and why?</li>
 </ul>
 </blockquote>
 

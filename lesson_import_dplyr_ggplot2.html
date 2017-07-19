@@ -310,12 +310,6 @@ div.tocify {
     <li>
       <a href="lesson_visualization_ggplot2.html">Data visualization</a>
     </li>
-    <li>
-      <a href="lesson_data_import.html">Data import</a>
-    </li>
-    <li>
-      <a href="lesson_import_dplyr_ggplot2.html">Data import %&gt;% dplyr %&gt;% ggplot2</a>
-    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -329,19 +323,16 @@ div.tocify {
       <a href="refresh_day2.html">Refresh day 2</a>
     </li>
     <li>
+      <a href="http://www.datacarpentry.org/spreadsheet-ecology-lesson/">Spreadsheets</a>
+    </li>
+    <li>
+      <a href="lesson_data_import.html">Data import</a>
+    </li>
+    <li>
       <a href="lesson_dynamic_documents.html">Dynamic documents</a>
     </li>
     <li>
-      <a href="lesson_tidyr.html">Tidying data</a>
-    </li>
-    <li>
-      <a href="lesson_tidyr_plus.html">Tidying data+</a>
-    </li>
-    <li>
-      <a href="lesson_lubridate.html">Time data with lubridate</a>
-    </li>
-    <li>
-      <a href="lesson_functions.html">Custom functions</a>
+      <a href="lesson_import_dplyr_ggplot2.html">Data import %&gt;% dplyr %&gt;% ggplot2</a>
     </li>
   </ul>
 </li>
@@ -356,10 +347,13 @@ div.tocify {
       <a href="refresh_day3.html">Refresh day 3</a>
     </li>
     <li>
-      <a href="lesson_joins.html">Table joins</a>
+      <a href="lesson_tidyr.html">Tidying data</a>
     </li>
     <li>
-      <a href="lesson_joins_plus.html">Table joins+</a>
+      <a href="lesson_lubridate.html">Time data with lubridate</a>
+    </li>
+    <li>
+      <a href="lesson_functions.html">Custom functions</a>
     </li>
   </ul>
 </li>
@@ -372,6 +366,9 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="refresh_day4.html">Refresh day 4</a>
+    </li>
+    <li>
+      <a href="lesson_joins.html">Table joins</a>
     </li>
     <li>
       <a href="lesson_for_loops.html">Automation with for loops</a>
@@ -511,14 +508,14 @@ div.tocify {
 <div id="filter-rows-and-select-columns" class="section level2">
 <h2>Filter rows and select columns</h2>
 <blockquote>
-<h3 id="challenge">Challenge</h3>
+<h4 id="challenge">Challenge</h4>
 <p>Using pipes, subset the <code>survey</code> data to include individuals collected before 1995 and retain only the columns <code>year</code>, <code>sex</code>, and <code>weight</code>.</p>
 </blockquote>
 </div>
 <div id="modify-the-data-frame" class="section level2">
 <h2>Modify the data frame</h2>
 <blockquote>
-<h3 id="challenge-1">Challenge</h3>
+<h4 id="challenge-1">Challenge</h4>
 <p>Create a new data frame from the <code>surveys</code> data that meets the following criteria: contains only the <code>species_id</code> column and a new column called <code>hindfoot_half</code> containing values that are half the <code>hindfoot_length</code> values. In this <code>hindfoot_half</code> column, there are no <code>NA</code>s and all values are less than 30.</p>
 <p><strong>Hint</strong>: think about how the commands should be ordered to produce this data frame!</p>
 </blockquote>
@@ -526,12 +523,12 @@ div.tocify {
 <div id="learn-from-the-data-frame" class="section level2">
 <h2>Learn from the data frame</h2>
 <blockquote>
-<h3 id="challenge-2">Challenge</h3>
+<h4 id="challenge-2">Challenge</h4>
 <ol style="list-style-type: decimal">
-<li><p>How many individuals were caught in each <code>plot_type</code> surveyed? (<strong>Hint: </strong> <strong>Check out the <code>tally()</code> function</strong>)</p></li>
+<li><p>How many individuals were caught in each <code>plot_type</code> surveyed? (<strong>Hint</strong>: check out the <code>tally()</code> function.)</p></li>
 <li><p>Use <code>group_by()</code> and <code>summarize()</code> to find the mean, min, and max hindfoot length for each species (using <code>species_id</code>).</p></li>
 <li><p>What was the heaviest animal measured in each year? Return the columns <code>year</code>, <code>genus</code>, <code>species_id</code>, and <code>weight</code>.</p></li>
-<li><p>You saw above how to count the number of individuals of each <code>sex</code> using a combination of <code>group_by()</code> and <code>tally()</code>. How could you get the same result using <code>group_by()</code> and <code>summarize()</code>? Hint: see <code>?n</code>.</p></li>
+<li><p>You saw above how to count the number of individuals of each <code>sex</code> using a combination of <code>group_by()</code> and <code>tally()</code>. How could you get the same result using <code>group_by()</code> and <code>summarize()</code>? <strong>Hint</strong>: see <code>?n</code>.</p></li>
 </ol>
 </blockquote>
 </div>
@@ -546,8 +543,48 @@ div.tocify {
 <div id="export-the-cleaned-data-set" class="section level2">
 <h2>Export the cleaned data set</h2>
 <p>Save the <code>surveys_complete</code> object as a CSV file in a <code>data_output</code> folder. By default, <code>write.csv()</code> includes a column with row names (in our case the names are just the row numbers), so add the <code>row.names = FALSE</code> argument to the <code>write.csv()</code> function call so they are not included.</p>
+</div>
+<div id="visualize-the-data" class="section level2">
+<h2>Visualize the data</h2>
+<p>Explore the surveys_complete dataset further using <code>ggplot2</code>.</p>
+<blockquote>
+<h4 id="challenge-visualize-the-distribution-of-variables">Challenge – visualize the distribution of variables</h4>
+<ul>
+<li>Use a boxplot or a violin plot to visualize the distribution of the <code>weight</code> variable for each species.</li>
+<li>Create a different boxplot to show the distribution of the <code>hindfoot_length</code> variable for each species.</li>
+</ul>
+<p>Boxplots are great for showing a lot of information about the spread of a variable, but some information from the raw data is lost. - Add a point geometry to your boxplot to visualze the raw <code>hindfoot_length</code> data</p>
+<p>Unfortunately, adding the raw data makes our figure “overplotted”. There are too many points overlapping and information is lost this way, too.</p>
+<ul>
+<li>Make a new boxplot of <code>hindfoot_length</code> for each species, but this time plot a jittered version of the raw data as a geometry on top of your boxplot (<strong>Hint</strong>: If a geom_point() makes a point geometry, what do you expect will make a jitter geometry?)</li>
+<li>Color your jittered datapoints on your boxplot according to the plot from which the observation was taken (plot_id).</li>
+</ul>
+</blockquote>
+<blockquote>
+<h4 id="challenge-publication-quality-plot">Challenge – Publication-quality plot</h4>
+<p>The goal of this challenge will be to recreate the figure below, and then add some improvements to make it publication ready. The figure shows the yearly counts of each species through time by sex and species. Does our <code>surveys_complete</code> dataframe have the information that we need to make this figure?</p>
+<ul>
+<li>Create a new object called <code>yearly_sex_counts</code> that has the uses the <code>surveys_complete</code> dataframe to calculate the total number of individuals observed in each year of each sex of each species. <strong>Hint</strong>: Think about what subgroups you need to <strong>split</strong> your data into, what function you want to <strong>apply</strong> to those subgroups, and what variables in your new dataframe you will need when it is <strong>combined</strong> back together.</li>
+</ul>
+<p>Build your plot piece-by-piece, making sure you can get each new component to work before adding more complexity.</p>
+<ul>
+<li>For instance, start by building a plot that only sets up the x position and y position aesthetics. What data should be mapped to these visual features of the plot?</li>
+<li>Now add a geometry. Which one should you use to match the plot below?</li>
+<li>Color the geometry you just added by sex.</li>
+<li>Create subplots by species using faceting.</li>
+<li>Test out some of the different <a href="http://docs.ggplot2.org/current/ggtheme.html">themes</a> available and pick one that has more of a white background, which will be easier to read when printed.</li>
+<li>Save your plot to your figures subdirectory in your project folder</li>
+</ul>
+</blockquote>
+<p><img src="lesson_import_dplyr_ggplot2_files/figure-html/facet-by-species-and-sex-1.png" width="672" /></p>
+<blockquote>
+<p><strong>Bonus</strong>: Take a look at the <a href="https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf"><code>ggplot2</code> cheatsheet pdf</a> for some ideas on how to improve the plot (e.g., renaming the axes to something more informative, add a title, rotate axis labels so they’re readable).</p>
+<p><strong>Bonus</strong>: Create a similar plot that shows the mean weight of individuals by year for each sex of each species and save it to your figures subdirectory.</p>
+<p><strong>Bonus</strong>: Generate a dynamic document using RMarkdown that incorporates both the data-manipulation required to create your final plot for this challenge as well as the plot itself.</p>
+<p><strong>Double bonus</strong>: Add to your dynamic document all of the data manipulation steps you needed to take going all the way back to the original “combined.csv” file. Just include the fewest steps required to go from the “combined.csv” file to the publication-quality plot.</p>
+</blockquote>
 <p><br></p>
-<p>This lesson is adapted from the Data Carpentry: R for Data Analysis and Visualization of Ecological Data <a href="http://www.datacarpentry.org/R-ecology-lesson/02-starting-with-data.html">Starting with Data materials</a> and the Data Carpentry: R for Data Analysis and Visualization of Ecological Data <a href="http://www.datacarpentry.org/R-ecology-lesson/03-dplyr.html">Manipulating and Analyzing Data with dplyr materials</a>.</p>
+<p>This lesson is adapted from the Data Carpentry: R for Data Analysis and Visualization of Ecological Data <a href="http://www.datacarpentry.org/R-ecology-lesson/02-starting-with-data.html">Starting with Data materials</a>, the Data Carpentry: R for Data Analysis and Visualization of Ecological Data <a href="http://www.datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html">Data Visualization with ggplot2 materials</a>, and the Data Carpentry: R for Data Analysis and Visualization of Ecological Data <a href="http://www.datacarpentry.org/R-ecology-lesson/03-dplyr.html">Manipulating and Analyzing Data with dplyr materials</a>.</p>
 </div>
 
 

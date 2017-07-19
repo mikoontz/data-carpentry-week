@@ -353,12 +353,6 @@ div.tocify {
     <li>
       <a href="lesson_visualization_ggplot2.html">Data visualization</a>
     </li>
-    <li>
-      <a href="lesson_data_import.html">Data import</a>
-    </li>
-    <li>
-      <a href="lesson_import_dplyr_ggplot2.html">Data import %&gt;% dplyr %&gt;% ggplot2</a>
-    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -372,19 +366,16 @@ div.tocify {
       <a href="refresh_day2.html">Refresh day 2</a>
     </li>
     <li>
+      <a href="http://www.datacarpentry.org/spreadsheet-ecology-lesson/">Spreadsheets</a>
+    </li>
+    <li>
+      <a href="lesson_data_import.html">Data import</a>
+    </li>
+    <li>
       <a href="lesson_dynamic_documents.html">Dynamic documents</a>
     </li>
     <li>
-      <a href="lesson_tidyr.html">Tidying data</a>
-    </li>
-    <li>
-      <a href="lesson_tidyr_plus.html">Tidying data+</a>
-    </li>
-    <li>
-      <a href="lesson_lubridate.html">Time data with lubridate</a>
-    </li>
-    <li>
-      <a href="lesson_functions.html">Custom functions</a>
+      <a href="lesson_import_dplyr_ggplot2.html">Data import %&gt;% dplyr %&gt;% ggplot2</a>
     </li>
   </ul>
 </li>
@@ -399,10 +390,13 @@ div.tocify {
       <a href="refresh_day3.html">Refresh day 3</a>
     </li>
     <li>
-      <a href="lesson_joins.html">Table joins</a>
+      <a href="lesson_tidyr.html">Tidying data</a>
     </li>
     <li>
-      <a href="lesson_joins_plus.html">Table joins+</a>
+      <a href="lesson_lubridate.html">Time data with lubridate</a>
+    </li>
+    <li>
+      <a href="lesson_functions.html">Custom functions</a>
     </li>
   </ul>
 </li>
@@ -415,6 +409,9 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="refresh_day4.html">Refresh day 4</a>
+    </li>
+    <li>
+      <a href="lesson_joins.html">Table joins</a>
     </li>
     <li>
       <a href="lesson_for_loops.html">Automation with for loops</a>
@@ -475,15 +472,6 @@ div.tocify {
 <p>We will learn <code>ggplot()</code>, because it is effective and efficient, makes publication-quality graphics, and is theoretically grounded in the grammar of graphics– the idea that any plot can be expressed from the same set of components: a <strong>data</strong> set, a <strong>coordinate system</strong>, and a set of <strong>geoms</strong>–the visual representation of data points.</p>
 <p>The <code>ggplot2</code> package is automatically installed with the <code>tidyverse</code> package, so it will be loaded when we call the <code>library()</code> function on <code>tidyverse</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## Loading tidyverse: ggplot2
-## Loading tidyverse: tibble
-## Loading tidyverse: tidyr
-## Loading tidyverse: readr
-## Loading tidyverse: purrr
-## Loading tidyverse: dplyr</code></pre>
-<pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
-<pre><code>## filter(): dplyr, stats
-## lag():    dplyr, stats</code></pre>
 <div id="first-plots" class="section level3">
 <h3>First plots</h3>
 <p>The key to understanding ggplot is thinking about a figure in layers: just like you might do in an image editing program like Photoshop, Illustrator, or Inkscape.</p>

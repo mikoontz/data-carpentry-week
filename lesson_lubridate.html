@@ -353,12 +353,6 @@ div.tocify {
     <li>
       <a href="lesson_visualization_ggplot2.html">Data visualization</a>
     </li>
-    <li>
-      <a href="lesson_data_import.html">Data import</a>
-    </li>
-    <li>
-      <a href="lesson_import_dplyr_ggplot2.html">Data import %&gt;% dplyr %&gt;% ggplot2</a>
-    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -372,19 +366,16 @@ div.tocify {
       <a href="refresh_day2.html">Refresh day 2</a>
     </li>
     <li>
+      <a href="http://www.datacarpentry.org/spreadsheet-ecology-lesson/">Spreadsheets</a>
+    </li>
+    <li>
+      <a href="lesson_data_import.html">Data import</a>
+    </li>
+    <li>
       <a href="lesson_dynamic_documents.html">Dynamic documents</a>
     </li>
     <li>
-      <a href="lesson_tidyr.html">Tidying data</a>
-    </li>
-    <li>
-      <a href="lesson_tidyr_plus.html">Tidying data+</a>
-    </li>
-    <li>
-      <a href="lesson_lubridate.html">Time data with lubridate</a>
-    </li>
-    <li>
-      <a href="lesson_functions.html">Custom functions</a>
+      <a href="lesson_import_dplyr_ggplot2.html">Data import %&gt;% dplyr %&gt;% ggplot2</a>
     </li>
   </ul>
 </li>
@@ -399,10 +390,13 @@ div.tocify {
       <a href="refresh_day3.html">Refresh day 3</a>
     </li>
     <li>
-      <a href="lesson_joins.html">Table joins</a>
+      <a href="lesson_tidyr.html">Tidying data</a>
     </li>
     <li>
-      <a href="lesson_joins_plus.html">Table joins+</a>
+      <a href="lesson_lubridate.html">Time data with lubridate</a>
+    </li>
+    <li>
+      <a href="lesson_functions.html">Custom functions</a>
     </li>
   </ul>
 </li>
@@ -415,6 +409,9 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="refresh_day4.html">Refresh day 4</a>
+    </li>
+    <li>
+      <a href="lesson_joins.html">Table joins</a>
     </li>
     <li>
       <a href="lesson_for_loops.html">Automation with for loops</a>
@@ -502,15 +499,15 @@ div.tocify {
 </ul>
 <p>What happens with different orders…say MM-DD-YYYY?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Some sample dates: </span>
-sample_dates_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;02-01-2016&quot;</span>, <span class="st">&quot;03-21-2016&quot;</span>, <span class="st">&quot;10-05-2016&quot;</span>, <span class="st">&quot;01-01-2017&quot;</span>, <span class="st">&quot;02-18-2017&quot;</span>)
+sample_dates_2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;02-01-2016&quot;</span>, <span class="st">&quot;03-21-2016&quot;</span>, <span class="st">&quot;10-05-2016&quot;</span>, <span class="st">&quot;01-01-2017&quot;</span>, <span class="st">&quot;02-18-2017&quot;</span>)
 
-<span class="kw">as.Date</span>(sample_dates_<span class="dv">2</span>) <span class="co"># well that doesn&#39;t work</span></code></pre></div>
+<span class="kw">as.Date</span>(sample_dates_2) <span class="co"># well that doesn&#39;t work</span></code></pre></div>
 <pre><code>## [1] &quot;0002-01-20&quot; NA           &quot;0010-05-20&quot; &quot;0001-01-20&quot; NA</code></pre>
 <p>Well, the reason is the computer expects one thing, but is getting something else. Remember, <strong>write code you can read and your computer can understand</strong>. So we need to give some more information here so this will interpret correctly.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Some sample dates: </span>
-sample_dates_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;02-01-2016&quot;</span>, <span class="st">&quot;03-21-2016&quot;</span>, <span class="st">&quot;10-05-2016&quot;</span>, <span class="st">&quot;01-01-2017&quot;</span>, <span class="st">&quot;02-18-2017&quot;</span>)
+sample_dates_2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;02-01-2016&quot;</span>, <span class="st">&quot;03-21-2016&quot;</span>, <span class="st">&quot;10-05-2016&quot;</span>, <span class="st">&quot;01-01-2017&quot;</span>, <span class="st">&quot;02-18-2017&quot;</span>)
 
-<span class="kw">as.Date</span>(sample_dates_<span class="dv">2</span>, <span class="dt">format =</span> <span class="st">&quot;%m-%d-%Y&quot;</span> ) <span class="co"># date code preceded by &quot;%&quot;</span></code></pre></div>
+<span class="kw">as.Date</span>(sample_dates_2, <span class="dt">format =</span> <span class="st">&quot;%m-%d-%Y&quot;</span> ) <span class="co"># date code preceded by &quot;%&quot;</span></code></pre></div>
 <pre><code>## [1] &quot;2016-02-01&quot; &quot;2016-03-21&quot; &quot;2016-10-05&quot; &quot;2017-01-01&quot; &quot;2017-02-18&quot;</code></pre>
 <p>To see a list of the date-time format codes in R, check out this <a href="https://www.stat.berkeley.edu/~s133/dates.html">page and table</a>, or you can use: <code>?(strptime)</code></p>
 <p>The nice thing is this method works well with pretty much any format, you just need to provide the associated codes and structure:</p>
@@ -539,7 +536,7 @@ dt3</code></pre></div>
 <pre><code>## [1] &quot;2014-10-06&quot;</code></pre>
 <p><strong>Now some calculations</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># subtract differences in dates</span>
-<span class="kw">print</span>(dt1 <span class="op">-</span><span class="st"> </span>dt2)</code></pre></div>
+<span class="kw">print</span>(dt1 -<span class="st"> </span>dt2)</code></pre></div>
 <pre><code>## Time difference of 445 days</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># or look at differences in alternate scales</span>
 <span class="kw">print</span>(<span class="kw">difftime</span>(dt1, dt2, <span class="dt">units =</span> <span class="st">&quot;weeks&quot;</span>))</code></pre></div>
@@ -665,17 +662,17 @@ nfy3 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class=
 ## $ Level       &lt;dbl&gt; -8.6834, -8.2928, -8.2914, -8.2901, -8.2955, -8.29...
 ## $ Temperature &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,...</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># make a datetime col:</span>
-nfy2<span class="op">$</span>datetime &lt;-<span class="st"> </span><span class="kw">paste</span>(nfy2<span class="op">$</span>Date, <span class="st">&quot; &quot;</span>, nfy2<span class="op">$</span>Time, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)
+nfy2$datetime &lt;-<span class="st"> </span><span class="kw">paste</span>(nfy2$Date, <span class="st">&quot; &quot;</span>, nfy2$Time, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)
 
 <span class="co"># convert Date Time to POSIXct in local timezone using lubridate</span>
-nfy2<span class="op">$</span>datetime_test &lt;-<span class="st"> </span><span class="kw">as_datetime</span>(nfy2<span class="op">$</span>datetime, 
+nfy2$datetime_test &lt;-<span class="st"> </span><span class="kw">as_datetime</span>(nfy2$datetime, 
                                     <span class="dt">tz=</span><span class="st">&quot;America/Los_Angeles&quot;</span>)
 <span class="co"># convert using the ymd_functions</span>
-nfy2<span class="op">$</span>datetime_test2 &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(nfy2<span class="op">$</span>datetime, <span class="dt">tz=</span><span class="st">&quot;America/Los_Angeles&quot;</span>)
+nfy2$datetime_test2 &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(nfy2$datetime, <span class="dt">tz=</span><span class="st">&quot;America/Los_Angeles&quot;</span>)
 
 <span class="co"># or wrap in as.character()</span>
-nfy1<span class="op">$</span>datetime &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(<span class="kw">as.character</span>(<span class="kw">paste0</span>(nfy1<span class="op">$</span>Date,<span class="st">&quot; &quot;</span>, nfy1<span class="op">$</span>Time)), <span class="dt">tz=</span><span class="st">&quot;America/Los_Angeles&quot;</span>)
-<span class="kw">tz</span>(nfy1<span class="op">$</span>datetime)</code></pre></div>
+nfy1$datetime &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(<span class="kw">as.character</span>(<span class="kw">paste0</span>(nfy1$Date,<span class="st">&quot; &quot;</span>, nfy1$Time)), <span class="dt">tz=</span><span class="st">&quot;America/Los_Angeles&quot;</span>)
+<span class="kw">tz</span>(nfy1$datetime)</code></pre></div>
 <pre><code>## [1] &quot;America/Los_Angeles&quot;</code></pre>
 </div>
 </div>
@@ -693,7 +690,7 @@ mloa &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="
 <span class="kw">library</span>(lubridate, <span class="dt">warn.conflicts =</span> F)
 <span class="kw">library</span>(dplyr, <span class="dt">warn.conflicts =</span> F)
 
-<span class="kw">summary</span>(mloa_<span class="dv">2001</span>)</code></pre></div>
+<span class="kw">summary</span>(mloa_2001)</code></pre></div>
 <pre><code>##    filename         siteID            year          month       
 ##  Length:459769      MLO:459769   Min.   :2001   Min.   : 1.000  
 ##  Class :character                1st Qu.:2001   1st Qu.: 3.000  
@@ -722,7 +719,7 @@ mloa &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="
 ##  Mean   : -46.69   Mean   :   1.539   Mean   : 31.82   Mean   : -0.8066   
 ##  3rd Qu.:   8.60   3rd Qu.:   8.800   3rd Qu.: 57.00   3rd Qu.:  0.0000   
 ##  Max.   :  16.90   Max.   :  16.200   Max.   :138.00   Max.   : 60.0000</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(mloa_<span class="dv">2001</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(mloa_2001)</code></pre></div>
 <pre><code>##  [1] &quot;filename&quot;            &quot;siteID&quot;              &quot;year&quot;               
 ##  [4] &quot;month&quot;               &quot;day&quot;                 &quot;hour24&quot;             
 ##  [7] &quot;min&quot;                 &quot;windDir&quot;             &quot;windSpeed_m_s&quot;      
@@ -735,18 +732,18 @@ mloa &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="
 <li><code>paste0()</code> is the same thing, but defaults to using a <strong><code>,</code></strong> as the separator.</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># we need to make a datetime column...let&#39;s use paste</span>
-mloa_<span class="dv">2001</span><span class="op">$</span>datetime &lt;-<span class="st"> </span><span class="kw">paste0</span>(mloa_<span class="dv">2001</span><span class="op">$</span>year,<span class="st">&quot;-&quot;</span>, mloa_<span class="dv">2001</span><span class="op">$</span>month, <span class="st">&quot;-&quot;</span>, mloa_<span class="dv">2001</span><span class="op">$</span>day,<span class="st">&quot; &quot;</span>, mloa_<span class="dv">2001</span><span class="op">$</span>hour24, <span class="st">&quot;:&quot;</span>, mloa_<span class="dv">2001</span><span class="op">$</span>min) <span class="co"># this makes a character column</span>
+mloa_2001$datetime &lt;-<span class="st"> </span><span class="kw">paste0</span>(mloa_2001$year,<span class="st">&quot;-&quot;</span>, mloa_2001$month, <span class="st">&quot;-&quot;</span>, mloa_2001$day,<span class="st">&quot; &quot;</span>, mloa_2001$hour24, <span class="st">&quot;:&quot;</span>, mloa_2001$min) <span class="co"># this makes a character column</span>
 
-<span class="kw">head</span>(mloa_<span class="dv">2001</span><span class="op">$</span>datetime) <span class="co"># character vector but not POSIXct yet</span></code></pre></div>
+<span class="kw">head</span>(mloa_2001$datetime) <span class="co"># character vector but not POSIXct yet</span></code></pre></div>
 <pre><code>## [1] &quot;2001-1-1 0:0&quot; &quot;2001-1-1 0:1&quot; &quot;2001-1-1 0:2&quot; &quot;2001-1-1 0:3&quot;
 ## [5] &quot;2001-1-1 0:4&quot; &quot;2001-1-1 0:5&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># we can nest this within a lubridate function to convert directly to POSIXct</span>
-mloa_<span class="dv">2001</span><span class="op">$</span>datetime &lt;-<span class="st"> </span><span class="kw">ymd_hm</span>(mloa_<span class="dv">2001</span><span class="op">$</span>datetime, <span class="dt">tz=</span><span class="st">&quot;Pacific/Honolulu&quot;</span>)
+mloa_2001$datetime &lt;-<span class="st"> </span><span class="kw">ymd_hm</span>(mloa_2001$datetime, <span class="dt">tz=</span><span class="st">&quot;Pacific/Honolulu&quot;</span>)
 
 <span class="co"># all in one step</span>
-mloa_<span class="dv">2001</span><span class="op">$</span>datetime &lt;-<span class="st"> </span><span class="kw">ymd_hm</span>(<span class="kw">paste0</span>(mloa_<span class="dv">2001</span><span class="op">$</span>year,<span class="st">&quot;-&quot;</span>, mloa_<span class="dv">2001</span><span class="op">$</span>month, <span class="st">&quot;-&quot;</span>, mloa_<span class="dv">2001</span><span class="op">$</span>day,<span class="st">&quot; &quot;</span>, mloa_<span class="dv">2001</span><span class="op">$</span>hour24, <span class="st">&quot;:&quot;</span>, mloa_<span class="dv">2001</span><span class="op">$</span>min), <span class="dt">tz =</span> <span class="st">&quot;Pacific/Honolulu&quot;</span>)
+mloa_2001$datetime &lt;-<span class="st"> </span><span class="kw">ymd_hm</span>(<span class="kw">paste0</span>(mloa_2001$year,<span class="st">&quot;-&quot;</span>, mloa_2001$month, <span class="st">&quot;-&quot;</span>, mloa_2001$day,<span class="st">&quot; &quot;</span>, mloa_2001$hour24, <span class="st">&quot;:&quot;</span>, mloa_2001$min), <span class="dt">tz =</span> <span class="st">&quot;Pacific/Honolulu&quot;</span>)
 
-<span class="kw">summary</span>(mloa_<span class="dv">2001</span>) <span class="co"># notice a new column called &quot;datetime&quot;</span></code></pre></div>
+<span class="kw">summary</span>(mloa_2001) <span class="co"># notice a new column called &quot;datetime&quot;</span></code></pre></div>
 <pre><code>##    filename         siteID            year          month       
 ##  Length:459769      MLO:459769   Min.   :2001   Min.   : 1.000  
 ##  Class :character                1st Qu.:2001   1st Qu.: 3.000  
@@ -782,7 +779,7 @@ mloa_<span class="dv">2001</span><span class="op">$</span>datetime &lt;-<span cl
 ##  Mean   :2001-06-30 15:28:42  
 ##  3rd Qu.:2001-10-07 00:34:00  
 ##  Max.   :2001-12-31 23:59:00</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(mloa_<span class="dv">2001</span><span class="op">$</span>datetime) <span class="co"># in POSIXct</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(mloa_2001$datetime) <span class="co"># in POSIXct</span></code></pre></div>
 <pre><code>## [1] &quot;2001-01-01 00:00:00 HST&quot; &quot;2001-01-01 00:01:00 HST&quot;
 ## [3] &quot;2001-01-01 00:02:00 HST&quot; &quot;2001-01-01 00:03:00 HST&quot;
 ## [5] &quot;2001-01-01 00:04:00 HST&quot; &quot;2001-01-01 00:05:00 HST&quot;</code></pre>

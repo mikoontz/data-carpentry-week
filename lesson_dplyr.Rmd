@@ -184,13 +184,13 @@ To download the data into the `data/` subdirectory, run the following:
 ```{r, eval=F, echo=T}
 
 download.file("https://ndownloader.figshare.com/files/2292169",
-              "data/portal_data_joined.csv")
+              "data/combined.csv")
 ```
 
 You are now ready to load the data:
 
 ```{r eval=F, echo=T}
-surveys <- read.csv('data/portal_data_joined.csv')
+surveys <- read.csv('data/combined.csv')
 ```
 
 This statement doesn’t produce any output because, as you might recall, assignments don’t display anything. If we want to check that our data has been loaded, we can print the first 6 lines of this data using `head(surveys)`
@@ -201,9 +201,9 @@ Now we can look at how reading in the data in different ways affects the differe
 
 ## Compare the difference between when the data are being read as
 ## `factor`, and when they are being read as `character`.
-surveys <- read.csv("data/portal_data_joined.csv", stringsAsFactors = TRUE)
+surveys <- read.csv("data/combined.csv", stringsAsFactors = TRUE)
 str(surveys)
-surveys <- read.csv("data/portal_data_joined.csv", stringsAsFactors = FALSE)
+surveys <- read.csv("data/combined.csv", stringsAsFactors = FALSE)
 str(surveys)
 ## Convert the column "plot_type" into a factor
 surveys$plot_type <- factor(surveys$plot_type)

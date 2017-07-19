@@ -11,7 +11,7 @@ title: "Data import"
 library(tidyverse)
 ```
 
-### Reading csv data
+## Reading csv data
 
 Data come in many forms, and we need to be able to load them in R. For our own 
 use and with others who use R, there are R-specific data structures we can use, 
@@ -61,6 +61,35 @@ is a data.frame with `r nrow(species)` rows and `r ncol(species)` columns.
 >
 > Feel free to use the web and/or R's helpfiles.    
 >
+
+### Using `stringsAsFactors=FALSE`
+
+By default, when building or importing a data frame, the columns that contain 
+characters (i.e., text) are coerced (=converted) into the factor data type. 
+Depending on what you want to do with the data, you may want to keep these 
+columns as character. To do so, `read.csv()` and `read.table()` have an argument 
+called `stringsAsFactors` which can be set to `FALSE`.
+
+ > **Tip**: In most cases, it’s preferable to set `stringsAsFactors = FALSE` 
+ > when importing your data, and converting as a factor only the columns that 
+ > require this data type.
+
+Compare the output of `str(surveys)` when setting `stringsAsFactors = TRUE` 
+(default) and `stringsAsFactors = FALSE`:
+
+```{r eval = FALSE, echo = TRUE}
+surveys <- read.csv('data/combined.csv')
+
+## Compare the difference between when the data are being read as
+## `factor`, and when they are being read as `character`.
+surveys <- read.csv("data/combined.csv", stringsAsFactors = TRUE)
+str(surveys)
+surveys <- read.csv("data/combined.csv", stringsAsFactors = FALSE)
+str(surveys)
+## Convert the column "plot_type" into a factor
+surveys$plot_type <- factor(surveys$plot_type)
+
+```
 
 ## Reading messier data
 

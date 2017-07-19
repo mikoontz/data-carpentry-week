@@ -79,7 +79,7 @@ how many variables? what are the column names? what does the head look like?)
 
 ## Filter rows and select columns
 
-> ### Challenge
+> #### Challenge
 >
 >  Using pipes, subset the `survey` data to include individuals collected before
 >  1995 and retain only the columns `year`, `sex`, and `weight`.
@@ -93,7 +93,7 @@ surveys %>%
 
 ## Modify the data frame
 
-> ### Challenge
+> #### Challenge
 >
 >  Create a new data frame from the `surveys` data that meets the following
 >  criteria: contains only the `species_id` column and a new column called
@@ -116,10 +116,10 @@ surveys_hindfoot_half <- surveys %>%
 
 ## Learn from the data frame
 
-> ### Challenge
+> #### Challenge
 >
-> 1. How many individuals were caught in each `plot_type` surveyed? (**Hint: **
-> **Check out the `tally()` function**)
+> 1. How many individuals were caught in each `plot_type` surveyed? (**Hint**: 
+> check out the `tally()` function.)
 >
 > 2. Use `group_by()` and `summarize()` to find the mean, min, and max hindfoot
 > length for each species (using `species_id`).
@@ -129,7 +129,7 @@ surveys_hindfoot_half <- surveys %>%
 >
 > 4. You saw above how to count the number of individuals of each `sex` using a
 > combination of `group_by()` and `tally()`. How could you get the same result
-> using `group_by()` and `summarize()`? Hint: see `?n`.
+> using `group_by()` and `summarize()`? **Hint**: see `?n`.
 
 
 ```{r, echo = FALSE, include = FALSE}
@@ -231,7 +231,6 @@ To make sure that everyone has the same dataset, check that
 `r ncol(surveys_complete)` columns by typing `dim(surveys_complete)`.
 
 
-
 ## Export the cleaned data set
 
 Save the `surveys_complete` object as a CSV file in a `data_output`
@@ -249,9 +248,99 @@ if (!file.exists("data_output")) dir.create("data_output")
 write.csv(surveys_complete, file = "data_output/surveys_complete.csv")
 ```
 
+## Visualize the data
+
+Explore the surveys_complete dataset further using `ggplot2`.
+
+> #### Challenge -- visualize the distribution of variables
+>
+> - Use a boxplot or a violin plot to visualize the distribution of the `weight` 
+> variable for each species.
+> - Create a different boxplot to show the distribution of the `hindfoot_length` 
+> variable for each species.
+> 
+> Boxplots are great for showing a lot of information about the spread of a
+> variable, but some information from the raw data is lost. 
+> - Add a point geometry to your boxplot to visualze the raw `hindfoot_length`
+> data
+> 
+> Unfortunately, adding the raw data makes our figure "overplotted". There are
+> too many points overlapping and information is lost this way, too. 
+>
+> - Make a new boxplot of `hindfoot_length` for each species, but this time plot 
+> a jittered version of the raw data as a geometry on top of your boxplot 
+> (**Hint**: If a geom_point() makes a point geometry, what do you expect will
+> make a jitter geometry?)
+> - Color your jittered datapoints on your boxplot according to the plot from 
+> which the observation was taken (plot_id).
+>
+
+> #### Challenge -- Publication-quality plot
+> 
+> The goal of this challenge will be to recreate the figure below, and then add
+> some improvements to make it publication ready. The figure shows the yearly
+> counts of each species through time by sex and species. Does our 
+> `surveys_complete` dataframe have the information that we need to make this
+> figure?
+>
+> - Create a new object called `yearly_sex_counts` that has the uses the
+> `surveys_complete` dataframe to calculate the total number of individuals 
+> observed in each year of each sex of each species. 
+> **Hint**: Think about what subgroups you need to **split** your data into,
+> what function you want to **apply** to those subgroups, and what variables in
+> your new dataframe you will need when it is **combined** back together.
+>
+> Build your plot piece-by-piece, making sure you can get each new component to
+> work before adding more complexity. 
+>
+> - For instance, start by building a plot that only sets up the x position and
+> y position aesthetics. What data should be mapped to these visual features of
+> the plot? 
+> - Now add a geometry. Which one should you use to match the plot below?
+> - Color the geometry you just added by sex.
+> - Create subplots by species using faceting.
+> - Test out some of the different [themes](http://docs.ggplot2.org/current/ggtheme.html)
+> available and pick one that has more of a white background, which will be 
+> easier to read when printed.
+> - Save your plot to your figures subdirectory in your project folder
+
+```{r, include = FALSE}
+ yearly_sex_counts <- surveys_complete %>%
+                      group_by(year, species_id, sex) %>%
+                      summarize(n = n())
+```
+
+```{r facet-by-species-and-sex, echo = FALSE}
+ggplot(data = yearly_sex_counts, aes(x = year, y = n, color = sex)) +
+  geom_line() +
+  facet_wrap(~ species_id) +
+  theme_bw()
+```
+
+> **Bonus**: Take a look at the [`ggplot2` cheatsheet pdf](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf) 
+> for some ideas on how to improve the plot (e.g., renaming the axes to 
+> something more informative, add a title, rotate axis labels so they're 
+> readable).
+>
+> **Bonus**: Create a similar plot that shows the mean weight of individuals by
+> year for each sex of each species and save it to your figures subdirectory.
+>
+> **Bonus**: Generate a dynamic document using RMarkdown that incorporates
+> both the data-manipulation required to create your final plot for this
+> challenge as well as the plot itself.
+>
+> **Double bonus**: Add to your dynamic document all of the data manipulation
+> steps you needed to take going all the way back to the original "combined.csv"
+> file. Just include the fewest steps required to go from the "combined.csv" 
+> file to the publication-quality plot.
+>
+
+
 <br>
 
 This lesson is adapted from the Data Carpentry: R for Data Analysis and 
-Visualization of Ecological Data [Starting with Data materials](http://www.datacarpentry.org/R-ecology-lesson/02-starting-with-data.html) 
+Visualization of Ecological Data [Starting with Data materials](http://www.datacarpentry.org/R-ecology-lesson/02-starting-with-data.html),
+the Data Carpentry: R for Data Analysis and Visualization of Ecological Data 
+[Data Visualization with ggplot2 materials](http://www.datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html), 
 and the Data Carpentry: R for Data Analysis and Visualization of Ecological Data 
 [Manipulating and Analyzing Data with dplyr materials](http://www.datacarpentry.org/R-ecology-lesson/03-dplyr.html).

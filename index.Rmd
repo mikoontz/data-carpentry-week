@@ -29,7 +29,8 @@ This is the live script file that we are generating throughout each day. Click "
 * [day 1](https://dl.dropboxusercontent.com/s/i86w1hk7bza03js/2017-07-17-DIBSI-intro-rstats-day1.R?dl=0)
 * [day 2](https://dl.dropboxusercontent.com/s/xnx681br9aian1d/2017-07-18-DIBSI-intro-rstats-day2.R?dl=0)
 * [day 3](https://dl.dropboxusercontent.com/s/jfmdgabjtdlpu86/2017-07-19-DIBSI-intro-rstats-day3.R?dl=0)
-* [day 4](https://dl.dropboxusercontent.com/s/o5iwrapmta3kicj/2017-07-20-DIBSI-intro-rstats-day4.R?dl=0)
+* [day 4 .R script](https://dl.dropboxusercontent.com/s/o5iwrapmta3kicj/2017-07-20-DIBSI-intro-rstats-day4.R?dl=0)
+* [day 4 .Rmd script](https://dl.dropboxusercontent.com/s/y0qbpk5b2uswv8d/dplyr_ggplot_pipeline.Rmd?dl=0)
 * [day 5](https://dl.dropboxusercontent.com/s/00zpp6rnrkflxyb/2017-07-21-DIBSI-intro-rstats-day5.R?dl=0)
 
 **Feedback forms**  

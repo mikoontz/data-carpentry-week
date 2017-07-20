@@ -261,6 +261,7 @@ Explore the surveys_complete dataset further using `ggplot2`.
 > 
 > Boxplots are great for showing a lot of information about the spread of a
 > variable, but some information from the raw data is lost. 
+>
 > - Add a point geometry to your boxplot to visualze the raw `hindfoot_length`
 > data
 > 

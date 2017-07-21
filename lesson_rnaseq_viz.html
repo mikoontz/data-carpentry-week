@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Exploratory data analysis with Yeast RNAseq data</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="site_libs_extra/academicons-1.8.0/css/academicons.css"/>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Day 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lesson_getting_started.html">Getting started</a>
+    </li>
+    <li>
+      <a href="lesson_intro_r_rstudio.html">Orientation to programming, R, and RStudio</a>
+    </li>
+    <li>
+      <a href="lesson_project_management.html">Project management</a>
+    </li>
+    <li>
+      <a href="lesson_data_frames.html">Data frames</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Day 2
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="refresh_day1.html">Refresh day 1</a>
+    </li>
+    <li>
+      <a href="lesson_dplyr.html">Data frame manipulation</a>
+    </li>
+    <li>
+      <a href="lesson_visualization_ggplot2.html">Data visualization</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Day 3
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="refresh_day2.html">Refresh day 2</a>
+    </li>
+    <li>
+      <a href="http://www.datacarpentry.org/spreadsheet-ecology-lesson/">Spreadsheets</a>
+    </li>
+    <li>
+      <a href="lesson_data_import.html">Data import</a>
+    </li>
+    <li>
+      <a href="lesson_dynamic_documents.html">Dynamic documents</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Day 4
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lesson_import_dplyr_ggplot2.html">Data import %&gt;% dplyr %&gt;% ggplot2</a>
+    </li>
+    <li>
+      <a href="refresh_day3.html">Refresh day 3</a>
+    </li>
+    <li>
+      <a href="lesson_functions.html">Custom functions</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Day 5
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="refresh_day4.html">Refresh day 4</a>
+    </li>
+    <li>
+      <a href="lesson_tidyr.html">Tidying data</a>
+    </li>
+    <li>
+      <a href="lesson_joins.html">Table joins</a>
+    </li>
+    <li>
+      <a href="lesson_rnaseq_viz.html">Exploratory RNAseq analysis</a>
+    </li>
+    <li>
+      <a href="lesson_for_loops.html">Automation with for loops</a>
+    </li>
+    <li>
+      <a href="lesson_lubridate.html">Time data with lubridate</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="resources.html">Resources</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="contact.html">Contact</a>
+</li>
+<li>
+  <a href="https://github.com/mikoontz/data-carpentry-week">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Exploratory data analysis with Yeast RNAseq data</h1>
+
+</div>
+
+
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>This tutorial was written using data from Schurch et al.<span class="citation">[1]</span>, where WT and MUT yeast were compared to test the underlying distribution of RNA-seq data, and to test which differential expression programs work best. They had 672 samples, we’ll use 6 of them :)</p>
+</div>
+<div id="prepare-for-analysis" class="section level2">
+<h2>Prepare for analysis</h2>
+</div>
+<div id="differential-expression" class="section level2">
+<h2>Differential Expression</h2>
+<p>Since our data appears to be of high quality, let’s perform differential expression with edgeR like we did before. We need to read in the proper count data, because edgeR expects raw counts, not counts that have been corrected in anyway. We will allow edgeR to perform correction for library size, and then estimate <a href="https://doi.org/10.1371/journal.pone.0081415">dispersion</a>.</p>
+<p>This will give us a DGE object. We can look at the DGE object and see some of the magic of edgeR.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(dge$samples)</code></pre></div>
+<pre><code>##                                      group lib.size norm.factors
+## data/rnaseq/ERR458493.fastq.gz.quant    wt   963028    0.8632726
+## data/rnaseq/ERR458494.fastq.gz.quant    wt   955258    0.8649983
+## data/rnaseq/ERR458495.fastq.gz.quant    wt   950704    0.8644693
+## data/rnaseq/ERR458500.fastq.gz.quant   mut  1620091    1.1574783
+## data/rnaseq/ERR458501.fastq.gz.quant   mut  1616974    1.1568370
+## data/rnaseq/ERR458502.fastq.gz.quant   mut  1611768    1.1569170</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(dge$counts)</code></pre></div>
+<pre><code>##          Samples
+## Tags      data/rnaseq/ERR458493.fastq.gz.quant
+##   YAL001C                                   61
+##   YAL002W                                   44
+##   YAL003W                                 1009
+##   YAL005C                                 1864
+##   YAL007C                                   86
+##   YAL008W                                   40
+##          Samples
+## Tags      data/rnaseq/ERR458494.fastq.gz.quant
+##   YAL001C                                   39
+##   YAL002W                                   40
+##   YAL003W                                  965
+##   YAL005C                                 1916
+##   YAL007C                                   93
+##   YAL008W                                   34
+##          Samples
+## Tags      data/rnaseq/ERR458495.fastq.gz.quant
+##   YAL001C                                   27
+##   YAL002W                                   32
+##   YAL003W                                  948
+##   YAL005C                                 1775
+##   YAL007C                                   77
+##   YAL008W                                   46
+##          Samples
+## Tags      data/rnaseq/ERR458500.fastq.gz.quant
+##   YAL001C                                  126
+##   YAL002W                                  106
+##   YAL003W                                 1103
+##   YAL005C                                 1481
+##   YAL007C                                  219
+##   YAL008W                                   87
+##          Samples
+## Tags      data/rnaseq/ERR458501.fastq.gz.quant
+##   YAL001C                                  129
+##   YAL002W                                  117
+##   YAL003W                                 1105
+##   YAL005C                                 1454
+##   YAL007C                                  198
+##   YAL008W                                  107
+##          Samples
+## Tags      data/rnaseq/ERR458502.fastq.gz.quant
+##   YAL001C                                  121
+##   YAL002W                                   96
+##   YAL003W                                 1033
+##   YAL005C                                 1489
+##   YAL007C                                  240
+##   YAL008W                                  116</code></pre>
+<p>Lastly, we perform differential expression</p>
+</div>
+<div id="data-visualization" class="section level2">
+<h2>Data Visualization</h2>
+<p>Differential expression outputs a large file, which may leave you thinking…what next??</p>
+<div id="mds-plot" class="section level3">
+<h3>MDS Plot</h3>
+<p>We can make an MDS plot to understand how our samples relate to one another. From the edgeR manual: “a multi-dimensional scaling plot of the RNA samples in which distances correspond to leading log-fold-changes between each pair of RNA samples. The leading log-fold-change is the average (root-mean-square) of the largest absolute log-foldchanges between each pair of samples. This plot can be viewed as a type of unsupervised clustering.” Our MUT samples cluster more closely to each other than to the WT samples. Does this agree with the sniff tests from pairwise comparisons we performed above?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plotMDS</span>(dge, <span class="dt">labels=</span>labels)</code></pre></div>
+<p><img src="Figures/mds-plot-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="ma-plot" class="section level3">
+<h3>MA Plot</h3>
+<p>We can also make an MA plot. From wikipedia: “an MA plot is an application of a Bland–Altman plot for visual representation of genomic data. The plot visualises the differences between measurements taken in two samples, by transforming the data onto M (log ratio) and A (mean average) scales, then plotting these values.”</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">etp$table$logFC =<span class="st"> </span>-etp$table$logFC <span class="co"># because our comparison is mut vs. wt, let&#39;s flip the tags for our plot</span>
+<span class="kw">plot</span>(etp$table$logCPM, etp$table$logFC, <span class="dt">xlim=</span><span class="kw">c</span>(-<span class="dv">3</span>, <span class="dv">20</span>), <span class="dt">ylim=</span><span class="kw">c</span>(-<span class="dv">12</span>, <span class="dv">12</span>), <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">cex=</span>.<span class="dv">3</span>, <span class="dt">col =</span> <span class="kw">ifelse</span>( etp$table$FDR &lt;<span class="st"> </span>.<span class="dv">2</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;black&quot;</span> ) )</code></pre></div>
+<p><img src="Figures/ma-plot-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="histogram" class="section level3">
+<h3>Histogram</h3>
+<p>We can also make a histogram of the corrected p value (FDR). This shows that almost an equal number of differentially expressed and non-differentially expressed genes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">ggplot</span>(etp$table, <span class="kw">aes</span>(FDR)) +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> .<span class="dv">01</span>) +<span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Histogram of FDR for all Differentially Expressed Genes&quot;</span>)</code></pre></div>
+<p><img src="Figures/fdr-hist-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="heatmaps" class="section level3">
+<h3>Heatmaps</h3>
+<p>Heatmaps are also a very popular way to visualize data. Let’s make a heat map of the 75 most variable genes!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load library for heatmap</span>
+<span class="kw">library</span>(gplots)
+<span class="kw">heatmap.2</span>(highly_variable_norm_counts, <span class="dt">col=</span><span class="kw">rev</span>(<span class="kw">morecols</span>(<span class="dv">50</span>)), <span class="dt">trace=</span><span class="st">&quot;none&quot;</span>, 
+              <span class="dt">main=</span><span class="st">&quot;Top 75 most variable genes across samples&quot;</span>, <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>,
+              <span class="dt">labCol =</span> <span class="kw">c</span>(<span class="st">&quot;WT&quot;</span>, <span class="st">&quot;WT&quot;</span>, <span class="st">&quot;WT&quot;</span>, <span class="st">&quot;MUT&quot;</span>, <span class="st">&quot;MUT&quot;</span>, <span class="st">&quot;MUT&quot;</span>))</code></pre></div>
+<p><img src="Figures/heatmap-var-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Let’s do the same thing again, but this time we will plot the top 75 least variable genes. Even though we did cpm normalization, a lot of these genes are still very lowly expressed.</p>
+<p>This is important to keep in mind when interpretting what this heatmap means.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load library for heatmap</span>
+<span class="kw">library</span>(gplots)
+<span class="kw">heatmap.2</span>(not_variable_norm_counts, <span class="dt">col=</span><span class="kw">rev</span>(<span class="kw">morecols</span>(<span class="dv">50</span>)), <span class="dt">trace=</span><span class="st">&quot;none&quot;</span>, 
+              <span class="dt">main=</span><span class="st">&quot;Top 75 least variable genes across samples&quot;</span>, <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>,
+              <span class="dt">labCol =</span> <span class="kw">c</span>(<span class="st">&quot;WT&quot;</span>, <span class="st">&quot;WT&quot;</span>, <span class="st">&quot;WT&quot;</span>, <span class="st">&quot;MUT&quot;</span>, <span class="st">&quot;MUT&quot;</span>, <span class="st">&quot;MUT&quot;</span>))</code></pre></div>
+<p><img src="Figures/heatmap-non-var-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>This lesson is adapted from the ANGUS: Analyzing High Throughput Sequencing Data <a href="http://angus.readthedocs.io/en/2017/rmarkdown_rnaseq.html">Exploratory RNAseq data analysis using RMarkdown materials</a> written by Taylor Reiter and Marian Schmidt.</p>
+</div>
+</div>
+<div id="references" class="section level2 unnumbered">
+<h2>References</h2>
+<div id="refs" class="references">
+<div id="ref-Schurch2016">
+<p>1. Nicholas J. Schurch MG Pietá Schofield, Barton GJ. How many biological replicates are needed in an RNA-seq experiment and which differential expression tool should you use? RNA. 2016; 839–851. doi:<a href="https://doi.org/10.1261/rna.053959.115">10.1261/rna.053959.115</a></p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

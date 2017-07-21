@@ -32,7 +32,6 @@ navbar:
           href: lesson_data_import.html
         - text: "Dynamic documents"
           href: lesson_dynamic_documents.html
-
     - text: "Day 4"
       menu:
         - text: "Data import %>% dplyr %>% ggplot2"

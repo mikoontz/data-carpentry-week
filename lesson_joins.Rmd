@@ -1,7 +1,5 @@
 ---
-layout: page
-title: R for reproducible scientific analysis
-subtitle: Multi-Table Joins
+title: Multi-table joins
 minutes: ?20
 ---
 
@@ -11,13 +9,13 @@ library(tidyverse)
 library(gapminder)
 ```
 
-> ## Learning objectives {.objectives}
+> ## Learning objectives
 >
 > - Focus on the third tidy data principle
 >     - Each variable forms a column.
 >     - Each observation forms a row.
 >     - Each type of observational unit forms a table.
-> - By able to use `dplyr`'s join functions to merge tables
+> - Be able to use `dplyr`'s join functions to merge tables
 >
 
 ### Joins
@@ -35,7 +33,115 @@ The different join functions control what happens to rows that exist in one tabl
 - `inner_join` keeps only the entries that are present in both tables. `inner_join` is the only function that guarantees you won't generate any missing entries.
 - `full_join` keeps all of the entries in both tables, regardless of whether or not they appear in the other table.
 
-![dplyr joins, via RStudio](fig/dplyr-joins.png)
+![dplyr joins, via RStudio](img/dplyr-joins.png)
+
+# Practice with joins
+
+## Fabricate some example data
+
+```{r}
+set.seed(12345)
+x <- data.frame(key= LETTERS[c(1:3, 5)], 
+                value1 = sample(1:10, 4), 
+                stringsAsFactors = FALSE)
+y <- data.frame(key= LETTERS[c(1:4)], 
+                value2 = sample(1:10, 4), 
+                stringsAsFactors = FALSE)
+
+x
+y
+```
+
+## "Joining" joins
+
+```{r}
+# What's in both x and y?
+inner_join(x, y, by = "key")
+```
+
+```{r}
+# What's in X and bring with it the stuff that matches in Y
+left_join(x, y, by = "key")
+```
+
+```{r}
+# What's in Y and bring with it the stuff that matches in Y
+right_join(x, y, by = "key")
+```
+
+```{r}
+# Give me everything!
+full_join(x, y, by = "key")
+```
+
+## Filtering "joins"
+
+```{r}
+# Give me the stuff in X that is also in Y
+semi_join(x, y, by = "key")
+```
+
+```{r}
+# Give me the stuff in X that is not in Y
+anti_join(x, y, by = "key")
+```
+
+```{r}
+# Want everything that doesn't match?
+full_join(anti_join(x,y, by = "key"), anti_join(y,x, by = "key"), by= "key")
+```
+
+```{r}
+# keys with different names?
+x <- data.frame(keyX = LETTERS[c(1:3, 5)], 
+                value1 = sample(1:10, 4), 
+                stringsAsFactors = FALSE)
+y <- data.frame(keyY = LETTERS[c(1:4)], 
+                value2 = sample(1:10, 4), 
+                stringsAsFactors = FALSE)
+
+x
+y
+```
+
+```{r, error = TRUE}
+full_join(x, y) #should error out
+full_join(x, y, by=c("keyX" = "keyY"))
+```
+
+# Set Operations
+```{r setup_dataframes}
+df1 <- data_frame(x = LETTERS[1:2], 
+                  y = c(1L, 1L))
+df2 <- data_frame(x = LETTERS[1:2], 
+                  y = 1:2)
+
+df1
+df2
+```
+
+
+```{r}
+# Which rows are common in both datasets?
+dplyr::intersect(df1, df2)
+```
+
+```{r}
+#Want all unique rows between both datasets?
+dplyr::union(df1, df2)
+```
+
+```{r}
+#What's unique to df1?
+dplyr::setdiff(df1, df2)
+```
+
+```{r}
+#What's unique to df2?
+dplyr::setdiff(df2, df1)
+```
+
+# Practice with joins using gapminder
 
 We will practice on our continents data.frame from module 2 and the gapminder data.frame. Note how these are tidy data: We have observations at the level of continent and at the level of country, so they go in different tables. The continent column in the gapminder data.frame allows us to link them now. If continents data.frame isn't in your Environment, load it and recall what it consists of:
 
@@ -66,10 +172,7 @@ right_join(gapminder, continents) %>%
   rename(country_pop = pop, continent_pop = population)
 ```
 
-
-
-
-> #### Challenge -- Putting the pieces together {.challenge}
+> #### Challenge -- Putting the pieces together
 > 
 > A colleague suggests that the more land area an individual has, the greater their gdp will be and that this relationship will be observable at any scale of observation. You chuckle and mutter "Not at the continental scale," but your colleague insists. Test your colleague's hypothesis by:
 > 
@@ -81,21 +184,18 @@ right_join(gapminder, continents) %>%
 >
 
 
-
 ## Challenge solutions
 
-> #### Solution to Challenge -- Putting the pieces together {.challenge}
+> #### Solution to Challenge -- Putting the pieces together
 >
 >
 > ```{r, Putting the pieces together - solution}
 > library(ggplot2)
 > 
-> # Calculate country-level GDP
-> mutate(gapminder, GDP = gdpPercap * pop) %>%  
-> # Group by continent
->     group_by(continent) %>%  
-> # Calculate continent-level GDP
->     summarize(cont_gdp = sum(GDP)) %>%  
+> gapminder %>%
+>   mutate(GDP = gdpPercap * pop) %>%  # Calculate country-level GDP
+>   group_by(continent) %>%  # Group by continent
+>   summarize(cont_gdp = sum(GDP)) %>%  # Calculate continent-level GDP
 > # Join the continent-GDP data.frame to the continents data.frame
 >     left_join(continents) %>%  
 > # Calculate continent-level per-capita GDP
@@ -111,4 +211,7 @@ right_join(gapminder, continents) %>%
 
 <br>
 
-This lesson is adapted from the Software Carpentry: R for Reproducible Scientific Analysis [Multi-Table Joins materials](http://data-lessons.github.io/gapminder-R/12-joins.html).
+This lesson is adapted from the Software Carpentry: R for Reproducible 
+Scientific Analysis [Multi-Table Joins materials](http://data-lessons.github.io/gapminder-R/12-joins.html) 
+and Brandon Hurr's dplyr II: Joins and Set Ops [presentation](https://github.com/bhive01/2016-02-D-RUG-dplyr-II-talk)
+to the Davis R UsersGroup on Februrary 2, 2016.

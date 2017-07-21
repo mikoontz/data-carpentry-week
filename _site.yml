@@ -32,33 +32,29 @@ navbar:
           href: lesson_data_import.html
         - text: "Dynamic documents"
           href: lesson_dynamic_documents.html
-        - text: "Data import %>% dplyr %>% ggplot2"
-          href: lesson_import_dplyr_ggplot2.html
 
     - text: "Day 4"
       menu:
+        - text: "Data import %>% dplyr %>% ggplot2"
+          href: lesson_import_dplyr_ggplot2.html
         - text: "Refresh day 3"
           href: refresh_day3.html
-        - text: "Tidying data"
-          href: lesson_tidyr.html
-        - text: "Time data with lubridate"
-          href: lesson_lubridate.html
         - text: "Custom functions"
           href: lesson_functions.html
     - text: "Day 5"
       menu:
         - text: "Refresh day 4"
           href: refresh_day4.html 
+        - text: "Tidying data"
+          href: lesson_tidyr.html
         - text: "Table joins"
           href: lesson_joins.html
+        - text: "Exploratory RNAseq analysis"
+          href: lesson_rnaseq_viz.html
         - text: "Automation with for loops"
           href: lesson_for_loops.html
-        - text: "Automation with purrr"
-          href: lesson_purrr.html
-        - text: "Capstone"
-          href: lesson_capstone.html
-        - text: "Closing thoughts"
-          href: lesson_closing_thoughts.html
+        - text: "Time data with lubridate"
+          href: lesson_lubridate.html
     - text: "Resources"
       href: resources.html
   right:

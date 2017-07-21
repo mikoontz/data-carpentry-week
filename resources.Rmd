@@ -24,7 +24,11 @@ get through packages.
     + [wide_eg.csv](data/wide_eg.csv) [blood albumin levels]
     + [stocks.tsv](data/stocks.tsv) [restaurant stock data]
     + [gapminder.csv](data/gapminder.csv) [country characteristics by year]
-* From [Ethan White and Zack Brym's Data Carpentry for Biologists course](http://www.datacarpentry.org/semester-biology/)
+* From [ANGUS: Analyzing High Throughput Sequencing Data](http://angus.readthedocs.io/en/2017/rmarkdown_rnaseq.html)
+    + [rnaseq.zip](data/rnaseq.zip) [zipped folder of RNA sequence data]
+* From [Ryan Peek's Data wRangling for Ecologists course](https://gge-ucd.github.io/wRangling-Ecology/)
+    + [2001_mauna_loa_met_data.zip](data/2001_mauna_loa_met_data.zip) 
+    [meteorological station data from Mauna Loa]
 
 <br>
 
@@ -36,6 +40,7 @@ For this course, we embrace the spirit of [collaborative lesson development](htt
 * [Data Carpentry: R for Data Analysis and Visualization of Ecological Data](http://www.datacarpentry.org/R-ecology-lesson/)
 * [Data Carpentry: Data Organization in Spreadsheets](http://www.datacarpentry.org/spreadsheet-ecology-lesson/)
 * [Data Carpentry: Genomics Lesson](https://jasonjwilliamsny.github.io/tidiness-genomics/)
+* [ANGUS: Analyzing High Throughput Sequencing Data; Exploratory RNAseq data analysis using RMarkdown materials](http://angus.readthedocs.io/en/2017/index.html)
 * [Ethan White and Zack Brym's Data Carpentry for Biologists course](http://www.datacarpentry.org/semester-biology/)
 * [Ryan Peek's Data wRangling for Ecologists course](https://gge-ucd.github.io/wRangling-Ecology/)
 * [Jenny Bryan's Stat545 course](http://stat545.com/)

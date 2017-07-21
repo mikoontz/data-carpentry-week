@@ -553,7 +553,10 @@ div.tocify {
 <li>Use a boxplot or a violin plot to visualize the distribution of the <code>weight</code> variable for each species.</li>
 <li>Create a different boxplot to show the distribution of the <code>hindfoot_length</code> variable for each species.</li>
 </ul>
-<p>Boxplots are great for showing a lot of information about the spread of a variable, but some information from the raw data is lost. - Add a point geometry to your boxplot to visualze the raw <code>hindfoot_length</code> data</p>
+<p>Boxplots are great for showing a lot of information about the spread of a variable, but some information from the raw data is lost.</p>
+<ul>
+<li>Add a point geometry to your boxplot to visualze the raw <code>hindfoot_length</code> data</li>
+</ul>
 <p>Unfortunately, adding the raw data makes our figure “overplotted”. There are too many points overlapping and information is lost this way, too.</p>
 <ul>
 <li>Make a new boxplot of <code>hindfoot_length</code> for each species, but this time plot a jittered version of the raw data as a geometry on top of your boxplot (<strong>Hint</strong>: If a geom_point() makes a point geometry, what do you expect will make a jitter geometry?)</li>

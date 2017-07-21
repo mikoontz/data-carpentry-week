@@ -34,10 +34,10 @@ navbar:
           href: lesson_dynamic_documents.html
     - text: "Day 4"
       menu:
-        - text: "Data import %>% dplyr %>% ggplot2"
-          href: lesson_import_dplyr_ggplot2.html
         - text: "Refresh day 3"
           href: refresh_day3.html
+        - text: "Data import %>% dplyr %>% ggplot2"
+          href: lesson_import_dplyr_ggplot2.html
         - text: "Custom functions"
           href: lesson_functions.html
     - text: "Day 5"
